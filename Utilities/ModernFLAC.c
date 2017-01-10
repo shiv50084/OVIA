@@ -1,5 +1,5 @@
-#include "../libNewFLAC/include/DecodeFLAC.h"
-#include "../libNewFLAC/include/EncodeFLAC.h"
+#include "../libModernFLAC/include/DecodeFLAC.h"
+#include "../libModernFLAC/include/EncodeFLAC.h"
 
 void FLACDecodeFile(int argc, const char *argv[]) {
     BitInput    *BitI  = calloc(sizeof(BitInput), 1);
