@@ -29,21 +29,23 @@ CheckVer:
 release:
 	mkdir -p   $(BUILD_DIR)
 	mkdir -p   $(BUILD_LIB)
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_LIB)/ParseFLAC.o
 	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_LIB)/DecodeFLAC.o
 	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_LIB)/EncodeFLAC.o
-	ar -crsu   $(BUILD_LIB)/libModernFLAC.a $(BUILD_LIB)/DecodeFLAC.o $(BUILD_LIB)/EncodeFLAC.o
+	ar -crsu   $(BUILD_LIB)/libModernFLAC.a $(BUILD_LIB)/*.o
 	ranlib -sf $(BUILD_LIB)/libModernFLAC.a
 debug: 
 	mkdir -p   $(BUILD_DIR)
 	mkdir -p   $(BUILD_LIB)
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_LIB)/ParseFLAC.o
 	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_LIB)/DecodeFLAC.o
 	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_LIB)/EncodeFLAC.o
-	ar -crsu   $(BUILD_LIB)/libModernFLAC.a $(BUILD_LIB)/DecodeFLAC.o $(BUILD_LIB)/EncodeFLAC.o
+	ar -crsu   $(BUILD_LIB)/libModernFLAC.a $(BUILD_LIB)/*.o
 	ranlib -sf $(BUILD_LIB)/libModernFLAC.a
 utility: 
-	mkdir -p   $(BUILD_EXE)
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_EXE)/ModernFLAC/ModernFLAC.o
-	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o $(BUILD_LIB)/libModernFLAC.a -o $(BUILD_DIR)/ModernFLAC/ModernFLAC
+	mkdir -p   $(BUILD_DIR)
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_DIR)/ModernFLAC.o
+	$(CC)      $(BUILD_DIR)/ModernFLAC.o $(BUILD_LIB)/libModernFLAC.a -o $(BUILD_DIR)/ModernFLAC
 install:
 	install -d -m 777 $(DESTINATION)/lib
 	install -d -m 777 $(DESTINATION)/bin
