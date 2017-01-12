@@ -7,7 +7,7 @@ void ShowOptions(CommandLineOptions *CMD) {
     CMD->NumSwitches                  = 6;
     CMD->ProgramName                  = "ModernFLAC";
     CMD->ProgramDescription           = "FLAC encoder/decoder written in modern C for improved readability, maintence, and performance";
-    CMD->AuthorLicenseCopyright       = "By BumbleBritches57, © 2017, Released under the BSD 3-clause license";
+    CMD->AuthorCopyrightLicense       = "By BumbleBritches57, © 2017, Released under the BSD 3-clause license";
     
     CLSwitch *Switch0                 = calloc(sizeof(CLSwitch), 1);
     CLSwitch *Switch1                 = calloc(sizeof(CLSwitch), 1);
