@@ -41,16 +41,7 @@ void ShowOptions(CommandLineOptions *CMD) {
     CMD->Switch[5]->SwitchDescription = "Optimize encoded FLAC to be as small as possible (encoding only, does not ignore or override -Subset if set)";
 }
 
-void FLACDecodeFile(CommandLineOptions *CMD, int argc, const char *argv[]) {
-    //CommandLineOptions *CMD     = calloc(sizeof(CommandLineOptions), 1);
-    BitInput           *BitI    = calloc(sizeof(BitInput), 1);
-    BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
-    ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
-    FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
-    
-    InitBitInput(BitI, Error, argc, argv);
-    InitBitOutput(BitO, Error, argc, argv);
-    InitFLACDecoder(Dec);
+void FLACDecodeFile(BitInput *BitI, FLACDecoder *Dec, CommandLineOptions *CMD) {
     
     uint32_t FileMagic = ReadBits(BitI, 32);
     
@@ -65,7 +56,9 @@ void FLACDecodeFile(CommandLineOptions *CMD, int argc, const char *argv[]) {
             while (IsLastBlock == false) {
                 IsLastBlock = FLACParseMetadata(BitI, Dec);
             }
-            FLACReadFrame(BitI, Dec);
+            if (ReadBits(BitI, 14) == FLACFrameMagic) {
+                FLACReadFrame(BitI, Dec);
+            }
         }
     }
 }
@@ -75,7 +68,16 @@ int main(int argc, const char *argv[]) {
     if (argc < 5 || strcasecmp(*argv, "-h") == 0 || strcasecmp(*argv, "--help") || strcasecmp(*argv, "/?")) {
         ShowOptions(CMD);
     }
+    BitInput           *BitI    = calloc(sizeof(BitInput), 1);
+    BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
+    ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
+    FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
+    FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
+    InitBitInput(BitI, Error, argc, argv);
+    InitBitOutput(BitO, Error, argc, argv);
+    InitFLACDecoder(Dec);
+    InitFLACEncoder(Enc);
     
-    FLACDecodeFile(CMD, argc, argv);
+    FLACDecodeFile(BitI, Dec, CMD);
     return EXIT_SUCCESS;
 }
