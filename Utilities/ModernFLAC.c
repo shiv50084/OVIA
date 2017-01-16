@@ -41,7 +41,7 @@ void ShowOptions(CommandLineOptions *CMD) {
     CMD->Switch[5]->SwitchDescription = "Optimize encoded FLAC to be as small as possible (encoding only, does not ignore or override -Subset if set)";
 }
 
-void FLACDecodeFile(BitInput *BitI, FLACDecoder *Dec, CommandLineOptions *CMD) {
+void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
     
     uint32_t FileMagic = ReadBits(BitI, 32);
     
@@ -63,6 +63,13 @@ void FLACDecodeFile(BitInput *BitI, FLACDecoder *Dec, CommandLineOptions *CMD) {
     }
 }
 
+void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, FLACEncoder *Enc, CommandLineOptions *CMD) {
+    Enc->EncodeSubset = CMD->Switch[4]->SwitchFound;
+    Enc->OptimizeFile = CMD->Switch[5]->SwitchFound;
+    // I'm not adding padding to the encoded FLAC file metadata section, because editors have to support that case anyway.
+    // So, I also need to include
+}
+
 int main(int argc, const char *argv[]) {
     CommandLineOptions *CMD = calloc(sizeof(CommandLineOptions), 1);
     if (argc < 5 || strcasecmp(*argv, "-h") == 0 || strcasecmp(*argv, "--help") || strcasecmp(*argv, "/?")) {
@@ -78,6 +85,20 @@ int main(int argc, const char *argv[]) {
     InitFLACDecoder(Dec);
     InitFLACEncoder(Enc);
     
-    FLACDecodeFile(BitI, Dec, CMD);
+    bool Decode = CMD->Switch[0]->SwitchResult;
+    bool Encode = CMD->Switch[1]->SwitchResult;
+    
+    // Find out if -d or -e was included on the command line
+    if (Decode == true && Encode == false) {
+        // Decode the file.
+        // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
+    } else if (Encode == true && Decode == false) {
+        // Encode the file to FLAC
+        // ParseWAV and encode FLAC
+    } else {
+        // Reencode the input
+    }
+    
+    // Find out what kind of file has been passed in and what the user wants us to do.
     return EXIT_SUCCESS;
 }
