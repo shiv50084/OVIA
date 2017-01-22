@@ -4,7 +4,7 @@ VERSION             := $(shell cat ${FILE} | grep -e "@version")
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
-CFLAGS              := -std=c11 -march=native `pkg-config --libs BitIO`
+CFLAGS              := -std=c11 -march=native `pkg-config --libs libBitIO`
 LDFLAGS             := -flto=thin
 DEB_ERROR_OPTIONS   := -Wno-unused-parameter -Wno-unused-variable -Wno-int-conversion
 REL_ERROR_OPTIONS   := -Weverything -Wunreachable-code -Wno-conversion
@@ -38,10 +38,11 @@ debug:
 	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
 	ar -crsu   $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(BUILD_DIR)/libModernFLAC/*.o
 	ranlib -sf $(BUILD_DIR)/libModernFLAC/libModernFLAC.a
-utility: 
+utility: $(CURDIR)/ModernFLAC/ModernFLAC.c
 	mkdir -p   $(BUILD_DIR)/ModernFLAC
 	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_DIR)/ModernFLAC/ModernFLAC.o
-	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o -L$(BUILD_DIR)/libModernFLAC/ -o $(BUILD_DIR)/ModernFLAC/ModernFLAC
+	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o -o $(BUILD_DIR)/ModernFLAC/ModernFLAC $(BUILD_DIR)/libModernFLAC/libModernFLAC.a `pkg-config --libs libBitIO`
+	strip	   $(BUILD_DIR)/ModernFLAC/ModernFLAC
 install:
 	install -d -m 777 $(DESTINATION)/lib
 	install -d -m 777 $(DESTINATION)/bin
@@ -54,18 +55,6 @@ install:
 	chmod +x /usr/bin/ModernFLAC
 	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC.pc /usr/share/pkgconfig/libModernFLAC.pc
 clean:
-	cd $(BUILD_DIR)/libModernFLAC
-	rm -f -v -r *.o
-	rm -f -v -r libModernFLAC.a
-	rm -f -v -r .DS_Store
-	rm -f -v -r Thumbs.db
-	rm -f -v -r desktop.ini
-	cd ../ModernFLAC
-	rm -f -v -r *.o
-	rm -f -v -r ModernFLAC
-	rm -f -v -r .DS_Store
-	rm -f -v -r Thumbs.db
-	rm -f -v -r desktop.ini
-	rmdir $(BUILD_DIR)
+	rm -d -i -R $(BUILD_DIR)
 uninstall:
 	rm -d -i $(DESTINATION)

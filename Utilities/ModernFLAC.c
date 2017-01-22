@@ -7,7 +7,7 @@
 void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->NumSwitches                  = 7;
     CMD->ProgramName                  = "ModernFLAC";
-    CMD->ProgramDescription           = "FLAC encoder/decoder written in modern C for improved readability, maintence, and performance";
+    CMD->ProgramDescription           = "FLAC encoder/decoder written in modern C";
     CMD->AuthorCopyrightLicense       = "By BumbleBritches57, © 2017, Released under the BSD 3-clause license";
     
     CLSwitch *Switch0                 = calloc(sizeof(CLSwitch), 1);
@@ -27,10 +27,10 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->Switch[6]                    = Switch6;
     
     CMD->Switch[0]->Switch            = "-i";
-    CMD->Switch[0]->SwitchDescription = "Input file or stdin with: -";
+    CMD->Switch[0]->SwitchDescription = "Input file or stdin with: '-'";
     
     CMD->Switch[1]->Switch            = "-o";
-    CMD->Switch[1]->SwitchDescription = "Output file or stdout with: -";
+    CMD->Switch[1]->SwitchDescription = "Output file or stdout with: '-'";
     
     CMD->Switch[2]->Switch            = "-d";
     CMD->Switch[2]->SwitchDescription = "Decode input to output";
@@ -38,14 +38,14 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->Switch[3]->Switch            = "-e";
     CMD->Switch[3]->SwitchDescription = "Encode input to output";
     
-    CMD->Switch[4]->Switch            = "--Reencode";
-    CMD->Switch[4]->SwitchDescription = "Reencodes the input flac with --Subset --Optimize";
+    CMD->Switch[4]->Switch            = "-R";
+    CMD->Switch[4]->SwitchDescription = "Reencodes the input flac with --O";
     
-    CMD->Switch[5]->Switch            = "--Subset";
+    CMD->Switch[5]->Switch            = "-S";
     CMD->Switch[5]->SwitchDescription = "Limit encoding to subset format";
     
-    CMD->Switch[6]->Switch            = "--Optimize";
-    CMD->Switch[6]->SwitchDescription = "Optimize encoded FLAC to be as small as possible (encoding only, does not ignore or override -Subset if set)";
+    CMD->Switch[6]->Switch            = "-O";
+    CMD->Switch[6]->SwitchDescription = "Optimize encoded FLAC to be as small as possible (does not ignore -S if set)";
 }
 
 void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
@@ -82,40 +82,41 @@ int main(int argc, const char *argv[]) {
     SetModernFLACOptions(CMD);
     if (argc < 5) {
         DisplayCMDHelp(CMD);
-    }
-    BitInput           *BitI    = calloc(sizeof(BitInput), 1);
-    BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
-    ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
-    FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
-    FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
-    InitBitInput(BitI, Error, argc, argv);
-    //InitBitOutput(BitO, Error, argc, argv);
-    InitFLACDecoder(Dec);
-    InitFLACEncoder(Enc);
-    
-    bool Decode   = CMD->Switch[2]->SwitchFound;
-    bool Encode   = CMD->Switch[3]->SwitchFound;
-    bool Reencode = CMD->Switch[4]->SwitchFound;
-    bool Subset   = CMD->Switch[5]->SwitchFound;
-    
-    // Find out if -d or -e was included on the command line
-    if (Decode == true || Reencode == true) {
-        if (ReadBits(BitI, 32) == FLACMagic) {
-            bool IsLastMetadataBlock = false;
-            while (IsLastMetadataBlock == false) {
-                IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
-            }
-            
-        }
-        // Decode the file.
-        // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
-    } else if (Encode == true) {
-        Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
-        Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
-        // Encode the file to FLAC
-        // ParseWAV and encode FLAC
     } else {
-        // Reencode the input
+        BitInput           *BitI    = calloc(sizeof(BitInput), 1);
+        BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
+        ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
+        FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
+        FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
+        InitBitInput(BitI, Error, argc, argv);
+        //InitBitOutput(BitO, Error, argc, argv);
+        InitFLACDecoder(Dec);
+        InitFLACEncoder(Enc);
+        
+        bool Decode   = CMD->Switch[2]->SwitchFound;
+        bool Encode   = CMD->Switch[3]->SwitchFound;
+        bool Reencode = CMD->Switch[4]->SwitchFound;
+        bool Subset   = CMD->Switch[5]->SwitchFound;
+        
+        // Find out if -d or -e was included on the command line
+        if (Decode == true || Reencode == true) {
+            if (ReadBits(BitI, 32) == FLACMagic) {
+                bool IsLastMetadataBlock = false;
+                while (IsLastMetadataBlock == false) {
+                    IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
+                }
+                
+            }
+            // Decode the file.
+            // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
+        } else if (Encode == true) {
+            Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
+            Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
+            // Encode the file to FLAC
+            // ParseWAV and encode FLAC
+        } else {
+            // Reencode the input
+        }
     }
     
     // Find out what kind of file has been passed in and what the user wants us to do.
