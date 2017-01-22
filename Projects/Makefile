@@ -4,13 +4,13 @@ VERSION             := $(shell cat ${FILE} | grep -e "@version")
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
-CFLAGS              := -std=c11 -march=native `pkg-config --libs libBitIO`
+CFLAGS              := -std=c11 -march=native `pkg-config --libs BitIO`
 LDFLAGS             := -flto=thin
 DEB_ERROR_OPTIONS   := -Wno-unused-parameter -Wno-unused-variable -Wno-int-conversion
 REL_ERROR_OPTIONS   := -Weverything -Wunreachable-code -Wno-conversion
-DEB_FLAGS           := $(CFLAGS) -g -o0 $(DEB_ERROR_OPTIONS) $(LDFLAGS)
+DEB_FLAGS           := $(CFLAGS) -openmp=libomp -g -o0 $(DEB_ERROR_OPTIONS) $(LDFLAGS)
 SANITIZER           := -fsanitize=undefined -fsanitize=address
-REL_FLAGS           := $(CFLAGS) -ofast $(REL_ERROR_OPTIONS) $(LDFLAGS)
+REL_FLAGS           := $(CFLAGS) -openmp=libomp -ofast $(REL_ERROR_OPTIONS) $(LDFLAGS)
 
 .PHONY: all distclean CheckVer release debug utility install clean uninstall
 
@@ -25,47 +25,43 @@ modernflac:
 CheckVer:
 	$(shell echo ${VERSION})
 release:
-	mkdir -p   $(BUILD_DIR)
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_DIR)/ParseFLAC.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/DecodeFLAC.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/EncodeFLAC.o
-	ar -crsu   $(BUILD_DIR)/libModernFLAC.a $(BUILD_DIR)/*.o
-	ranlib -sf $(BUILD_DIR)/libModernFLAC.a
+	mkdir -p   $(BUILD_DIR)/libModernFLAC
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_DIR)/libModernFLAC/ParseFLAC.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
+	ar -crsu   $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(BUILD_DIR)/libModernFLAC/*.o
+	ranlib -sf $(BUILD_DIR)/libModernFLAC/libModernFLAC.a
 debug: 
-	mkdir -p   $(BUILD_DIR)
-	mkdir -p   $(BUILD_DIR)
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_DIR)/ParseFLAC.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/DecodeFLAC.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/EncodeFLAC.o
-	ar -crsu   $(BUILD_DIR)/libModernFLAC.a $(BUILD_DIR)/*.o
-	ranlib -sf $(BUILD_DIR)/libModernFLAC.a
+	mkdir -p   $(BUILD_DIR)/libModernFLAC
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/ParseFLAC.c -o $(BUILD_DIR)/libModernFLAC/ParseFLAC.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
+	ar -crsu   $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(BUILD_DIR)/libModernFLAC/*.o
+	ranlib -sf $(BUILD_DIR)/libModernFLAC/libModernFLAC.a
 utility: 
-	mkdir -p   $(BUILD_DIR)
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_DIR)/ModernFLAC.o
-	$(CC)      $(BUILD_DIR)/ModernFLAC.o -L$(BUILD_DIR)/libModernFLAC.a -o $(BUILD_DIR)/ModernFLAC
+	mkdir -p   $(BUILD_DIR)/ModernFLAC
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_DIR)/ModernFLAC/ModernFLAC.o
+	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o -L$(BUILD_DIR)/libModernFLAC/ -o $(BUILD_DIR)/ModernFLAC/ModernFLAC
 install:
 	install -d -m 777 $(DESTINATION)/lib
 	install -d -m 777 $(DESTINATION)/bin
 	install -d -m 777 $(DESTINATION)/include
-	install -C -v -m 444 $(BUILD_DIR)/libModernFLAC.a $(DESTINATION)/lib/libModernFLAC.a
+	install -C -v -m 444 $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(DESTINATION)/lib/libModernFLAC.a
 	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC/include/libModernFLAC.h $(DESTINATION)/include/libModernFLAC.h
-	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC/include/DecodeFLAC.h $(DESTINATION)/include/DecodeFLAC.h
-	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC/include/EncodeFLAC.h $(DESTINATION)/include/EncodeFLAC.h
 	install -C -v -m 444 $(BUILD_DIR)/ModernFLAC/ModernFLAC $(DESTINATION)/bin/ModernFLAC
 	chmod +x $(DESTINATION)/bin/ModernFLAC
 	ln -i $(DESTINATION)/bin/ModernFLAC /usr/bin/ModernFLAC
 	chmod +x /usr/bin/ModernFLAC
-	install -C -v -m 444 $(BUILD_DIR)/../ModernFLAC.pc /usr/share/pkgconfig/ModernFLAC.pc
+	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC.pc /usr/share/pkgconfig/libModernFLAC.pc
 clean:
-	cd $(BUILD_DIR)/
-	rm -f -v -r DecodeFLAC.o
-	rm -f -v -r EncodeFLAC.o
+	cd $(BUILD_DIR)/libModernFLAC
+	rm -f -v -r *.o
 	rm -f -v -r libModernFLAC.a
 	rm -f -v -r .DS_Store
 	rm -f -v -r Thumbs.db
 	rm -f -v -r desktop.ini
-	cd ../ModernFLAC/
-	rm -f -v -r ModernFLAC.o
+	cd ../ModernFLAC
+	rm -f -v -r *.o
 	rm -f -v -r ModernFLAC
 	rm -f -v -r .DS_Store
 	rm -f -v -r Thumbs.db

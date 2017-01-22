@@ -1,7 +1,8 @@
 #include "../libModernFLAC/include/DecodeFLAC.h"
 #include "../libModernFLAC/include/ParseFLAC.h"
-
 #include "../libModernFLAC/include/EncodeFLAC.h"
+
+#include "/usr/local/Packages/libBitIO/include/BitIO.h"
 
 void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->NumSwitches                  = 7;
@@ -16,6 +17,7 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CLSwitch *Switch4                 = calloc(sizeof(CLSwitch), 1);
     CLSwitch *Switch5                 = calloc(sizeof(CLSwitch), 1);
     CLSwitch *Switch6                 = calloc(sizeof(CLSwitch), 1);
+    CLSwitch *Switch7                 = calloc(sizeof(CLSwitch), 1);
     CMD->Switch[0]                    = Switch0;
     CMD->Switch[1]                    = Switch1;
     CMD->Switch[2]                    = Switch2;
@@ -89,11 +91,12 @@ int main(int argc, const char *argv[]) {
     InitBitInput(BitI, Error, argc, argv);
     //InitBitOutput(BitO, Error, argc, argv);
     InitFLACDecoder(Dec);
-    //InitFLACEncoder(Enc);
+    InitFLACEncoder(Enc);
     
-    bool Decode   = 1; //CMD->Switch[2]->SwitchResult;
-    bool Encode   = CMD->Switch[3]->SwitchResult;
+    bool Decode   = CMD->Switch[2]->SwitchFound;
+    bool Encode   = CMD->Switch[3]->SwitchFound;
     bool Reencode = CMD->Switch[4]->SwitchFound;
+    bool Subset   = CMD->Switch[5]->SwitchFound;
     
     // Find out if -d or -e was included on the command line
     if (Decode == true || Reencode == true) {
@@ -107,6 +110,8 @@ int main(int argc, const char *argv[]) {
         // Decode the file.
         // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
     } else if (Encode == true) {
+        Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
+        Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
         // Encode the file to FLAC
         // ParseWAV and encode FLAC
     } else {
