@@ -1,8 +1,10 @@
+#include "/usr/local/Packages/libBitIO/include/BitIO.h"
+
 #include "../libModernFLAC/include/DecodeFLAC.h"
 #include "../libModernFLAC/include/ParseFLAC.h"
 #include "../libModernFLAC/include/EncodeFLAC.h"
 
-#include "/usr/local/Packages/libBitIO/include/BitIO.h"
+#include "/usr/local/Packages/libPCM/include/libPCM.h"
 
 void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->NumSwitches                  = 7;
@@ -73,8 +75,7 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLi
 void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, FLACEncoder *Enc, CommandLineOptions *CMD) {
     Enc->EncodeSubset = CMD->Switch[4]->SwitchFound;
     Enc->OptimizeFile = CMD->Switch[5]->SwitchFound;
-    // I'm not adding padding to the encoded FLAC file metadata section, because editors have to support that case anyway.
-    // So, I also need to include
+    // Start requesting PCM samples to encode into frames, given all PCM formats are interleaved, you'll need to handle that.
 }
 
 int main(int argc, const char *argv[]) {
@@ -86,6 +87,7 @@ int main(int argc, const char *argv[]) {
         BitInput           *BitI    = calloc(sizeof(BitInput), 1);
         BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
         ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
+        PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
         FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
         FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
         InitBitInput(BitI, Error, argc, argv);
@@ -112,6 +114,7 @@ int main(int argc, const char *argv[]) {
         } else if (Encode == true) {
             Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
             Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
+            IdentifyPCMFile(BitI, PCM);
             // Encode the file to FLAC
             // ParseWAV and encode FLAC
         } else {

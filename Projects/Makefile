@@ -4,7 +4,7 @@ VERSION             := $(shell cat ${FILE} | grep -e "@version")
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
-CFLAGS              := -std=c11 -march=native `pkg-config --libs libBitIO`
+CFLAGS              := -std=c11 -march=native `pkg-config --libs libBitIO` `pkg-config --libs libPCM`
 LDFLAGS             := -flto=thin
 DEB_ERROR_OPTIONS   := -Wno-unused-parameter -Wno-unused-variable -Wno-int-conversion
 REL_ERROR_OPTIONS   := -Weverything -Wunreachable-code -Wno-conversion
@@ -41,19 +41,19 @@ debug:
 utility: $(CURDIR)/ModernFLAC/ModernFLAC.c
 	mkdir -p   $(BUILD_DIR)/ModernFLAC
 	$(CC)      $(REL_FLAGS) -c $(CURDIR)/ModernFLAC/ModernFLAC.c -o $(BUILD_DIR)/ModernFLAC/ModernFLAC.o
-	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o -o $(BUILD_DIR)/ModernFLAC/ModernFLAC $(BUILD_DIR)/libModernFLAC/libModernFLAC.a `pkg-config --libs libBitIO`
+	$(CC)      $(BUILD_DIR)/ModernFLAC/ModernFLAC.o -o $(BUILD_DIR)/ModernFLAC/ModernFLAC $(BUILD_DIR)/libModernFLAC/libModernFLAC.a `pkg-config --libs libBitIO libPCM`
 	strip	   $(BUILD_DIR)/ModernFLAC/ModernFLAC
 install:
 	install -d -m 777 $(DESTINATION)/lib
 	install -d -m 777 $(DESTINATION)/bin
 	install -d -m 777 $(DESTINATION)/include
 	install -C -v -m 444 $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(DESTINATION)/lib/libModernFLAC.a
-	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC/include/libModernFLAC.h $(DESTINATION)/include/libModernFLAC.h
+	install -C -v -m 444 $(CURDIR)/libModernFLAC/include/libModernFLAC.h $(DESTINATION)/include/libModernFLAC.h
 	install -C -v -m 444 $(BUILD_DIR)/ModernFLAC/ModernFLAC $(DESTINATION)/bin/ModernFLAC
 	chmod +x $(DESTINATION)/bin/ModernFLAC
 	ln -i $(DESTINATION)/bin/ModernFLAC /usr/bin/ModernFLAC
 	chmod +x /usr/bin/ModernFLAC
-	install -C -v -m 444 $(BUILD_DIR)/../libModernFLAC.pc /usr/share/pkgconfig/libModernFLAC.pc
+	install -C -v -m 444 $(CURDIR)/ModernFLAC.pc /usr/share/pkgconfig/ModernFLAC.pc
 clean:
 	rm -d -i -R $(BUILD_DIR)
 uninstall:
