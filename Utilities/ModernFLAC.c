@@ -41,7 +41,7 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->Switch[3]->SwitchDescription = "Encode input to output";
     
     CMD->Switch[4]->Switch            = "-R";
-    CMD->Switch[4]->SwitchDescription = "Reencodes the input flac with --O";
+    CMD->Switch[4]->SwitchDescription = "Reencodes the input flac with -O";
     
     CMD->Switch[5]->Switch            = "-S";
     CMD->Switch[5]->SwitchDescription = "Limit encoding to subset format";
@@ -79,18 +79,20 @@ void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, FLACEncoder *Enc, CommandLi
 }
 
 int main(int argc, const char *argv[]) {
-    CommandLineOptions *CMD = calloc(sizeof(CommandLineOptions), 1);
+    CommandLineOptions     *CMD     = calloc(sizeof(CommandLineOptions), 1);
     SetModernFLACOptions(CMD);
     if (argc < 5) {
         DisplayCMDHelp(CMD);
     } else {
+        ParseCommandLineArguments(CMD, argc, argv);
         BitInput           *BitI    = calloc(sizeof(BitInput), 1);
         BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
         ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
         PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
         FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
         FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
-        InitBitInput(BitI, Error, argc, argv);
+        OpenCMDInputFile(BitI, CMD, Error, 0);
+        //InitBitInput(BitI, Error, argc, argv);
         //InitBitOutput(BitO, Error, argc, argv);
         InitFLACDecoder(Dec);
         InitFLACEncoder(Enc);
@@ -115,6 +117,9 @@ int main(int argc, const char *argv[]) {
             Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
             Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
             IdentifyPCMFile(BitI, PCM);
+            
+            //FLACEncodeFrame();
+            
             // Encode the file to FLAC
             // ParseWAV and encode FLAC
         } else {

@@ -4,8 +4,8 @@ VERSION             := $(shell cat ${FILE} | grep -e "@version")
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
-CFLAGS              := -std=c11 -march=native `pkg-config --libs libBitIO` `pkg-config --libs libPCM`
-LDFLAGS             := -flto=thin
+CFLAGS              := -std=c11 -march=native
+LDFLAGS             := -flto=thin `pkg-config --libs libBitIO` `pkg-config --libs libPCM`
 DEB_ERROR_OPTIONS   := -Wno-unused-parameter -Wno-unused-variable -Wno-int-conversion
 REL_ERROR_OPTIONS   := -Weverything -Wunreachable-code -Wno-conversion
 DEB_FLAGS           := $(CFLAGS) -openmp=libomp -g -o0 $(DEB_ERROR_OPTIONS) $(LDFLAGS)
