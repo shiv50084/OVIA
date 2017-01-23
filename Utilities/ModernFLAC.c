@@ -36,18 +36,23 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     
     CMD->Switch[2]->Switch            = "-d";
     CMD->Switch[2]->SwitchDescription = "Decode input to output";
+    CMD->Switch[2]->Resultless        = true;
     
     CMD->Switch[3]->Switch            = "-e";
     CMD->Switch[3]->SwitchDescription = "Encode input to output";
+    CMD->Switch[3]->Resultless        = true;
     
     CMD->Switch[4]->Switch            = "-R";
     CMD->Switch[4]->SwitchDescription = "Reencodes the input flac with -O";
+    CMD->Switch[4]->Resultless        = true;
     
     CMD->Switch[5]->Switch            = "-S";
     CMD->Switch[5]->SwitchDescription = "Limit encoding to subset format";
+    CMD->Switch[5]->Resultless        = true;
     
     CMD->Switch[6]->Switch            = "-O";
-    CMD->Switch[6]->SwitchDescription = "Optimize encoded FLAC to be as small as possible (does not ignore -S if set)";
+    CMD->Switch[6]->SwitchDescription = "Optimize encoded FLAC to be as small as possible";
+    CMD->Switch[6]->Resultless        = true;
 }
 
 void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
@@ -60,10 +65,9 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLi
         snprintf(Error, BitIOStringSize, "Not a FLAC file, magic was: 0x%X\n", FileMagic);
         Log(SYSError, "ModernFLAC", "FLACDecodeFile", Error);
     } else {
-        bool IsLastBlock = false;
         for (size_t Byte = 4; Byte < BitI->FileSize; Byte++) { // loop to decode file
-            while (IsLastBlock == false) {
-                IsLastBlock = FLACParseMetadata(BitI, Dec);
+            while (Dec->LastMetadataBlock == false) {
+                FLACParseMetadata(BitI, Dec);
             }
             if (ReadBits(BitI, 14) == FLACFrameMagic) {
                 FLACReadFrame(BitI, Dec);
@@ -105,11 +109,12 @@ int main(int argc, const char *argv[]) {
         // Find out if -d or -e was included on the command line
         if (Decode == true || Reencode == true) {
             if (ReadBits(BitI, 32) == FLACMagic) {
-                bool IsLastMetadataBlock = false;
-                while (IsLastMetadataBlock == false) {
-                    IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
+                //bool IsLastMetadataBlock = false;
+                while (PeekBits(BitI, 14) != FLACFrameMagic) { // Dec->LastMetadataBlock == false
+                    FLACParseMetadata(BitI, Dec);
+                    //IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
                 }
-                
+                FLACReadFrame(BitI, Dec);
             }
             // Decode the file.
             // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
@@ -117,6 +122,7 @@ int main(int argc, const char *argv[]) {
             Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
             Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
             IdentifyPCMFile(BitI, PCM);
+            EncodeFLAC(PCM, BitI, Enc);
             
             //FLACEncodeFrame();
             
