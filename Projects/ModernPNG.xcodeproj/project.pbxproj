@@ -7,152 +7,212 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C782D1F1E1BA68B0078BAD3 /* NewPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C782D1E1E1BA68B0078BAD3 /* NewPNG.c */; };
-		2C782D221E1BA6A50078BAD3 /* DecodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C782D211E1BA6A50078BAD3 /* DecodePNG.c */; };
-		2C782D241E1BA6B20078BAD3 /* libNewPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C782D231E1BA6B20078BAD3 /* libNewPNG.h */; };
-		2C782D261E1BA6E40078BAD3 /* libNewPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C782D251E1BA6E40078BAD3 /* libNewPNG.c */; };
+		2CCB243D1E3B9CEB0057A30C /* DecodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB243B1E3B9CEB0057A30C /* DecodePNG.c */; };
+		2CCB243E1E3B9CEB0057A30C /* libModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB243C1E3B9CEB0057A30C /* libModernPNG.c */; };
+		2CCB24431E3B9E500057A30C /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CCB24421E3B9E500057A30C /* libModernPNG.h */; };
+		2CCB244F1E3B9E6D0057A30C /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB24401E3B9D870057A30C /* ModernPNG.c */; };
+		2CCB24521E3B9F860057A30C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24511E3B9F860057A30C /* libBitIO.a */; };
+		2CCB24531E3B9F8C0057A30C /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24331E3B9C550057A30C /* libModernPNG.a */; };
+		2CCB24541E3BA0D10057A30C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24511E3B9F860057A30C /* libBitIO.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CCB24461E3B9E660057A30C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		2C782D1E1E1BA68B0078BAD3 /* NewPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NewPNG.c; path = NewPNG/NewPNG.c; sourceTree = "<group>"; };
-		2C782D211E1BA6A50078BAD3 /* DecodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodePNG.c; path = libNewPNG/src/DecodePNG.c; sourceTree = "<group>"; };
-		2C782D231E1BA6B20078BAD3 /* libNewPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libNewPNG.h; path = libNewPNG/include/libNewPNG.h; sourceTree = "<group>"; };
-		2C782D251E1BA6E40078BAD3 /* libNewPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libNewPNG.c; path = libNewPNG/src/libNewPNG.c; sourceTree = "<group>"; };
-		2CC504BC1E1A3634004A3685 /* libNewPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNewPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CCB24331E3B9C550057A30C /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CCB243B1E3B9CEB0057A30C /* DecodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodePNG.c; path = src/libModernPNG/DecodePNG.c; sourceTree = "<group>"; };
+		2CCB243C1E3B9CEB0057A30C /* libModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG.c; path = src/libModernPNG/libModernPNG.c; sourceTree = "<group>"; };
+		2CCB24401E3B9D870057A30C /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = src/ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
+		2CCB24421E3B9E500057A30C /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = include/libModernPNG.h; sourceTree = "<group>"; };
+		2CCB24481E3B9E660057A30C /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CCB24511E3B9F860057A30C /* libBitIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitIO.a; path = ../../../../../usr/local/Packages/libBitIO/lib/libBitIO.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2CC504B91E1A3634004A3685 /* Frameworks */ = {
+		2CCB24301E3B9C550057A30C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CCB24521E3B9F860057A30C /* libBitIO.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CCB24451E3B9E660057A30C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CCB24541E3BA0D10057A30C /* libBitIO.a in Frameworks */,
+				2CCB24531E3B9F8C0057A30C /* libModernPNG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C782D201E1BA6970078BAD3 /* Source */ = {
+		2CCB242A1E3B9C550057A30C = {
 			isa = PBXGroup;
 			children = (
-				2C782D211E1BA6A50078BAD3 /* DecodePNG.c */,
-				2C782D251E1BA6E40078BAD3 /* libNewPNG.c */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		2CC504B31E1A3634004A3685 = {
-			isa = PBXGroup;
-			children = (
-				2CC504C81E1A368F004A3685 /* NewPNG */,
-				2CC504C31E1A3667004A3685 /* libNewPNG */,
-				2CC504BD1E1A3634004A3685 /* Products */,
+				2CCB24421E3B9E500057A30C /* libModernPNG.h */,
+				2CCB243F1E3B9D750057A30C /* ModernPNG */,
+				2CCB243A1E3B9C780057A30C /* libModernPNG */,
+				2CCB24341E3B9C550057A30C /* Products */,
+				2CCB24501E3B9F860057A30C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		2CC504BD1E1A3634004A3685 /* Products */ = {
+		2CCB24341E3B9C550057A30C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2CC504BC1E1A3634004A3685 /* libNewPNG.a */,
+				2CCB24331E3B9C550057A30C /* libModernPNG.a */,
+				2CCB24481E3B9E660057A30C /* ModernPNG */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2CC504C31E1A3667004A3685 /* libNewPNG */ = {
+		2CCB243A1E3B9C780057A30C /* libModernPNG */ = {
 			isa = PBXGroup;
 			children = (
-				2C782D231E1BA6B20078BAD3 /* libNewPNG.h */,
-				2C782D201E1BA6970078BAD3 /* Source */,
+				2CCB243B1E3B9CEB0057A30C /* DecodePNG.c */,
+				2CCB243C1E3B9CEB0057A30C /* libModernPNG.c */,
 			);
-			name = libNewPNG;
+			name = libModernPNG;
 			sourceTree = "<group>";
 		};
-		2CC504C81E1A368F004A3685 /* NewPNG */ = {
+		2CCB243F1E3B9D750057A30C /* ModernPNG */ = {
 			isa = PBXGroup;
 			children = (
-				2C782D1E1E1BA68B0078BAD3 /* NewPNG.c */,
+				2CCB24401E3B9D870057A30C /* ModernPNG.c */,
 			);
-			name = NewPNG;
+			name = ModernPNG;
+			sourceTree = "<group>";
+		};
+		2CCB24501E3B9F860057A30C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB24511E3B9F860057A30C /* libBitIO.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2CC504BA1E1A3634004A3685 /* Headers */ = {
+		2CCB24311E3B9C550057A30C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C782D241E1BA6B20078BAD3 /* libNewPNG.h in Headers */,
+				2CCB24431E3B9E500057A30C /* libModernPNG.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2CC504BB1E1A3634004A3685 /* libNewPNG */ = {
+		2CCB24321E3B9C550057A30C /* libModernPNG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2CC504C01E1A3634004A3685 /* Build configuration list for PBXNativeTarget "libNewPNG" */;
+			buildConfigurationList = 2CCB24371E3B9C550057A30C /* Build configuration list for PBXNativeTarget "libModernPNG" */;
 			buildPhases = (
-				2CC504B81E1A3634004A3685 /* Sources */,
-				2CC504B91E1A3634004A3685 /* Frameworks */,
-				2CC504BA1E1A3634004A3685 /* Headers */,
+				2CCB242F1E3B9C550057A30C /* Sources */,
+				2CCB24301E3B9C550057A30C /* Frameworks */,
+				2CCB24311E3B9C550057A30C /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = libNewPNG;
-			productName = NewPNG;
-			productReference = 2CC504BC1E1A3634004A3685 /* libNewPNG.a */;
+			name = libModernPNG;
+			productName = libModernPNG;
+			productReference = 2CCB24331E3B9C550057A30C /* libModernPNG.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		2CCB24471E3B9E660057A30C /* ModernPNG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CCB244C1E3B9E660057A30C /* Build configuration list for PBXNativeTarget "ModernPNG" */;
+			buildPhases = (
+				2CCB24441E3B9E660057A30C /* Sources */,
+				2CCB24451E3B9E660057A30C /* Frameworks */,
+				2CCB24461E3B9E660057A30C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModernPNG;
+			productName = ModernPNG;
+			productReference = 2CCB24481E3B9E660057A30C /* ModernPNG */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2CC504B41E1A3634004A3685 /* Project object */ = {
+		2CCB242B1E3B9C550057A30C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Marcus Johnson";
 				TargetAttributes = {
-					2CC504BB1E1A3634004A3685 = {
+					2CCB24321E3B9C550057A30C = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 628J9L7WK5;
+						ProvisioningStyle = Automatic;
+					};
+					2CCB24471E3B9E660057A30C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 628J9L7WK5;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2CC504B71E1A3634004A3685 /* Build configuration list for PBXProject "NewPNG" */;
+			buildConfigurationList = 2CCB242E1E3B9C550057A30C /* Build configuration list for PBXProject "ModernPNG" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2CC504B31E1A3634004A3685;
-			productRefGroup = 2CC504BD1E1A3634004A3685 /* Products */;
+			mainGroup = 2CCB242A1E3B9C550057A30C;
+			productRefGroup = 2CCB24341E3B9C550057A30C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2CC504BB1E1A3634004A3685 /* libNewPNG */,
+				2CCB24321E3B9C550057A30C /* libModernPNG */,
+				2CCB24471E3B9E660057A30C /* ModernPNG */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2CC504B81E1A3634004A3685 /* Sources */ = {
+		2CCB242F1E3B9C550057A30C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C782D1F1E1BA68B0078BAD3 /* NewPNG.c in Sources */,
-				2C782D221E1BA6A50078BAD3 /* DecodePNG.c in Sources */,
-				2C782D261E1BA6E40078BAD3 /* libNewPNG.c in Sources */,
+				2CCB243E1E3B9CEB0057A30C /* libModernPNG.c in Sources */,
+				2CCB243D1E3B9CEB0057A30C /* DecodePNG.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CCB24441E3B9E660057A30C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CCB244F1E3B9E6D0057A30C /* ModernPNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2CC504BE1E1A3634004A3685 /* Debug */ = {
+		2CCB24351E3B9C550057A30C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -173,12 +233,14 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 628J9L7WK5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -199,7 +261,7 @@
 			};
 			name = Debug;
 		};
-		2CC504BF1E1A3634004A3685 /* Release */ = {
+		2CCB24361E3B9C550057A30C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -220,13 +282,16 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -239,22 +304,56 @@
 			};
 			name = Release;
 		};
-		2CC504C11E1A3634004A3685 /* Debug */ = {
+		2CCB24381E3B9C550057A30C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Packages/libBitIO/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		2CC504C21E1A3634004A3685 /* Release */ = {
+		2CCB24391E3B9C550057A30C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Packages/libBitIO/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2CCB244D1E3B9E660057A30C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Packages/libBitIO/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2CCB244E1E3B9E660057A30C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 628J9L7WK5;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Packages/libBitIO/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -262,25 +361,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CC504B71E1A3634004A3685 /* Build configuration list for PBXProject "NewPNG" */ = {
+		2CCB242E1E3B9C550057A30C /* Build configuration list for PBXProject "ModernPNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CC504BE1E1A3634004A3685 /* Debug */,
-				2CC504BF1E1A3634004A3685 /* Release */,
+				2CCB24351E3B9C550057A30C /* Debug */,
+				2CCB24361E3B9C550057A30C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2CC504C01E1A3634004A3685 /* Build configuration list for PBXNativeTarget "libNewPNG" */ = {
+		2CCB24371E3B9C550057A30C /* Build configuration list for PBXNativeTarget "libModernPNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CC504C11E1A3634004A3685 /* Debug */,
-				2CC504C21E1A3634004A3685 /* Release */,
+				2CCB24381E3B9C550057A30C /* Debug */,
+				2CCB24391E3B9C550057A30C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2CCB244C1E3B9E660057A30C /* Build configuration list for PBXNativeTarget "ModernPNG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CCB244D1E3B9E660057A30C /* Debug */,
+				2CCB244E1E3B9E660057A30C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2CC504B41E1A3634004A3685 /* Project object */;
+	rootObject = 2CCB242B1E3B9C550057A30C /* Project object */;
 }
