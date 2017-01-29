@@ -110,11 +110,20 @@ int main(int argc, const char *argv[]) {
         if (Decode == true || Reencode == true) {
             if (ReadBits(BitI, 32) == FLACMagic) {
                 //bool IsLastMetadataBlock = false;
+                for (uint8_t Byte = 0; Byte < BitI->FileSize; Byte++) {
+                    if (PeekBits(BitI, 14) == FLACFrameMagic) {
+                        FLACReadFrame(BitI, Dec);
+                    } else {
+                        FLACParseMetadata(BitI, Dec);
+                    }
+                }
+                /*
                 while (PeekBits(BitI, 14) != FLACFrameMagic) { // Dec->LastMetadataBlock == false
                     FLACParseMetadata(BitI, Dec);
                     //IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
                 }
-                FLACReadFrame(BitI, Dec);
+                    FLACReadFrame(BitI, Dec);
+                 */
             }
             // Decode the file.
             // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
