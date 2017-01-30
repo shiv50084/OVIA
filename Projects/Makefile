@@ -44,7 +44,8 @@ install:
 	install -d -m 777 $(DESTINATION)/lib
 	install -d -m 777 $(DESTINATION)/include
 	install -C -v -m 444 $(BUILD_DIR)/libModernPNG/libModernPNG.a $(DESTINATION)/lib/libModernPNG.a
-	install -C -v -m 444 $(BUILD_DIR)/include/libModernPNG.h $(DESTINATION)/include/libModernPNG.h
+	install -C -v -m 444 $(CURDIR)/include/libModernPNG.h $(DESTINATION)/include/libModernPNG.h
+	install -C -v -m 444 $(CURDIR)/libModernPNG.pc /usr/share/pkgconfig/libModernPNG.pc
 
 uninstall:
 	rm -d -i $(DESTINATION)
