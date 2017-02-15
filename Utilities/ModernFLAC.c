@@ -1,7 +1,6 @@
 #include "/usr/local/Packages/libBitIO/include/BitIO.h"
 
 #include "../libModernFLAC/include/DecodeFLAC.h"
-#include "../libModernFLAC/include/ParseFLAC.h"
 #include "../libModernFLAC/include/EncodeFLAC.h"
 
 #include "/usr/local/Packages/libPCM/include/libPCM.h"
@@ -19,7 +18,6 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CLSwitch *Switch4                 = calloc(sizeof(CLSwitch), 1);
     CLSwitch *Switch5                 = calloc(sizeof(CLSwitch), 1);
     CLSwitch *Switch6                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch7                 = calloc(sizeof(CLSwitch), 1);
     CMD->Switch[0]                    = Switch0;
     CMD->Switch[1]                    = Switch1;
     CMD->Switch[2]                    = Switch2;
@@ -50,7 +48,7 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->Switch[5]->SwitchDescription = "Limit encoding to subset format";
     CMD->Switch[5]->Resultless        = true;
     
-    CMD->Switch[6]->Switch            = "-O";
+    CMD->Switch[6]->Switch            = "-Optimize";
     CMD->Switch[6]->SwitchDescription = "Optimize encoded FLAC to be as small as possible";
     CMD->Switch[6]->Resultless        = true;
 }
@@ -63,7 +61,7 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLi
         // Not a FLAC file
         char Error[BitIOStringSize];
         snprintf(Error, BitIOStringSize, "Not a FLAC file, magic was: 0x%X\n", FileMagic);
-        Log(SYSError, "ModernFLAC", "FLACDecodeFile", Error);
+        Log(LOG_ERR, "ModernFLAC", "FLACDecodeFile", Error);
     } else {
         for (size_t Byte = 4; Byte < BitI->FileSize; Byte++) { // loop to decode file
             while (Dec->LastMetadataBlock == false) {
@@ -96,8 +94,7 @@ int main(int argc, const char *argv[]) {
         FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
         FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
         OpenCMDInputFile(BitI, CMD, Error, 0);
-        //InitBitInput(BitI, Error, argc, argv);
-        //InitBitOutput(BitO, Error, argc, argv);
+        OpenCMDOutputFile(BitO, CMD, Error, 1);
         InitFLACDecoder(Dec);
         InitFLACEncoder(Enc);
         
@@ -109,7 +106,6 @@ int main(int argc, const char *argv[]) {
         // Find out if -d or -e was included on the command line
         if (Decode == true || Reencode == true) {
             if (ReadBits(BitI, 32) == FLACMagic) {
-                //bool IsLastMetadataBlock = false;
                 for (uint8_t Byte = 0; Byte < BitI->FileSize; Byte++) {
                     if (PeekBits(BitI, 14) == FLACFrameMagic) {
                         FLACReadFrame(BitI, Dec);
@@ -117,13 +113,6 @@ int main(int argc, const char *argv[]) {
                         FLACParseMetadata(BitI, Dec);
                     }
                 }
-                /*
-                while (PeekBits(BitI, 14) != FLACFrameMagic) { // Dec->LastMetadataBlock == false
-                    FLACParseMetadata(BitI, Dec);
-                    //IsLastMetadataBlock = FLACParseMetadata(BitI, Dec);
-                }
-                    FLACReadFrame(BitI, Dec);
-                 */
             }
             // Decode the file.
             // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
@@ -142,6 +131,5 @@ int main(int argc, const char *argv[]) {
         }
     }
     
-    // Find out what kind of file has been passed in and what the user wants us to do.
     return EXIT_SUCCESS;
 }
