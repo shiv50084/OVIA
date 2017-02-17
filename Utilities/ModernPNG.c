@@ -11,8 +11,6 @@ extern "C" {
         BitOutput   *BitO  = calloc(sizeof(BitOutput), 1);
         PNGDecoder  *PNG   = calloc(sizeof(PNGDecoder), 1);
         
-        
-        
         return EXIT_SUCCESS;
     }
     
