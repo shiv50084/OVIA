@@ -55,7 +55,7 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
 
 void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
     
-    uint32_t FileMagic = ReadBits(BitI, 32);
+    uint32_t FileMagic = ReadBits(BitI, 32, true);
     
     if (FileMagic != FLACMagic) {
         // Not a FLAC file
@@ -67,7 +67,7 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLi
             while (Dec->LastMetadataBlock == false) {
                 FLACParseMetadata(BitI, Dec);
             }
-            if (ReadBits(BitI, 14) == FLACFrameMagic) {
+            if (ReadBits(BitI, 14, true) == FLACFrameMagic) {
                 FLACReadFrame(BitI, Dec);
             }
         }
@@ -105,9 +105,9 @@ int main(int argc, const char *argv[]) {
         
         // Find out if -d or -e was included on the command line
         if (Decode == true || Reencode == true) {
-            if (ReadBits(BitI, 32) == FLACMagic) {
+            if (ReadBits(BitI, 32, true) == FLACMagic) {
                 for (uint8_t Byte = 0; Byte < BitI->FileSize; Byte++) {
-                    if (PeekBits(BitI, 14) == FLACFrameMagic) {
+                    if (PeekBits(BitI, 14, true) == FLACFrameMagic) {
                         FLACReadFrame(BitI, Dec);
                     } else {
                         FLACParseMetadata(BitI, Dec);
