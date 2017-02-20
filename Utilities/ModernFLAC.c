@@ -89,12 +89,11 @@ int main(int argc, const char *argv[]) {
         ParseCommandLineArguments(CMD, argc, argv);
         BitInput           *BitI    = calloc(sizeof(BitInput), 1);
         BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
-        ErrorStatus        *Error   = calloc(sizeof(ErrorStatus), 1);
         PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
         FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
         FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
-        OpenCMDInputFile(BitI, CMD, Error, 0);
-        OpenCMDOutputFile(BitO, CMD, Error, 1);
+        OpenCMDInputFile(BitI, CMD, 0);
+        OpenCMDOutputFile(BitO, CMD, 1);
         InitFLACDecoder(Dec);
         InitFLACEncoder(Enc);
         
