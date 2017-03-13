@@ -27,16 +27,14 @@ CHECK_VERS:
 
 release:
 	mkdir -p   $(BUILD_DIR)/libModernPNG
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/libModernPNG.c -o $(BUILD_DIR)/libModernPNG/libModernPNG.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src//DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src//EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
 	ar -crsu   $(BUILD_DIR)/libModernPNG/libModernPNG.a $(BUILD_DIR)/libModernPNG/*.o
 	ranlib -sf $(BUILD_DIR)/libModernPNG/libModernPNG.a
 debug:
 	mkdir -p   $(BUILD_DIR)/libModernPNG
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/libModernPNG.c -o $(BUILD_DIR)/libModernPNG/libModernPNG.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src//DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src//EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
 	ar -crsu   $(BUILD_DIR)/libModernPNG/libModernPNG.a $(BUILD_DIR)/libModernPNG/*.o
 	ranlib -sf $(BUILD_DIR)/libModernPNG/libModernPNG.a
 utility:
