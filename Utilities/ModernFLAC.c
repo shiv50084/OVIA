@@ -54,7 +54,6 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
 }
 
 void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
-    
     uint32_t FileMagic = ReadBits(BitI, 32, true);
     
     if (FileMagic != FLACMagic) {
