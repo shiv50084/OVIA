@@ -19,11 +19,13 @@ extern "C" {
         CLSwitch *Switch2                 = calloc(sizeof(CLSwitch), 1);
         CLSwitch *Switch3                 = calloc(sizeof(CLSwitch), 1);
         CLSwitch *Switch4                 = calloc(sizeof(CLSwitch), 1);
+        CLSwitch *Switch5                 = calloc(sizeof(CLSwitch), 1);
         CMD->Switch[0]                    = Switch0;
         CMD->Switch[1]                    = Switch1;
         CMD->Switch[2]                    = Switch2;
         CMD->Switch[3]                    = Switch3;
         CMD->Switch[4]                    = Switch4;
+        CMD->Switch[5]                    = Switch5;
         
         CMD->Switch[0]->Switch            = "-i";
         CMD->Switch[0]->SwitchDescription = "Input file or stdin with: '-'\n";
@@ -32,16 +34,20 @@ extern "C" {
         CMD->Switch[1]->SwitchDescription = "Output file or stdout with: '-'\n";
         
         CMD->Switch[2]->Switch            = "-d";
-        CMD->Switch[2]->SwitchDescription = "Decode input to output\n";
+        CMD->Switch[2]->SwitchDescription = "Decode PNG to output\n";
         CMD->Switch[2]->Resultless        = true;
         
         CMD->Switch[3]->Switch            = "-e";
-        CMD->Switch[3]->SwitchDescription = "Encode input to output\n";
+        CMD->Switch[3]->SwitchDescription = "Encode input to PNG\n";
         CMD->Switch[3]->Resultless        = true;
         
-        CMD->Switch[4]->Switch            = "-Optimize";
-        CMD->Switch[4]->SwitchDescription = "Optimize the encoded PNG to be as small as possible (try all filter options)\n";
+        CMD->Switch[4]->Switch            = "-Res";
+        CMD->Switch[4]->SwitchDescription = "Resolution in WidthxHeight format\n";
         CMD->Switch[4]->Resultless        = true;
+        
+        CMD->Switch[5]->Switch            = "-Optimize";
+        CMD->Switch[5]->SwitchDescription = "Optimize the encoded PNG to be as small as possible (try all filter options)\n";
+        CMD->Switch[5]->Resultless        = true;
     }
     
     int main(int argc, const char * argv[]) {
@@ -53,14 +59,16 @@ extern "C" {
             ParseCommandLineArguments(CMD, argc, argv);
             BitInput           *BitI  = calloc(sizeof(BitInput), 1);
             BitOutput          *BitO  = calloc(sizeof(BitOutput), 1);
-            uint16_t           *DecodedImage = calloc(<#size_t __count#>, <#size_t __size#>)
+            uint16_t           *DecodedImage = calloc(NULL, 1);
             if        (CMD->Switch[2]->SwitchFound == true) {
                 PNGDecoder     *Dec   = InitPNGDecoder();
-                
-                DecodePNGImage(BitI, Dec, <#uint16_t *DecodedImage#>);
+                DecodePNGImage(BitI, Dec, NULL);
             } else if (CMD->Switch[3]->SwitchFound == true) {
                 PNGEncoder     *Enc   = InitPNGEncoder();
-                EncodePNG()
+                EncodePNGImage();
+            }
+            if (CMD->Switch[4]->SwitchFound == true) {
+                // Split string into resolution.
             }
         }
         
