@@ -1,7 +1,7 @@
 #include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
-#include "../libModernFLAC/include/DecodeFLAC.h"
-#include "../libModernFLAC/include/EncodeFLAC.h"
+#include "../libModernFLAC/include/Decoder/DecodeFLAC.h"
+#include "../libModernFLAC/include/Encoder/EncodeFLAC.h"
 
 void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->NumSwitches                  = 7;
