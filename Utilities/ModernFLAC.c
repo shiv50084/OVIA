@@ -117,8 +117,6 @@ int main(int argc, const char *argv[]) {
             IdentifyPCMFile(BitI, PCM);
             EncodeFLACFile(PCM, BitO, Enc);
             
-            //FLACEncodeFrame();
-            
             // Encode the file to FLAC
             // ParseWAV and encode FLAC
         } else {
