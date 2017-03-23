@@ -101,7 +101,7 @@ int main(int argc, const char *argv[]) {
         // Find out if -d or -e was included on the command line
         if (Decode == true || Reencode == true) {
             if (ReadBits(BitI, 32, true) == FLACMagic) {
-                for (uint8_t Byte = 0; Byte < BitI->FileSize; Byte++) {
+                for (uint8_t Byte = 0; Byte < GetInputFileSize(BitI); Byte++) {
                     if (PeekBits(BitI, 14, true) == FLACFrameMagic) {
                         FLACReadFrame(BitI, Dec);
                     } else {
@@ -115,7 +115,7 @@ int main(int argc, const char *argv[]) {
             Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
             Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
             IdentifyPCMFile(BitI, PCM);
-            EncodeFLAC(PCM, BitI, Enc);
+            EncodeFLACFile(PCM, BitO, Enc);
             
             //FLACEncodeFrame();
             
