@@ -85,15 +85,13 @@ int main(int argc, const char *argv[]) {
         DisplayCMDHelp(CMD);
     } else {
         ParseCommandLineArguments(CMD, argc, argv);
-        BitInput           *BitI    = calloc(sizeof(BitInput), 1);
-        BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
-        PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
-        DecodeFLAC        *Dec     = calloc(sizeof(DecodeFLAC), 1);
-        EncodeFLAC        *Enc     = calloc(sizeof(EncodeFLAC), 1);
+        BitInput           *BitI    = InitBitInput();
+        BitOutput          *BitO    = InitBitOutput();
+        PCMFile            *PCM     = InitPCMFile();
+        DecodeFLAC         *Dec     = InitDecodeFLAC();
+        EncodeFLAC         *Enc     = InitEncodeFLAC();
         OpenCMDInputFile(BitI, CMD, 0);
         OpenCMDOutputFile(BitO, CMD, 1);
-        InitDecodeFLAC(Dec);
-        InitEncodeFLAC(Enc);
         
         bool Decode   = CMD->Switch[2]->SwitchFound;
         bool Encode   = CMD->Switch[3]->SwitchFound;
