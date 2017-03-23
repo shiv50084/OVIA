@@ -1,4 +1,4 @@
-#include "/usr/local/Packages/libBitIO/include/BitIO.h"
+#include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
 #include "../libModernPNG/include/DecodePNG.h"

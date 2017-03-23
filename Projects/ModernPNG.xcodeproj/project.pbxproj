@@ -65,13 +65,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C85329D1E842E920012919F /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				2C8D957B1E55677500C90703 /* DecodePNG.h */,
+			);
+			name = Decode;
+			sourceTree = "<group>";
+		};
+		2C85329E1E842E9B0012919F /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				2C8D957D1E55677500C90703 /* EncodePNG.h */,
+			);
+			name = Encode;
+			sourceTree = "<group>";
+		};
 		2C8D95731E5551FC00C90703 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				2C85329D1E842E920012919F /* Decode */,
+				2C85329E1E842E9B0012919F /* Encode */,
 				2C8D957C1E55677500C90703 /* libModernPNG.h */,
 				2C66D7F81E5585F600881BC4 /* PNGTypes.h */,
-				2C8D957B1E55677500C90703 /* DecodePNG.h */,
-				2C8D957D1E55677500C90703 /* EncodePNG.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
