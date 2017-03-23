@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C66D7F91E5585F600881BC4 /* PNGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C66D7F81E5585F600881BC4 /* PNGTypes.h */; };
-		2C8D957E1E55677500C90703 /* DecodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8D957B1E55677500C90703 /* DecodePNG.h */; };
-		2C8D957F1E55677500C90703 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8D957C1E55677500C90703 /* libModernPNG.h */; };
-		2C8D95801E55677500C90703 /* EncodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8D957D1E55677500C90703 /* EncodePNG.h */; };
-		2C8D95841E55678600C90703 /* DecodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D95811E55678600C90703 /* DecodePNG.c */; };
-		2C8D95861E55678600C90703 /* EncodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D95831E55678600C90703 /* EncodePNG.c */; };
+		2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADEE1E8430A4007F8867 /* libModernPNG.h */; };
+		2C8AADF11E8430AC007F8867 /* PNGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF01E8430AC007F8867 /* PNGTypes.h */; };
+		2C8AADF31E8430D0007F8867 /* EncodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF21E8430D0007F8867 /* EncodePNG.h */; };
+		2C8AADF51E8430DC007F8867 /* DecodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF41E8430DC007F8867 /* DecodePNG.h */; };
+		2C8AADF71E84310A007F8867 /* DecodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AADF61E84310A007F8867 /* DecodePNG.c */; };
+		2C8AADF91E843110007F8867 /* EncodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AADF81E843110007F8867 /* EncodePNG.c */; };
 		2C8D95881E55685300C90703 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D95871E55685300C90703 /* ModernPNG.c */; };
 		2CCB24521E3B9F860057A30C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24511E3B9F860057A30C /* libBitIO.a */; };
 		2CCB24531E3B9F8C0057A30C /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24331E3B9C550057A30C /* libModernPNG.a */; };
@@ -32,12 +32,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2C66D7F81E5585F600881BC4 /* PNGTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTypes.h; path = libModernPNG/include/PNGTypes.h; sourceTree = "<group>"; };
-		2C8D957B1E55677500C90703 /* DecodePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecodePNG.h; path = libModernPNG/include/DecodePNG.h; sourceTree = "<group>"; };
-		2C8D957C1E55677500C90703 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
-		2C8D957D1E55677500C90703 /* EncodePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EncodePNG.h; path = libModernPNG/include/EncodePNG.h; sourceTree = "<group>"; };
-		2C8D95811E55678600C90703 /* DecodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodePNG.c; path = libModernPNG/src/DecodePNG.c; sourceTree = "<group>"; };
-		2C8D95831E55678600C90703 /* EncodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodePNG.c; path = libModernPNG/src/EncodePNG.c; sourceTree = "<group>"; };
+		2C8AADEE1E8430A4007F8867 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
+		2C8AADF01E8430AC007F8867 /* PNGTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTypes.h; path = ../libModernPNG/include/PNGTypes.h; sourceTree = "<group>"; };
+		2C8AADF21E8430D0007F8867 /* EncodePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EncodePNG.h; path = ../libModernPNG/include/Encoder/EncodePNG.h; sourceTree = "<group>"; };
+		2C8AADF41E8430DC007F8867 /* DecodePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecodePNG.h; path = ../libModernPNG/include/Decoder/DecodePNG.h; sourceTree = "<group>"; };
+		2C8AADF61E84310A007F8867 /* DecodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodePNG.c; path = ../libModernPNG/src/Decoder/DecodePNG.c; sourceTree = "<group>"; };
+		2C8AADF81E843110007F8867 /* EncodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodePNG.c; path = ../libModernPNG/src/Encoder/EncodePNG.c; sourceTree = "<group>"; };
 		2C8D95871E55685300C90703 /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
 		2CCB24331E3B9C550057A30C /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCB24481E3B9E660057A30C /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,29 +65,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C85329D1E842E920012919F /* Decode */ = {
+		2C85329D1E842E920012919F /* Decoder */ = {
 			isa = PBXGroup;
 			children = (
-				2C8D957B1E55677500C90703 /* DecodePNG.h */,
+				2C8AADF41E8430DC007F8867 /* DecodePNG.h */,
 			);
-			name = Decode;
+			name = Decoder;
 			sourceTree = "<group>";
 		};
-		2C85329E1E842E9B0012919F /* Encode */ = {
+		2C85329E1E842E9B0012919F /* Encoder */ = {
 			isa = PBXGroup;
 			children = (
-				2C8D957D1E55677500C90703 /* EncodePNG.h */,
+				2C8AADF21E8430D0007F8867 /* EncodePNG.h */,
 			);
-			name = Encode;
+			name = Encoder;
+			sourceTree = "<group>";
+		};
+		2C8AADFA1E843116007F8867 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				2C8AADF61E84310A007F8867 /* DecodePNG.c */,
+			);
+			name = Decoder;
+			sourceTree = "<group>";
+		};
+		2C8AADFB1E84311E007F8867 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				2C8AADF81E843110007F8867 /* EncodePNG.c */,
+			);
+			name = Encoder;
 			sourceTree = "<group>";
 		};
 		2C8D95731E5551FC00C90703 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				2C85329D1E842E920012919F /* Decode */,
-				2C85329E1E842E9B0012919F /* Encode */,
-				2C8D957C1E55677500C90703 /* libModernPNG.h */,
-				2C66D7F81E5585F600881BC4 /* PNGTypes.h */,
+				2C85329D1E842E920012919F /* Decoder */,
+				2C85329E1E842E9B0012919F /* Encoder */,
+				2C8AADEE1E8430A4007F8867 /* libModernPNG.h */,
+				2C8AADF01E8430AC007F8867 /* PNGTypes.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -95,8 +111,8 @@
 		2C8D95741E55520300C90703 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2C8D95811E55678600C90703 /* DecodePNG.c */,
-				2C8D95831E55678600C90703 /* EncodePNG.c */,
+				2C8AADFA1E843116007F8867 /* Decoder */,
+				2C8AADFB1E84311E007F8867 /* Encoder */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,10 +168,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8D957F1E55677500C90703 /* libModernPNG.h in Headers */,
-				2C8D957E1E55677500C90703 /* DecodePNG.h in Headers */,
-				2C66D7F91E5585F600881BC4 /* PNGTypes.h in Headers */,
-				2C8D95801E55677500C90703 /* EncodePNG.h in Headers */,
+				2C8AADF11E8430AC007F8867 /* PNGTypes.h in Headers */,
+				2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */,
+				2C8AADF31E8430D0007F8867 /* EncodePNG.h in Headers */,
+				2C8AADF51E8430DC007F8867 /* DecodePNG.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8D95841E55678600C90703 /* DecodePNG.c in Sources */,
-				2C8D95861E55678600C90703 /* EncodePNG.c in Sources */,
+				2C8AADF71E84310A007F8867 /* DecodePNG.c in Sources */,
+				2C8AADF91E843110007F8867 /* EncodePNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

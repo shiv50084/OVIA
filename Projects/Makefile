@@ -4,7 +4,7 @@ VERSION             := $(shell cat ${FILE} | grep -e "@version")
 CC                  := cc
 DESTINATION         := /usr/local/Packages/$(PACKAGE_NAME)
 BUILD_DIR           := $(CURDIR)/BUILD
-CFLAGS              := -std=c11 -march=native -funroll-loops -lmath `pkg-config --libs libBitIO`
+CFLAGS              := -std=c11 -march=native -funroll-loops -lmath
 LDFLAGS             := -flto=thin
 DEB_ERROR_OPTIONS   := -Wno-unused-parameter -Wno-unused-variable -Wno-int-conversion
 REL_ERROR_OPTIONS   := -Weverything -Wunreachable-code -Wno-conversion -Wno-padded -Wnounused-variable
@@ -27,14 +27,14 @@ CHECK_VERS:
 
 release:
 	mkdir -p   $(BUILD_DIR)/libModernPNG
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/Decoder/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernPNG/src/Encoder/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
 	ar -crsu   $(BUILD_DIR)/libModernPNG/libModernPNG.a $(BUILD_DIR)/libModernPNG/*.o
 	ranlib -sf $(BUILD_DIR)/libModernPNG/libModernPNG.a
 debug:
 	mkdir -p   $(BUILD_DIR)/libModernPNG
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/Decoder/DecodePNG.c -o $(BUILD_DIR)/libModernPNG/DecodePNG.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernPNG/src/Encoder/EncodePNG.c -o $(BUILD_DIR)/libModernPNG/EncodePNG.o
 	ar -crsu   $(BUILD_DIR)/libModernPNG/libModernPNG.a $(BUILD_DIR)/libModernPNG/*.o
 	ranlib -sf $(BUILD_DIR)/libModernPNG/libModernPNG.a
 utility:
