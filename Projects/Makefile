@@ -26,14 +26,14 @@ CheckVer:
 	$(shell echo ${VERSION})
 release:
 	mkdir -p   $(BUILD_DIR)/libModernFLAC
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
-	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/Decoder/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
+	$(CC)      $(REL_FLAGS) -c $(CURDIR)/libModernFLAC/src/Encoder/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
 	ar -crsu   $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(BUILD_DIR)/libModernFLAC/*.o
 	ranlib -sf $(BUILD_DIR)/libModernFLAC/libModernFLAC.a
 debug: 
 	mkdir -p   $(BUILD_DIR)/libModernFLAC
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
-	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/Decoder/DecodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/DecodeFLAC.o
+	$(CC)      $(DEB_FLAGS) -c $(CURDIR)/libModernFLAC/src/Encoder/EncodeFLAC.c -o $(BUILD_DIR)/libModernFLAC/EncodeFLAC.o
 	ar -crsu   $(BUILD_DIR)/libModernFLAC/libModernFLAC.a $(BUILD_DIR)/libModernFLAC/*.o
 	ranlib -sf $(BUILD_DIR)/libModernFLAC/libModernFLAC.a
 utility: $(CURDIR)/ModernFLAC/ModernFLAC.c
