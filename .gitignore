@@ -6,6 +6,7 @@
 # Mac stuff
 *.a
 *.o
+*.plist
 *.xcbkptlist
 *.xcuserstate
 *.xcuserdatad/*
