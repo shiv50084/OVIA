@@ -15,10 +15,31 @@
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2C8AAE101E84398C007F8867 /* FLACTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE0F1E84398C007F8867 /* FLACTypes.h */; };
-		2CF204441E347A5200C086C8 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF204431E347A5200C086C8 /* libBitIO.a */; };
-		2CF204661E3547D200C086C8 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF204641E3545D300C086C8 /* libPCM.a */; };
-		2CF204671E35484700C086C8 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF204641E3545D300C086C8 /* libPCM.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C0FB6771E84537F005DEE50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C419FC71E5B001E00FC804F;
+			remoteInfo = "Test-BitIO";
+		};
+		2C0FB6791E84537F005DEE50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C419FD51E5B00CC00FC804F;
+			remoteInfo = libBitIO;
+		};
+		2C0FB67F1E845396005DEE50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C3065591E809042009F1A54;
+			remoteInfo = libPCM;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2C7D1E021DCB0FF10014CAA2 /* CopyFiles */ = {
@@ -33,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
+		2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
 		2C7D1E041DCB0FF10014CAA2 /* ModernFLAC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernFLAC; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8AADFE1E843640007F8867 /* EncodeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeFLAC.c; path = ../libModernFLAC/src/Encoder/EncodeFLAC.c; sourceTree = "<group>"; };
 		2C8AAE001E843647007F8867 /* DecodeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodeFLAC.c; path = ../libModernFLAC/src/Decoder/DecodeFLAC.c; sourceTree = "<group>"; };
@@ -42,8 +65,6 @@
 		2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLAC.c; path = ../ModernFLAC/ModernFLAC.c; sourceTree = "<group>"; };
 		2C8AAE0F1E84398C007F8867 /* FLACTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLACTypes.h; path = ../libModernFLAC/include/FLACTypes.h; sourceTree = "<group>"; };
 		2CC504AA1E194B58004A3685 /* libModernFLAC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernFLAC.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CF204431E347A5200C086C8 /* libBitIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitIO.a; path = ../../../../../usr/local/Packages/libBitIO/lib/libBitIO.a; sourceTree = "<group>"; };
-		2CF204641E3545D300C086C8 /* libPCM.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPCM.a; path = ../../../../../usr/local/Packages/libPCM/lib/libPCM.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF204671E35484700C086C8 /* libPCM.a in Frameworks */,
 				2C070F451E26D74400EDBA66 /* libModernFLAC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,18 +80,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF204661E3547D200C086C8 /* libPCM.a in Frameworks */,
-				2CF204441E347A5200C086C8 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0FB6711E84535B005DEE50 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */,
+				2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		2C0FB6731E84537E005DEE50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C0FB6781E84537F005DEE50 /* Test-BitIO */,
+				2C0FB67A1E84537F005DEE50 /* libBitIO.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C0FB67C1E845396005DEE50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C0FB6801E845396005DEE50 /* libPCM.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2C7D1DFB1DCB0FF10014CAA2 = {
 			isa = PBXGroup;
 			children = (
-				2C7D1E251DCB109F0014CAA2 /* Frameworks */,
+				2C0FB6711E84535B005DEE50 /* Dependencies */,
 				2C8AAE0C1E8436D0007F8867 /* ModernFLAC */,
 				2C7D1E101DCB10260014CAA2 /* libModernFLAC */,
 				2C7D1E051DCB0FF10014CAA2 /* Products */,
@@ -114,15 +158,6 @@
 				2C8AAE021E84365B007F8867 /* Encoder */,
 			);
 			name = src;
-			sourceTree = "<group>";
-		};
-		2C7D1E251DCB109F0014CAA2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2CF204641E3545D300C086C8 /* libPCM.a */,
-				2CF204431E347A5200C086C8 /* libBitIO.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2C8AADFC1E84360B007F8867 /* Encoder */ = {
@@ -247,6 +282,16 @@
 			mainGroup = 2C7D1DFB1DCB0FF10014CAA2;
 			productRefGroup = 2C7D1E051DCB0FF10014CAA2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2C0FB6731E84537E005DEE50 /* Products */;
+					ProjectRef = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
+				},
+				{
+					ProductGroup = 2C0FB67C1E845396005DEE50 /* Products */;
+					ProjectRef = 2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2C7D1E031DCB0FF10014CAA2 /* ModernFLAC */,
@@ -254,6 +299,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2C0FB6781E84537F005DEE50 /* Test-BitIO */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test-BitIO";
+			remoteRef = 2C0FB6771E84537F005DEE50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2C0FB67A1E84537F005DEE50 /* libBitIO.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBitIO.a;
+			remoteRef = 2C0FB6791E84537F005DEE50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2C0FB6801E845396005DEE50 /* libPCM.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPCM.a;
+			remoteRef = 2C0FB67F1E845396005DEE50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C7D1E001DCB0FF10014CAA2 /* Sources */ = {
@@ -414,7 +483,7 @@
 		2CC504AC1E194B58004A3685 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
@@ -431,7 +500,7 @@
 		2CC504AD1E194B58004A3685 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer: bumblebritches571@gmail.com (JLFPN349F8)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
