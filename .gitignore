@@ -8,7 +8,7 @@
 *.o
 *.xcbkptlist
 *.xcuserstate
-*.xcuserdatad
+*.xcuserdatad/*
 .DS_Store
 ._*
 project.xcworkspace/
