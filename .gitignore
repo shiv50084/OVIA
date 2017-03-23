@@ -12,8 +12,24 @@ desktop.ini
 *.xcbkptlist
 project.xcworkspace/
 xcuserdata/
-LibAVC/include/Common_OLD.h
-xcuserdata/*
-*.xcuserstate
 
-NewPNG.xcodeproj/project.xcworkspace/xcuserdata/Marcus.xcuserdatad/UserInterfaceState.xcuserstate
+# Windows stuff
+.vs/*
+*.pdb
+*.db
+*.obj
+*.dll
+*.lib
+*.exe
+*.tlog
+*.log
+*.pch
+*.opendb
+*.suo
+*.json
+*.sqlite
+*.ipch
+*.idb
+*.ini
+*.db-shm
+*.db-wal
