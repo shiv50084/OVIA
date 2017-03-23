@@ -61,7 +61,7 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, DecodeFLAC *Dec, CommandLin
         snprintf(Error, BitIOStringSize, "Not a FLAC file, magic was: 0x%X\n", FileMagic);
         Log(LOG_ERR, "ModernFLAC", "FLACDecodeFile", Error);
     } else {
-        for (size_t Byte = 4; Byte < BitI->FileSize; Byte++) { // loop to decode file
+        for (size_t Byte = 4; Byte < GetInputFileSize(BitI); Byte++) { // loop to decode file
             while (Dec->LastMetadataBlock == false) {
                 FLACParseMetadata(BitI, Dec);
             }
@@ -72,7 +72,7 @@ void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, DecodeFLAC *Dec, CommandLin
     }
 }
 
-void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, FLACEncoder *Enc, CommandLineOptions *CMD) {
+void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, EncodeFLAC *Enc, CommandLineOptions *CMD) {
     Enc->EncodeSubset = CMD->Switch[4]->SwitchFound;
     Enc->OptimizeFile = CMD->Switch[5]->SwitchFound;
     // Start requesting PCM samples to encode into frames, given all PCM formats are interleaved, you'll need to handle that.
@@ -89,11 +89,11 @@ int main(int argc, const char *argv[]) {
         BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
         PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
         DecodeFLAC        *Dec     = calloc(sizeof(DecodeFLAC), 1);
-        FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
+        EncodeFLAC        *Enc     = calloc(sizeof(EncodeFLAC), 1);
         OpenCMDInputFile(BitI, CMD, 0);
         OpenCMDOutputFile(BitO, CMD, 1);
         InitDecodeFLAC(Dec);
-        InitFLACEncoder(Enc);
+        InitEncodeFLAC(Enc);
         
         bool Decode   = CMD->Switch[2]->SwitchFound;
         bool Encode   = CMD->Switch[3]->SwitchFound;
