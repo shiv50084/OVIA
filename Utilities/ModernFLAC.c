@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 #include "../libModernFLAC/include/Decoder/DecodeFLAC.h"
@@ -51,7 +52,7 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->Switch[6]->Resultless        = true;
 }
 
-void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, FLACDecoder *Dec, CommandLineOptions *CMD) {
+void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, DecodeFLAC *Dec, CommandLineOptions *CMD) {
     uint32_t FileMagic = ReadBits(BitI, 32, true);
     
     if (FileMagic != FLACMagic) {
@@ -87,11 +88,11 @@ int main(int argc, const char *argv[]) {
         BitInput           *BitI    = calloc(sizeof(BitInput), 1);
         BitOutput          *BitO    = calloc(sizeof(BitOutput), 1);
         PCMFile            *PCM     = calloc(sizeof(PCMFile), 1);
-        FLACDecoder        *Dec     = calloc(sizeof(FLACDecoder), 1);
+        DecodeFLAC        *Dec     = calloc(sizeof(DecodeFLAC), 1);
         FLACEncoder        *Enc     = calloc(sizeof(FLACEncoder), 1);
         OpenCMDInputFile(BitI, CMD, 0);
         OpenCMDOutputFile(BitO, CMD, 1);
-        InitFLACDecoder(Dec);
+        InitDecodeFLAC(Dec);
         InitFLACEncoder(Enc);
         
         bool Decode   = CMD->Switch[2]->SwitchFound;
@@ -111,7 +112,7 @@ int main(int argc, const char *argv[]) {
                 }
             }
             // Decode the file.
-            // To decode we'll need to init the FLACDecoder, and output the stuff to wav or w64
+            // To decode we'll need to init the DecodeFLAC, and output the stuff to wav or w64
         } else if (Encode == true) {
             Enc->EncodeSubset = CMD->Switch[5]->SwitchFound;
             Enc->OptimizeFile = CMD->Switch[6]->SwitchFound;
