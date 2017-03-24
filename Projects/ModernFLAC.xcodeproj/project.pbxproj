@@ -15,6 +15,10 @@
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2C8AAE101E84398C007F8867 /* FLACTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE0F1E84398C007F8867 /* FLACTypes.h */; };
+		2CBF56C71E84C4B100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB67A1E84537F005DEE50 /* libBitIO.a */; };
+		2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
+		2CBF56C91E84C4BB00453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB67A1E84537F005DEE50 /* libBitIO.a */; };
+		2CBF56CA1E84C4BB00453C02 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBF56C91E84C4BB00453C02 /* libBitIO.a in Frameworks */,
+				2CBF56CA1E84C4BB00453C02 /* libPCM.a in Frameworks */,
 				2C070F451E26D74400EDBA66 /* libModernFLAC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBF56C71E84C4B100453C02 /* libBitIO.a in Frameworks */,
+				2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +376,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
@@ -421,7 +429,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
@@ -483,6 +491,7 @@
 		2CC504AC1E194B58004A3685 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
@@ -494,12 +503,14 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Dependencies/**";
 			};
 			name = Debug;
 		};
 		2CC504AD1E194B58004A3685 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
@@ -511,6 +522,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Dependencies/**";
 			};
 			name = Release;
 		};
