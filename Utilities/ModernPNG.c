@@ -1,8 +1,8 @@
 #include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
-#include "../libModernPNG/include/DecodePNG.h"
-#include "../libModernPNG/include/EncodePNG.h"
+#include "../libModernPNG/include/Decoder/DecodePNG.h"
+#include "../libModernPNG/include/Encoder/EncodePNG.h"
 
 #ifdef __cplusplus
 extern "C" {
