@@ -19,11 +19,11 @@ extern "C" {
         
         BatchInitCommandLineSwitches(CMD, 6);
         
-        SetSwitchFlag(CMD, 0, "i");
+        SetSwitchFlag(CMD, 0, "I");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
         SetSwitchResultStatus(CMD, 0, false);
         
-        SetSwitchFlag(CMD, 1, "o");
+        SetSwitchFlag(CMD, 1, "O");
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
         SetSwitchResultStatus(CMD, 1, false);
         
@@ -31,11 +31,11 @@ extern "C" {
         SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
         SetSwitchResultStatus(CMD, 2, false);
         
-        SetSwitchFlag(CMD, 3, "d");
+        SetSwitchFlag(CMD, 3, "D");
         SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
         SetSwitchResultStatus(CMD, 3, true);
         
-        SetSwitchFlag(CMD, 4, "e");
+        SetSwitchFlag(CMD, 4, "E");
         SetSwitchDescription(CMD, 4, "Encode input to PNG\n");
         SetSwitchResultStatus(CMD, 4, true);
         
@@ -61,7 +61,7 @@ extern "C" {
                 DecodePNGImage(BitI, Dec, NULL);
             } else if (IsSwitchPresent(CMD, 4) == true) {
                 EncodePNG     *Enc   = InitEncodePNG();
-                EncodePNGImage();
+                //EncodePNGImage();
             }
         }
         return EXIT_SUCCESS;
