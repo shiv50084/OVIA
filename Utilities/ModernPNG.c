@@ -10,7 +10,7 @@ extern "C" {
     
     CommandLineOptions *SetModernPNGOptions(void) {
         CommandLineOptions *CMD           = InitCommandLineOptions();
-        BatchInitCommandLineSwitches(CMD, 6);
+        InitCommandLineSwitches(CMD, 6);
         
         SetCMDName(CMD, "ModernPNG");
         SetCMDDescription(CMD, "PNG encoder/decoder written in modern C, from scratch");
