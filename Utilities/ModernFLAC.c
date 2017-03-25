@@ -10,13 +10,13 @@ void SetModernFLACOptions(CommandLineOptions *CMD) {
     CMD->ProgramDescription           = "FLAC encoder/decoder written in modern C";
     CMD->AuthorCopyrightLicense       = "By BumbleBritches57, © 2017, Released under the BSD 3-clause license";
     
-    CLSwitch *Switch0                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch1                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch2                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch3                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch4                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch5                 = calloc(sizeof(CLSwitch), 1);
-    CLSwitch *Switch6                 = calloc(sizeof(CLSwitch), 1);
+    CLSwitch *Switch0                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch1                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch2                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch3                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch4                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch5                 = calloc(1, sizeof(CLSwitch));
+    CLSwitch *Switch6                 = calloc(1, sizeof(CLSwitch));
     CMD->Switch[0]                    = Switch0;
     CMD->Switch[1]                    = Switch1;
     CMD->Switch[2]                    = Switch2;
@@ -79,7 +79,7 @@ void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, EncodeFLAC *Enc, CommandLin
 }
 
 int main(int argc, const char *argv[]) {
-    CommandLineOptions     *CMD     = calloc(sizeof(CommandLineOptions), 1);
+    CommandLineOptions     *CMD     = calloc(1, sizeof(CommandLineOptions));
     SetModernFLACOptions(CMD);
     if (argc < 5) {
         DisplayCMDHelp(CMD);
