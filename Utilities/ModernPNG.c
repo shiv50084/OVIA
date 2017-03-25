@@ -10,14 +10,13 @@ extern "C" {
     
     CommandLineOptions *SetModernPNGOptions(void) {
         CommandLineOptions *CMD           = InitCommandLineOptions();
+        BatchInitCommandLineSwitches(CMD, 6);
         
         SetCMDName(CMD, "ModernPNG");
         SetCMDDescription(CMD, "PNG encoder/decoder written in modern C, from scratch");
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
-        
-        BatchInitCommandLineSwitches(CMD, 6);
         
         SetSwitchFlag(CMD, 0, "I");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
