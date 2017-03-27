@@ -15,27 +15,10 @@
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2C8AAE101E84398C007F8867 /* FLACTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE0F1E84398C007F8867 /* FLACTypes.h */; };
-		2CBF56C71E84C4B100453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB67A1E84537F005DEE50 /* libBitIO.a */; };
 		2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
-		2CBF56C91E84C4BB00453C02 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB67A1E84537F005DEE50 /* libBitIO.a */; };
-		2CBF56CA1E84C4BB00453C02 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C0FB6771E84537F005DEE50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2C419FC71E5B001E00FC804F;
-			remoteInfo = "Test-BitIO";
-		};
-		2C0FB6791E84537F005DEE50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2C419FD51E5B00CC00FC804F;
-			remoteInfo = libBitIO;
-		};
 		2C0FB67F1E845396005DEE50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */;
@@ -58,7 +41,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
 		2C7D1E041DCB0FF10014CAA2 /* ModernFLAC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernFLAC; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8AADFE1E843640007F8867 /* EncodeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeFLAC.c; path = ../libModernFLAC/src/Encoder/EncodeFLAC.c; sourceTree = "<group>"; };
@@ -76,8 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CBF56C91E84C4BB00453C02 /* libBitIO.a in Frameworks */,
-				2CBF56CA1E84C4BB00453C02 /* libPCM.a in Frameworks */,
 				2C070F451E26D74400EDBA66 /* libModernFLAC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CBF56C71E84C4B100453C02 /* libBitIO.a in Frameworks */,
 				2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,18 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */,
-				2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */,
 			);
 			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		2C0FB6731E84537E005DEE50 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2C0FB6781E84537F005DEE50 /* Test-BitIO */,
-				2C0FB67A1E84537F005DEE50 /* libBitIO.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2C0FB67C1E845396005DEE50 /* Products */ = {
@@ -292,10 +261,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2C0FB6731E84537E005DEE50 /* Products */;
-					ProjectRef = 2C0FB6721E84537E005DEE50 /* BitIO.xcodeproj */;
-				},
-				{
 					ProductGroup = 2C0FB67C1E845396005DEE50 /* Products */;
 					ProjectRef = 2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */;
 				},
@@ -309,20 +274,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C0FB6781E84537F005DEE50 /* Test-BitIO */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test-BitIO";
-			remoteRef = 2C0FB6771E84537F005DEE50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2C0FB67A1E84537F005DEE50 /* libBitIO.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libBitIO.a;
-			remoteRef = 2C0FB6791E84537F005DEE50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		2C0FB6801E845396005DEE50 /* libPCM.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
