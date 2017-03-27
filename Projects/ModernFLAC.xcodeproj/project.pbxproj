@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C070F451E26D74400EDBA66 /* libModernFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC504AA1E194B58004A3685 /* libModernFLAC.a */; };
 		2C8AADFF1E843640007F8867 /* EncodeFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AADFE1E843640007F8867 /* EncodeFLAC.c */; };
 		2C8AAE011E843647007F8867 /* DecodeFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE001E843647007F8867 /* DecodeFLAC.c */; };
 		2C8AAE051E843695007F8867 /* DecodeFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE041E843695007F8867 /* DecodeFLAC.h */; };
@@ -15,7 +14,8 @@
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2C8AAE101E84398C007F8867 /* FLACTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE0F1E84398C007F8867 /* FLACTypes.h */; };
-		2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
+		2CED19621E89711100204FC6 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
+		2CED19631E89711900204FC6 /* libModernFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC504AA1E194B58004A3685 /* libModernFLAC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C070F451E26D74400EDBA66 /* libModernFLAC.a in Frameworks */,
+				2CED19631E89711900204FC6 /* libModernFLAC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CBF56C81E84C4B100453C02 /* libPCM.a in Frameworks */,
+				2CED19621E89711100204FC6 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

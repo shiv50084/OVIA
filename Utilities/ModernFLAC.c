@@ -17,28 +17,30 @@ extern "C" {
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017-2017");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
-        
-        SetSwitchFlag(CMD, 0, "I");
+        SetCMDMinSwitches(CMD, 3);
+        /*
+        SetSwitchFlag(CMD, 0, "Input");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'");
         SetSwitchResultStatus(CMD, 0, false);
+         */
         
-        SetSwitchFlag(CMD, 1, "O");
+        SetSwitchFlag(CMD, 1, "Output");
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'");
         SetSwitchResultStatus(CMD, 1, false);
         
-        SetSwitchFlag(CMD, 2, "D");
+        SetSwitchFlag(CMD, 2, "Decode");
         SetSwitchDescription(CMD, 2, "Decode input FLAC to output");
         SetSwitchResultStatus(CMD, 2, true);
         
-        SetSwitchFlag(CMD, 3, "E");
+        SetSwitchFlag(CMD, 3, "Encode");
         SetSwitchFlag(CMD, 3, "Encode input to output FLAC");
         SetSwitchResultStatus(CMD, 3, true);
         
-        SetSwitchFlag(CMD, 4, "R");
+        SetSwitchFlag(CMD, 4, "Reencode");
         SetSwitchDescription(CMD, 4, "Reencodes the input flac with -O");
         SetSwitchResultStatus(CMD, 4, true);
         
-        SetSwitchFlag(CMD, 5, "S");
+        SetSwitchFlag(CMD, 5, "Subset");
         SetSwitchDescription(CMD, 5, "Limit encoding to subset format");
         SetSwitchResultStatus(CMD, 5, true);
         
@@ -77,47 +79,44 @@ extern "C" {
     
     int main(int argc, const char *argv[]) {
         CommandLineOptions *CMD = SetModernFLACOptions();
-        if (argc < 5) {
-            DisplayCMDHelp(CMD);
-        } else {
-            ParseCommandLineArguments(CMD, argc, argv);
-            BitInput           *BitI    = InitBitInput();
-            BitOutput          *BitO    = InitBitOutput();
-            PCMFile            *PCM     = InitPCMFile();
-            DecodeFLAC         *Dec     = InitDecodeFLAC();
-            EncodeFLAC         *Enc     = InitEncodeFLAC();
-            OpenCMDInputFile(BitI, CMD, 0);
-            OpenCMDOutputFile(BitO, CMD, 1);
-            
-            bool Decode   = IsSwitchPresent(CMD, 2);
-            bool Encode   = IsSwitchPresent(CMD, 3);
-            bool Reencode = IsSwitchPresent(CMD, 4);
-            bool Subset   = IsSwitchPresent(CMD, 5);
-            
-            // Find out if -d or -e was included on the command line
-            if (Decode == true || Reencode == true) {
-                if (ReadBits(BitI, 32, true) == FLACMagic) {
-                    for (uint8_t Byte = 0; Byte < GetInputFileSize(BitI); Byte++) {
-                        if (PeekBits(BitI, 14, true) == FLACFrameMagic) {
-                            FLACReadFrame(BitI, Dec);
-                        } else {
-                            FLACParseMetadata(BitI, Dec);
-                        }
+        
+        ParseCommandLineArguments(CMD, argc, argv);
+        BitInput           *BitI    = InitBitInput();
+        BitOutput          *BitO    = InitBitOutput();
+        PCMFile            *PCM     = InitPCMFile();
+        DecodeFLAC         *Dec     = InitDecodeFLAC();
+        EncodeFLAC         *Enc     = InitEncodeFLAC();
+        OpenCMDInputFile(BitI, CMD, 0);
+        OpenCMDOutputFile(BitO, CMD, 1);
+        
+        bool Decode   = IsSwitchPresent(CMD, 2);
+        bool Encode   = IsSwitchPresent(CMD, 3);
+        bool Reencode = IsSwitchPresent(CMD, 4);
+        bool Subset   = IsSwitchPresent(CMD, 5);
+        
+        // Find out if -d or -e was included on the command line
+        if (Decode == true || Reencode == true) {
+            if (ReadBits(BitI, 32, true) == FLACMagic) {
+                for (uint8_t Byte = 0; Byte < GetInputFileSize(BitI); Byte++) {
+                    if (PeekBits(BitI, 14, true) == FLACFrameMagic) {
+                        FLACReadFrame(BitI, Dec);
+                    } else {
+                        FLACParseMetadata(BitI, Dec);
                     }
                 }
-                // Decode the file.
-                // To decode we'll need to init the DecodeFLAC, and output the stuff to wav or w64
-            } else if (Encode == true) {
-                Enc->EncodeSubset = IsSwitchPresent(CMD, 5);
-                Enc->OptimizeFile = IsSwitchPresent(CMD, 6);
-                IdentifyPCMFile(BitI, PCM);
-                EncodeFLACFile(PCM, BitO, Enc);
-                
-                // Encode the file to FLAC
-                // ParseWAV and encode FLAC
-            } else {
-                // Reencode the input
             }
+            // Decode the file.
+            // To decode we'll need to init the DecodeFLAC, and output the stuff to wav or w64
+        } else if (Encode == true) {
+            Enc->EncodeSubset = IsSwitchPresent(CMD, 5);
+            Enc->OptimizeFile = IsSwitchPresent(CMD, 6);
+            IdentifyPCMFile(BitI, PCM);
+            EncodeFLACFile(PCM, BitO, Enc);
+            
+            // Encode the file to FLAC
+            // ParseWAV and encode FLAC
+        } else {
+            // Reencode the input
         }
         
         return EXIT_SUCCESS;
