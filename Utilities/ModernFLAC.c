@@ -77,6 +77,15 @@ extern "C" {
         // Start requesting PCM samples to encode into frames, given all PCM formats are interleaved, you'll need to handle that.
     }
     
+    void CloseEverything(BitInput *BitI, BitOutput *BitO, PCMFile *PCM, CommandLineOptions *CMD, DecodeFLAC *Dec, EncodeFLAC *Enc) {
+        CloseBitInput(BitI);
+        CloseBitOutput(BitO);
+        ClosePCMFile(PCM);
+        CloseCommandLineOptions(CMD);
+        CloseFLACDecoder(Dec);
+        CloseFLACEncoder(Enc);
+    }
+    
     int main(int argc, const char *argv[]) {
         CommandLineOptions *CMD = SetModernFLACOptions();
         
@@ -118,6 +127,8 @@ extern "C" {
         } else {
             // Reencode the input
         }
+        
+        CloseEverything(BitI, BitO, PCM, CMD, Dec, Enc);
         
         return EXIT_SUCCESS;
     }
