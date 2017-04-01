@@ -46,22 +46,18 @@ extern "C" {
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineOptions *CMD = SetModernPNGOptions();
-        if (argc < 5) {
-            DisplayCMDHelp(CMD);
-        } else {
-            ParseCommandLineArguments(CMD, argc, argv);
-            BitInput           *BitI =  InitBitInput();
-            BitOutput          *BitO = InitBitOutput();
-            if        (IsSwitchPresent(CMD, 2) == true) {
-                // Split string into resolution.
-            } else if (IsSwitchPresent(CMD, 3) == true) {
-                DecodePNG     *Dec   = InitDecodePNG();
-                DecodePNGImage(BitI, Dec, NULL);
-            } else if (IsSwitchPresent(CMD, 4) == true) {
-                EncodePNG     *Enc   = InitEncodePNG();
-                //EncodePNGImage();
-            }
+        CommandLineOptions *CMD  = SetModernPNGOptions();
+        ParseCommandLineArguments(CMD, argc, argv);
+        BitInput           *BitI =  InitBitInput();
+        BitOutput          *BitO = InitBitOutput();
+        if        (IsSwitchPresent(CMD, 2) == true) {
+            // Split string into resolution.
+        } else if (IsSwitchPresent(CMD, 3) == true) {
+            DecodePNG     *Dec   = InitDecodePNG();
+            PNGDecodeImage(BitI, Dec, NULL);
+        } else if (IsSwitchPresent(CMD, 4) == true) {
+            EncodePNG     *Enc   = InitEncodePNG();
+            PNGEncodeImage(Enc, BitO);
         }
         return EXIT_SUCCESS;
     }
