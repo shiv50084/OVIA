@@ -12,17 +12,20 @@ extern "C" {
         CommandLineOptions *CMD           = InitCommandLineOptions();
         InitCommandLineSwitches(CMD, 6);
         
+        // test the logger
+        //Log(LOG_ERR, "libBitIO", "SetSwitchResultStatus", "SwitchNum: %d, should be between 0 and %d\n", 0, 43);
+        
         SetCMDName(CMD, "ModernPNG");
         SetCMDDescription(CMD, "PNG encoder/decoder written in modern C, from scratch");
         SetCMDAuthor(CMD, "BumbleBritches57");
-        SetCMDCopyright(CMD, "2017");
+        SetCMDCopyright(CMD, "2017-2017");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
         
-        SetSwitchFlag(CMD, 0, "I");
+        SetSwitchFlag(CMD, 0, "Input");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
         SetSwitchResultStatus(CMD, 0, false);
         
-        SetSwitchFlag(CMD, 1, "O");
+        SetSwitchFlag(CMD, 1, "Output");
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
         SetSwitchResultStatus(CMD, 1, false);
         
@@ -30,11 +33,11 @@ extern "C" {
         SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
         SetSwitchResultStatus(CMD, 2, false);
         
-        SetSwitchFlag(CMD, 3, "D");
+        SetSwitchFlag(CMD, 3, "Decode");
         SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
         SetSwitchResultStatus(CMD, 3, true);
         
-        SetSwitchFlag(CMD, 4, "E");
+        SetSwitchFlag(CMD, 4, "Encode");
         SetSwitchDescription(CMD, 4, "Encode input to PNG\n");
         SetSwitchResultStatus(CMD, 4, true);
         
@@ -47,9 +50,10 @@ extern "C" {
     
     int main(int argc, const char * argv[]) {
         CommandLineOptions *CMD  = SetModernPNGOptions();
-        ParseCommandLineArguments(CMD, argc, argv);
         BitInput           *BitI =  InitBitInput();
         BitOutput          *BitO = InitBitOutput();
+        
+        ParseCommandLineArguments(CMD, argc, argv);
         if        (IsSwitchPresent(CMD, 2) == true) {
             // Split string into resolution.
         } else if (IsSwitchPresent(CMD, 3) == true) {
