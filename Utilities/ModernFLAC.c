@@ -18,11 +18,10 @@ extern "C" {
         SetCMDCopyright(CMD, "2017-2017");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
         SetCMDMinSwitches(CMD, 3);
-        /*
+        
         SetSwitchFlag(CMD, 0, "Input");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'");
         SetSwitchResultStatus(CMD, 0, false);
-         */
         
         SetSwitchFlag(CMD, 1, "Output");
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'");

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C41829E1E909BD000771EC6 /* FLACTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C41829D1E909BD000771EC6 /* FLACTypes.c */; };
+		2C4182A11E909D4600771EC6 /* ParseFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182A01E909D4600771EC6 /* ParseFLAC.c */; };
+		2C4182A31E909E5B00771EC6 /* ParseFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4182A21E909E5B00771EC6 /* ParseFLAC.h */; };
+		2C4182A51E90A15C00771EC6 /* ComposeFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182A41E90A15C00771EC6 /* ComposeFLAC.c */; };
+		2C4182A71E91280B00771EC6 /* ComposeFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4182A61E91280B00771EC6 /* ComposeFLAC.h */; };
 		2C4C46171E8AF57C00C24F4C /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
 		2C8AADFF1E843640007F8867 /* EncodeFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AADFE1E843640007F8867 /* EncodeFLAC.c */; };
 		2C8AAE011E843647007F8867 /* DecodeFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE001E843647007F8867 /* DecodeFLAC.c */; };
@@ -42,6 +47,11 @@
 
 /* Begin PBXFileReference section */
 		2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
+		2C41829D1E909BD000771EC6 /* FLACTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = FLACTypes.c; path = ../libModernFLAC/src/FLACTypes.c; sourceTree = "<group>"; };
+		2C4182A01E909D4600771EC6 /* ParseFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ParseFLAC.c; path = ../libModernFLAC/src/Decoder/ParseFLAC.c; sourceTree = "<group>"; };
+		2C4182A21E909E5B00771EC6 /* ParseFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseFLAC.h; path = ../libModernFLAC/include/Decoder/ParseFLAC.h; sourceTree = "<group>"; };
+		2C4182A41E90A15C00771EC6 /* ComposeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ComposeFLAC.c; path = ../libModernFLAC/src/Encoder/ComposeFLAC.c; sourceTree = "<group>"; };
+		2C4182A61E91280B00771EC6 /* ComposeFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComposeFLAC.h; path = ../libModernFLAC/include/Encoder/ComposeFLAC.h; sourceTree = "<group>"; };
 		2C7D1E041DCB0FF10014CAA2 /* ModernFLAC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernFLAC; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8AADFE1E843640007F8867 /* EncodeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeFLAC.c; path = ../libModernFLAC/src/Encoder/EncodeFLAC.c; sourceTree = "<group>"; };
 		2C8AAE001E843647007F8867 /* DecodeFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodeFLAC.c; path = ../libModernFLAC/src/Decoder/DecodeFLAC.c; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 		2C7D1E121DCB10360014CAA2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2C41829D1E909BD000771EC6 /* FLACTypes.c */,
 				2C8AAE031E843663007F8867 /* Decoder */,
 				2C8AAE021E84365B007F8867 /* Encoder */,
 			);
@@ -141,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8AAE061E84369A007F8867 /* EncodeFLAC.h */,
+				2C4182A61E91280B00771EC6 /* ComposeFLAC.h */,
 			);
 			name = Encoder;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8AAE041E843695007F8867 /* DecodeFLAC.h */,
+				2C4182A21E909E5B00771EC6 /* ParseFLAC.h */,
 			);
 			name = Decoder;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8AADFE1E843640007F8867 /* EncodeFLAC.c */,
+				2C4182A41E90A15C00771EC6 /* ComposeFLAC.c */,
 			);
 			name = Encoder;
 			sourceTree = "<group>";
@@ -165,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8AAE001E843647007F8867 /* DecodeFLAC.c */,
+				2C4182A01E909D4600771EC6 /* ParseFLAC.c */,
 			);
 			name = Decoder;
 			sourceTree = "<group>";
@@ -184,6 +199,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4182A31E909E5B00771EC6 /* ParseFLAC.h in Headers */,
+				2C4182A71E91280B00771EC6 /* ComposeFLAC.h in Headers */,
 				2C8AAE101E84398C007F8867 /* FLACTypes.h in Headers */,
 				2C8AAE071E84369A007F8867 /* EncodeFLAC.h in Headers */,
 				2C8AAE051E843695007F8867 /* DecodeFLAC.h in Headers */,
@@ -297,6 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8AADFF1E843640007F8867 /* EncodeFLAC.c in Sources */,
+				2C4182A11E909D4600771EC6 /* ParseFLAC.c in Sources */,
+				2C41829E1E909BD000771EC6 /* FLACTypes.c in Sources */,
+				2C4182A51E90A15C00771EC6 /* ComposeFLAC.c in Sources */,
 				2C8AAE011E843647007F8867 /* DecodeFLAC.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
