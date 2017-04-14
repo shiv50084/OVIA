@@ -9,7 +9,7 @@ extern "C" {
 #endif
     
     CommandLineOptions *SetModernPNGOptions(void) {
-        CommandLineOptions *CMD           = InitCommandLineOptions();
+        CommandLineOptions     *CMD = InitCommandLineOptions();
         InitCommandLineSwitches(CMD, 6);
         
         // test the logger
@@ -20,6 +20,7 @@ extern "C" {
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017-2017");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
+        SetCMDMinSwitches(CMD, 3);
         
         SetSwitchFlag(CMD, 0, "Input");
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
@@ -50,16 +51,16 @@ extern "C" {
     
     int main(int argc, const char * argv[]) {
         CommandLineOptions *CMD  = SetModernPNGOptions();
-        BitInput           *BitI =  InitBitInput();
+        BitInput           *BitI = InitBitInput();
         BitOutput          *BitO = InitBitOutput();
         
         ParseCommandLineArguments(CMD, argc, argv);
-        if        (IsSwitchPresent(CMD, 2) == true) {
+        if        (GetSwitchPresence(CMD, 2) == true) {
             // Split string into resolution.
-        } else if (IsSwitchPresent(CMD, 3) == true) {
+        } else if (GetSwitchPresence(CMD, 3) == true) {
             DecodePNG     *Dec   = InitDecodePNG();
             PNGDecodeImage(BitI, Dec, NULL);
-        } else if (IsSwitchPresent(CMD, 4) == true) {
+        } else if (GetSwitchPresence(CMD, 4) == true) {
             EncodePNG     *Enc   = InitEncodePNG();
             PNGEncodeImage(Enc, BitO);
         }
