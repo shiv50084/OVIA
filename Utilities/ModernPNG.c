@@ -22,27 +22,27 @@ extern "C" {
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
         SetCMDMinSwitches(CMD, 3);
         
-        SetSwitchFlag(CMD, 0, "Input");
+        SetSwitchFlag(CMD, 0, "Input", 6);
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
         SetSwitchResultStatus(CMD, 0, false);
         
-        SetSwitchFlag(CMD, 1, "Output");
+        SetSwitchFlag(CMD, 1, "Output", 7);
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
         SetSwitchResultStatus(CMD, 1, false);
         
-        SetSwitchFlag(CMD, 2, "Res");
+        SetSwitchFlag(CMD, 2, "Res", 4);
         SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
         SetSwitchResultStatus(CMD, 2, false);
         
-        SetSwitchFlag(CMD, 3, "Decode");
+        SetSwitchFlag(CMD, 3, "Decode", 7);
         SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
         SetSwitchResultStatus(CMD, 3, true);
         
-        SetSwitchFlag(CMD, 4, "Encode");
+        SetSwitchFlag(CMD, 4, "Encode", 7);
         SetSwitchDescription(CMD, 4, "Encode input to PNG\n");
         SetSwitchResultStatus(CMD, 4, true);
         
-        SetSwitchFlag(CMD, 5, "Optimize");
+        SetSwitchFlag(CMD, 5, "Optimize", 9); // Should quotes be included with the string in strlen?
         SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)\n");
         SetSwitchResultStatus(CMD, 5, true);
         
@@ -53,6 +53,10 @@ extern "C" {
         CommandLineOptions *CMD  = SetModernPNGOptions();
         BitInput           *BitI = InitBitInput();
         BitOutput          *BitO = InitBitOutput();
+        
+        BitBuffer          *InputBitB = InitBitBuffer(GetBitInputFileSize(BitI));
+        
+        // We should add a function to BitIO that can tell us if an input command is a network address or a file.
         
         ParseCommandLineArguments(CMD, argc, argv);
         if        (GetSwitchPresence(CMD, 2) == true) {

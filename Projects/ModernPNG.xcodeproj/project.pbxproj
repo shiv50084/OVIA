@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		2C03FC621E84C82C0075BA8C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03FC611E84C8150075BA8C /* libBitIO.a */; };
 		2C03FC641E84C8500075BA8C /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C03FC631E84C8500075BA8C /* ModernPNG.c */; };
-		2C4182921E9041AC00771EC6 /* WriteChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182911E9041AC00771EC6 /* WriteChunks.c */; };
+		2C4182921E9041AC00771EC6 /* WritePNGChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182911E9041AC00771EC6 /* WritePNGChunks.c */; };
 		2C4182941E90429500771EC6 /* PNGTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182931E90429500771EC6 /* PNGTypes.c */; };
-		2C4182961E90434100771EC6 /* ReadChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182951E90434100771EC6 /* ReadChunks.c */; };
+		2C4182961E90434100771EC6 /* ReadPNGChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182951E90434100771EC6 /* ReadPNGChunks.c */; };
 		2C4182981E90449900771EC6 /* ReadChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4182971E90449900771EC6 /* ReadChunks.h */; };
+		2C4237141EA1E47E00ECEE34 /* Shared.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4237131EA1E47E00ECEE34 /* Shared.c */; };
+		2C4237181EA1E4C100ECEE34 /* Shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237171EA1E4C100ECEE34 /* Shared.h */; };
+		2C42371A1EA1E5C700ECEE34 /* PNGTables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237191EA1E5C700ECEE34 /* PNGTables.h */; };
 		2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADEE1E8430A4007F8867 /* libModernPNG.h */; };
 		2C8AADF11E8430AC007F8867 /* PNGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF01E8430AC007F8867 /* PNGTypes.h */; };
 		2C8AADF31E8430D0007F8867 /* EncodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF21E8430D0007F8867 /* EncodePNG.h */; };
@@ -54,10 +57,13 @@
 /* Begin PBXFileReference section */
 		2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C03FC631E84C8500075BA8C /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
-		2C4182911E9041AC00771EC6 /* WriteChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WriteChunks.c; path = ../libModernPNG/src/Encoder/WriteChunks.c; sourceTree = "<group>"; };
+		2C4182911E9041AC00771EC6 /* WritePNGChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WritePNGChunks.c; path = ../libModernPNG/src/Encoder/WritePNGChunks.c; sourceTree = "<group>"; };
 		2C4182931E90429500771EC6 /* PNGTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PNGTypes.c; path = ../libModernPNG/src/PNGTypes.c; sourceTree = "<group>"; };
-		2C4182951E90434100771EC6 /* ReadChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ReadChunks.c; path = ../libModernPNG/src/Decoder/ReadChunks.c; sourceTree = "<group>"; };
+		2C4182951E90434100771EC6 /* ReadPNGChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ReadPNGChunks.c; path = ../libModernPNG/src/Decoder/ReadPNGChunks.c; sourceTree = "<group>"; };
 		2C4182971E90449900771EC6 /* ReadChunks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadChunks.h; path = ../libModernPNG/include/Decoder/ReadChunks.h; sourceTree = "<group>"; };
+		2C4237131EA1E47E00ECEE34 /* Shared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Shared.c; path = ../libModernPNG/src/Shared.c; sourceTree = "<group>"; };
+		2C4237171EA1E4C100ECEE34 /* Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shared.h; path = ../libModernPNG/include/Shared.h; sourceTree = "<group>"; };
+		2C4237191EA1E5C700ECEE34 /* PNGTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTables.h; path = ../libModernPNG/include/PNGTables.h; sourceTree = "<group>"; };
 		2C8AADEE1E8430A4007F8867 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
 		2C8AADF01E8430AC007F8867 /* PNGTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTypes.h; path = ../libModernPNG/include/PNGTypes.h; sourceTree = "<group>"; };
 		2C8AADF21E8430D0007F8867 /* EncodePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EncodePNG.h; path = ../libModernPNG/include/Encoder/EncodePNG.h; sourceTree = "<group>"; };
@@ -105,39 +111,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C85329D1E842E920012919F /* Decoder */ = {
+		2C85329D1E842E920012919F /* Decode */ = {
 			isa = PBXGroup;
 			children = (
 				2C8AADF41E8430DC007F8867 /* DecodePNG.h */,
 				2C4182971E90449900771EC6 /* ReadChunks.h */,
 			);
-			name = Decoder;
+			name = Decode;
 			sourceTree = "<group>";
 		};
-		2C85329E1E842E9B0012919F /* Encoder */ = {
+		2C85329E1E842E9B0012919F /* Encode */ = {
 			isa = PBXGroup;
 			children = (
 				2C8AADF21E8430D0007F8867 /* EncodePNG.h */,
 			);
-			name = Encoder;
+			name = Encode;
 			sourceTree = "<group>";
 		};
-		2C8AADFA1E843116007F8867 /* Decoder */ = {
+		2C8AADFA1E843116007F8867 /* Decode */ = {
 			isa = PBXGroup;
 			children = (
-				2C4182951E90434100771EC6 /* ReadChunks.c */,
+				2C4182951E90434100771EC6 /* ReadPNGChunks.c */,
 				2C8AADF61E84310A007F8867 /* DecodePNG.c */,
 			);
-			name = Decoder;
+			name = Decode;
 			sourceTree = "<group>";
 		};
-		2C8AADFB1E84311E007F8867 /* Encoder */ = {
+		2C8AADFB1E84311E007F8867 /* Encode */ = {
 			isa = PBXGroup;
 			children = (
-				2C4182911E9041AC00771EC6 /* WriteChunks.c */,
+				2C4182911E9041AC00771EC6 /* WritePNGChunks.c */,
 				2C8AADF81E843110007F8867 /* EncodePNG.c */,
 			);
-			name = Encoder;
+			name = Encode;
 			sourceTree = "<group>";
 		};
 		2C8D95731E5551FC00C90703 /* Headers */ = {
@@ -145,8 +151,10 @@
 			children = (
 				2C8AADEE1E8430A4007F8867 /* libModernPNG.h */,
 				2C8AADF01E8430AC007F8867 /* PNGTypes.h */,
-				2C85329D1E842E920012919F /* Decoder */,
-				2C85329E1E842E9B0012919F /* Encoder */,
+				2C4237171EA1E4C100ECEE34 /* Shared.h */,
+				2C4237191EA1E5C700ECEE34 /* PNGTables.h */,
+				2C85329E1E842E9B0012919F /* Encode */,
+				2C85329D1E842E920012919F /* Decode */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -155,8 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				2C4182931E90429500771EC6 /* PNGTypes.c */,
-				2C8AADFA1E843116007F8867 /* Decoder */,
-				2C8AADFB1E84311E007F8867 /* Encoder */,
+				2C4237131EA1E47E00ECEE34 /* Shared.c */,
+				2C8AADFB1E84311E007F8867 /* Encode */,
+				2C8AADFA1E843116007F8867 /* Decode */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -205,10 +214,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4182981E90449900771EC6 /* ReadChunks.h in Headers */,
+				2C42371A1EA1E5C700ECEE34 /* PNGTables.h in Headers */,
 				2C8AADF11E8430AC007F8867 /* PNGTypes.h in Headers */,
 				2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */,
 				2C8AADF31E8430D0007F8867 /* EncodePNG.h in Headers */,
 				2C8AADF51E8430DC007F8867 /* DecodePNG.h in Headers */,
+				2C4237181EA1E4C100ECEE34 /* Shared.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C4182961E90434100771EC6 /* ReadChunks.c in Sources */,
+				2C4182961E90434100771EC6 /* ReadPNGChunks.c in Sources */,
 				2C8AADF71E84310A007F8867 /* DecodePNG.c in Sources */,
 				2C4182941E90429500771EC6 /* PNGTypes.c in Sources */,
 				2C8AADF91E843110007F8867 /* EncodePNG.c in Sources */,
-				2C4182921E9041AC00771EC6 /* WriteChunks.c in Sources */,
+				2C4237141EA1E47E00ECEE34 /* Shared.c in Sources */,
+				2C4182921E9041AC00771EC6 /* WritePNGChunks.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +492,7 @@
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -491,6 +504,7 @@
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
