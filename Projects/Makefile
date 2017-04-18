@@ -14,6 +14,10 @@ REL_FLAGS           := $(CFLAGS) -openmp=libomp -ofast $(REL_ERROR_OPTIONS) $(LD
 
 .PHONY: all distclean CheckVer release debug utility install clean uninstall
 
+// Ok, so first we need to CD into BitIO, and compile libBitIO, then cd up to libPCM, compile and link that with BitIO, then compile and link libModernFLAC with libPCM, THEN compile the ModernFLAC utility.
+// Actually, we need to set up libPCM to compile libBitIO on it's own anyway.
+// Also, we need to set up our variables here.
+
 all: release
 	$(release)
 	$(utility)
