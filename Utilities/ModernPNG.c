@@ -4,6 +4,8 @@
 #include "../libModernPNG/include/Decode/DecodePNG.h"
 #include "../libModernPNG/include/Encode/EncodePNG.h"
 
+#define ModernFLACVersion "0.1.0"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -16,10 +18,12 @@ extern "C" {
         //Log(LOG_ERR, "libBitIO", "SetSwitchResultStatus", "SwitchNum: %d, should be between 0 and %d\n", 0, 43);
         
         SetCMDName(CMD, "ModernPNG");
-        SetCMDDescription(CMD, "PNG encoder/decoder written in modern C, from scratch");
+        SetCMDVersion(CMD, ModernFLACVersion);
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017-2017");
+        SetCMDDescription(CMD, "PNG encoder/decoder written from scratch in modern C");
         SetCMDLicense(CMD, "Revised BSD (3 clause)");
+        SetCMDLicenseURL(CMD, "https://opensource.org/licenses/BSD-3-Clause");
         SetCMDMinSwitches(CMD, 3);
         
         SetSwitchFlag(CMD, 0, "Input", 6);

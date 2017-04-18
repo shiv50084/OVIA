@@ -10,8 +10,8 @@
 		2C03FC621E84C82C0075BA8C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03FC611E84C8150075BA8C /* libBitIO.a */; };
 		2C03FC641E84C8500075BA8C /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C03FC631E84C8500075BA8C /* ModernPNG.c */; };
 		2C4182941E90429500771EC6 /* PNGTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182931E90429500771EC6 /* PNGTypes.c */; };
-		2C4237141EA1E47E00ECEE34 /* Shared.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4237131EA1E47E00ECEE34 /* Shared.c */; };
-		2C4237181EA1E4C100ECEE34 /* Shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237171EA1E4C100ECEE34 /* Shared.h */; };
+		2C4237141EA1E47E00ECEE34 /* PNGShared.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4237131EA1E47E00ECEE34 /* PNGShared.c */; };
+		2C4237181EA1E4C100ECEE34 /* PNGShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237171EA1E4C100ECEE34 /* PNGShared.h */; };
 		2C42371A1EA1E5C700ECEE34 /* PNGTables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237191EA1E5C700ECEE34 /* PNGTables.h */; };
 		2C52D1A31EA4A664006C1BF5 /* EncodePNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C52D1A11EA4A664006C1BF5 /* EncodePNG.c */; };
 		2C52D1A41EA4A664006C1BF5 /* WritePNGChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C52D1A21EA4A664006C1BF5 /* WritePNGChunks.c */; };
@@ -58,8 +58,8 @@
 		2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C03FC631E84C8500075BA8C /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
 		2C4182931E90429500771EC6 /* PNGTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PNGTypes.c; path = ../libModernPNG/src/PNGTypes.c; sourceTree = "<group>"; };
-		2C4237131EA1E47E00ECEE34 /* Shared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Shared.c; path = ../libModernPNG/src/Shared.c; sourceTree = "<group>"; };
-		2C4237171EA1E4C100ECEE34 /* Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shared.h; path = ../libModernPNG/include/Shared.h; sourceTree = "<group>"; };
+		2C4237131EA1E47E00ECEE34 /* PNGShared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PNGShared.c; path = ../libModernPNG/src/PNGShared.c; sourceTree = "<group>"; };
+		2C4237171EA1E4C100ECEE34 /* PNGShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGShared.h; path = ../libModernPNG/include/PNGShared.h; sourceTree = "<group>"; };
 		2C4237191EA1E5C700ECEE34 /* PNGTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTables.h; path = ../libModernPNG/include/PNGTables.h; sourceTree = "<group>"; };
 		2C52D1A11EA4A664006C1BF5 /* EncodePNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodePNG.c; path = ../libModernPNG/src/Encode/EncodePNG.c; sourceTree = "<group>"; };
 		2C52D1A21EA4A664006C1BF5 /* WritePNGChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = WritePNGChunks.c; path = ../libModernPNG/src/Encode/WritePNGChunks.c; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			children = (
 				2C8AADEE1E8430A4007F8867 /* libModernPNG.h */,
 				2C8AADF01E8430AC007F8867 /* PNGTypes.h */,
-				2C4237171EA1E4C100ECEE34 /* Shared.h */,
+				2C4237171EA1E4C100ECEE34 /* PNGShared.h */,
 				2C4237191EA1E5C700ECEE34 /* PNGTables.h */,
 				2C85329E1E842E9B0012919F /* Encode */,
 				2C85329D1E842E920012919F /* Decode */,
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4182931E90429500771EC6 /* PNGTypes.c */,
-				2C4237131EA1E47E00ECEE34 /* Shared.c */,
+				2C4237131EA1E47E00ECEE34 /* PNGShared.c */,
 				2C8AADFB1E84311E007F8867 /* Encode */,
 				2C8AADFA1E843116007F8867 /* Decode */,
 			);
@@ -219,7 +219,7 @@
 				2C8AADF11E8430AC007F8867 /* PNGTypes.h in Headers */,
 				2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */,
 				2C52D1AA1EA4A6A4006C1BF5 /* EncodePNG.h in Headers */,
-				2C4237181EA1E4C100ECEE34 /* Shared.h in Headers */,
+				2C4237181EA1E4C100ECEE34 /* PNGShared.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +331,7 @@
 				2C4182941E90429500771EC6 /* PNGTypes.c in Sources */,
 				2C52D1A41EA4A664006C1BF5 /* WritePNGChunks.c in Sources */,
 				2C52D1A81EA4A676006C1BF5 /* ReadPNGChunks.c in Sources */,
-				2C4237141EA1E47E00ECEE34 /* Shared.c in Sources */,
+				2C4237141EA1E47E00ECEE34 /* PNGShared.c in Sources */,
 				2C52D1A71EA4A676006C1BF5 /* DecodePNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,7 +466,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				LLVM_LTO = YES_THIN;
+				LLVM_LTO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -480,7 +480,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				LLVM_LTO = YES_THIN;
+				LLVM_LTO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
