@@ -58,7 +58,8 @@ extern "C" {
         BitInput           *BitI = InitBitInput();
         BitOutput          *BitO = InitBitOutput();
         
-        BitBuffer          *InputBitB = InitBitBuffer(GetBitInputFileSize(BitI));
+        BitBuffer          *InputBitB = InitBitBuffer(65536);
+        BitBuffer          *OutputBitB = InitBitBuffer(65536);
         
         // We should add a function to BitIO that can tell us if an input command is a network address or a file.
         
@@ -67,7 +68,7 @@ extern "C" {
             // Split string into resolution.
         } else if (GetSwitchPresence(CMD, 3) == true) {
             DecodePNG     *Dec   = InitDecodePNG();
-            PNGDecodeImage(BitI, Dec, NULL);
+            PNGDecodeImage(InputBitB, Dec, NULL);
         } else if (GetSwitchPresence(CMD, 4) == true) {
             EncodePNG     *Enc   = InitEncodePNG();
             PNGEncodeImage(Enc, BitO);
