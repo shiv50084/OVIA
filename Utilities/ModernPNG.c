@@ -11,8 +11,7 @@ extern "C" {
 #endif
     
     CommandLineOptions *SetModernPNGOptions(void) {
-        CommandLineOptions     *CMD = InitCommandLineOptions();
-        InitCommandLineSwitches(CMD, 6);
+        CommandLineOptions     *CMD = InitCommandLineOptions(7);
         
         // test the logger
         //Log(LOG_ERR, "libBitIO", "SetSwitchResultStatus", "SwitchNum: %d, should be between 0 and %d\n", 0, 43);
@@ -34,7 +33,7 @@ extern "C" {
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
         SetSwitchResultStatus(CMD, 1, false);
         
-        SetSwitchFlag(CMD, 2, "Res", 4);
+        SetSwitchFlag(CMD, 2, "Resolution", 11);
         SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
         SetSwitchResultStatus(CMD, 2, false);
         
@@ -49,6 +48,12 @@ extern "C" {
         SetSwitchFlag(CMD, 5, "Optimize", 9); // Should quotes be included with the string in strlen?
         SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)\n");
         SetSwitchResultStatus(CMD, 5, true);
+        
+        SetSwitchFlag(CMD, 6, "Help", 5);
+        SetSwitchDescription(CMD, 6, "Prints all the command line options");
+        SetSwitchResultStatus(CMD, 6, true);
+        
+        // Switch 6 is NULL, aka the auto Help option. Fuck it, the user will just have to code that themselves.
         
         return CMD;
     }
