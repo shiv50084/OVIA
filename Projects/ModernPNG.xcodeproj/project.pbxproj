@@ -26,13 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C03FC5E1E84C8150075BA8C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2C419FC71E5B001E00FC804F;
-			remoteInfo = "Test-BitIO";
-		};
 		2C03FC601E84C8150075BA8C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */;
@@ -105,7 +98,6 @@
 		2C03FC5A1E84C8150075BA8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C03FC5F1E84C8150075BA8C /* Test-BitIO */,
 				2C03FC611E84C8150075BA8C /* libBitIO.a */,
 			);
 			name = Products;
@@ -306,13 +298,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C03FC5F1E84C8150075BA8C /* Test-BitIO */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test-BitIO";
-			remoteRef = 2C03FC5E1E84C8150075BA8C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		2C03FC611E84C8150075BA8C /* libBitIO.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -395,7 +380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LLVM_LTO = YES_THIN;
+				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -449,7 +434,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LLVM_LTO = YES_THIN;
+				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-fvectorize";
@@ -493,6 +478,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -506,6 +493,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
