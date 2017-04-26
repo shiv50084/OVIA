@@ -78,6 +78,9 @@ extern "C" {
             EncodePNG     *Enc   = InitEncodePNG();
             PNGEncodeImage(Enc, BitO);
         }
+        
+        CloseCommandLineOptions(CMD);
+        
         return EXIT_SUCCESS;
     }
     
