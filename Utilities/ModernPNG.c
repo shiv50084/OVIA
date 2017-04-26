@@ -25,31 +25,31 @@ extern "C" {
         SetCMDLicenseURL(CMD, "https://opensource.org/licenses/BSD-3-Clause", false);
         SetCMDMinSwitches(CMD, 3);
         
-        SetSwitchFlag(CMD, 0, "Input", 6);
+        SetSwitchFlag(CMD, 0, "Input", 5);
         SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
         SetSwitchResultStatus(CMD, 0, false);
         
-        SetSwitchFlag(CMD, 1, "Output", 7);
+        SetSwitchFlag(CMD, 1, "Output", 6);
         SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
         SetSwitchResultStatus(CMD, 1, false);
         
-        SetSwitchFlag(CMD, 2, "Resolution", 11);
+        SetSwitchFlag(CMD, 2, "Resolution", 10);
         SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
         SetSwitchResultStatus(CMD, 2, false);
         
-        SetSwitchFlag(CMD, 3, "Decode", 7);
-        SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
-        SetSwitchResultStatus(CMD, 3, true);
-        
-        SetSwitchFlag(CMD, 4, "Encode", 7);
+        SetSwitchFlag(CMD, 3, "Encode", 6);
         SetSwitchDescription(CMD, 4, "Encode input to PNG\n");
         SetSwitchResultStatus(CMD, 4, true);
         
-        SetSwitchFlag(CMD, 5, "Optimize", 9); // Should quotes be included with the string in strlen?
+        SetSwitchFlag(CMD, 4, "Decode", 6);
+        SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
+        SetSwitchResultStatus(CMD, 3, true);
+        
+        SetSwitchFlag(CMD, 5, "Optimize", 8); // Should quotes be included with the string in strlen?
         SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)\n");
         SetSwitchResultStatus(CMD, 5, true);
         
-        SetSwitchFlag(CMD, 6, "Help", 5);
+        SetSwitchFlag(CMD, 6, "Help", 4);
         SetSwitchDescription(CMD, 6, "Prints all the command line options");
         SetSwitchResultStatus(CMD, 6, true);
         
@@ -71,12 +71,12 @@ extern "C" {
         ParseCommandLineArguments(CMD, argc, argv);
         if        (GetSwitchPresence(CMD, 2) == true) {
             // Split string into resolution.
-        } else if (GetSwitchPresence(CMD, 3) == true) {
-            DecodePNG     *Dec   = InitDecodePNG();
-            PNGDecodeImage(InputBitB, Dec, NULL);
-        } else if (GetSwitchPresence(CMD, 4) == true) {
+        } else if (GetSwitchPresence(CMD, 3) == true) { // Encode
             EncodePNG     *Enc   = InitEncodePNG();
             PNGEncodeImage(Enc, BitO);
+        } else if (GetSwitchPresence(CMD, 4) == true) { // Decode
+            DecodePNG     *Dec   = InitDecodePNG();
+            PNGDecodeImage(InputBitB, Dec, NULL);
         }
         
         CloseCommandLineOptions(CMD);
