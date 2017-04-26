@@ -21,8 +21,8 @@ extern "C" {
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017-2017");
         SetCMDDescription(CMD, "PNG encoder/decoder written from scratch in modern C");
-        SetCMDLicense(CMD, "Revised BSD (3 clause)");
-        SetCMDLicenseURL(CMD, "https://opensource.org/licenses/BSD-3-Clause");
+        SetCMDLicense(CMD, "Revised BSD (3 clause)", false);
+        SetCMDLicenseURL(CMD, "https://opensource.org/licenses/BSD-3-Clause", false);
         SetCMDMinSwitches(CMD, 3);
         
         SetSwitchFlag(CMD, 0, "Input", 6);
