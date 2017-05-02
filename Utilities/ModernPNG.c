@@ -1,8 +1,6 @@
 #include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
-#include "../libModernPNG/include/Decode/DecodePNG.h"
-#include "../libModernPNG/include/Encode/EncodePNG.h"
 
 #define ModernFLACVersion "0.1.0"
 
@@ -11,10 +9,7 @@ extern "C" {
 #endif
     
     CommandLineOptions *SetModernPNGOptions(void) {
-        CommandLineOptions     *CMD = InitCommandLineOptions(7);
-        
-        // test the logger
-        //Log(LOG_ERR, "libBitIO", "SetSwitchResultStatus", "SwitchNum: %d, should be between 0 and %d\n", 0, 43);
+        CommandLineOptions *CMD = InitCommandLineOptions(7);
         
         SetCMDName(CMD, "ModernPNG");
         SetCMDVersion(CMD, ModernFLACVersion);
