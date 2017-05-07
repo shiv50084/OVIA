@@ -58,8 +58,8 @@ extern "C" {
         BitInput           *BitI = InitBitInput();
         BitOutput          *BitO = InitBitOutput();
         
-        BitBuffer          *InputBitB = InitBitBuffer(65536);
-        BitBuffer          *OutputBitB = InitBitBuffer(65536);
+        BitBuffer          *InputBitB = InitBitBuffer();
+        BitBuffer          *OutputBitB = InitBitBuffer();
         
         // We should add a function to BitIO that can tell us if an input command is a network address or a file.
         

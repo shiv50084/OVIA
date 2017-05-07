@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C03FC621E84C82C0075BA8C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03FC611E84C8150075BA8C /* libBitIO.a */; };
 		2C03FC641E84C8500075BA8C /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C03FC631E84C8500075BA8C /* ModernPNG.c */; };
-		2C4182941E90429500771EC6 /* PNGTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4182931E90429500771EC6 /* PNGTypes.c */; };
+		2C146D7B1EB8FC3100D7F523 /* DecodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C146D7A1EB8FC3100D7F523 /* DecodeAdam7.c */; };
+		2C146D7D1EB90D2200D7F523 /* EncodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C146D7C1EB90D2200D7F523 /* EncodeAdam7.c */; };
 		2C4237141EA1E47E00ECEE34 /* PNGShared.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4237131EA1E47E00ECEE34 /* PNGShared.c */; };
 		2C4237181EA1E4C100ECEE34 /* PNGShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237171EA1E4C100ECEE34 /* PNGShared.h */; };
 		2C42371A1EA1E5C700ECEE34 /* PNGTables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4237191EA1E5C700ECEE34 /* PNGTables.h */; };
@@ -50,7 +51,8 @@
 /* Begin PBXFileReference section */
 		2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C03FC631E84C8500075BA8C /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
-		2C4182931E90429500771EC6 /* PNGTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PNGTypes.c; path = ../libModernPNG/src/PNGTypes.c; sourceTree = "<group>"; };
+		2C146D7A1EB8FC3100D7F523 /* DecodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodeAdam7.c; path = ../libModernPNG/src/Decode/DecodeAdam7.c; sourceTree = "<group>"; };
+		2C146D7C1EB90D2200D7F523 /* EncodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeAdam7.c; path = ../libModernPNG/src/Encode/EncodeAdam7.c; sourceTree = "<group>"; };
 		2C4237131EA1E47E00ECEE34 /* PNGShared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PNGShared.c; path = ../libModernPNG/src/PNGShared.c; sourceTree = "<group>"; };
 		2C4237171EA1E4C100ECEE34 /* PNGShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGShared.h; path = ../libModernPNG/include/PNGShared.h; sourceTree = "<group>"; };
 		2C4237191EA1E5C700ECEE34 /* PNGTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGTables.h; path = ../libModernPNG/include/PNGTables.h; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				2C52D1A51EA4A676006C1BF5 /* DecodePNG.c */,
 				2C52D1A61EA4A676006C1BF5 /* ReadPNGChunks.c */,
+				2C146D7A1EB8FC3100D7F523 /* DecodeAdam7.c */,
 			);
 			name = Decode;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			children = (
 				2C52D1A11EA4A664006C1BF5 /* EncodePNG.c */,
 				2C52D1A21EA4A664006C1BF5 /* WritePNGChunks.c */,
+				2C146D7C1EB90D2200D7F523 /* EncodeAdam7.c */,
 			);
 			name = Encode;
 			sourceTree = "<group>";
@@ -154,7 +158,6 @@
 		2C8D95741E55520300C90703 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2C4182931E90429500771EC6 /* PNGTypes.c */,
 				2C4237131EA1E47E00ECEE34 /* PNGShared.c */,
 				2C8AADFB1E84311E007F8867 /* Encode */,
 				2C8AADFA1E843116007F8867 /* Decode */,
@@ -313,10 +316,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C52D1A31EA4A664006C1BF5 /* EncodePNG.c in Sources */,
-				2C4182941E90429500771EC6 /* PNGTypes.c in Sources */,
 				2C52D1A41EA4A664006C1BF5 /* WritePNGChunks.c in Sources */,
 				2C52D1A81EA4A676006C1BF5 /* ReadPNGChunks.c in Sources */,
 				2C4237141EA1E47E00ECEE34 /* PNGShared.c in Sources */,
+				2C146D7B1EB8FC3100D7F523 /* DecodeAdam7.c in Sources */,
+				2C146D7D1EB90D2200D7F523 /* EncodeAdam7.c in Sources */,
 				2C52D1A71EA4A676006C1BF5 /* DecodePNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
