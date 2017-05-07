@@ -15,26 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libModernPNG\src\PNGShared.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libModernPNG\src\PNGTypes.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libModernPNG\src\Decode\DecodePNG.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libModernPNG\src\Decode\ReadPNGChunks.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libModernPNG\src\Encode\EncodePNG.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libModernPNG\src\Encode\WritePNGChunks.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\libModernPNG\include\PNGShared.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -56,5 +36,28 @@
     <ClInclude Include="..\libModernPNG\include\libModernPNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libModernPNG\src\PNGShared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Decode\DecodeAdam7.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Decode\DecodePNG.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Decode\ReadPNGChunks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Encode\EncodeAdam7.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Encode\EncodePNG.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Encode\WritePNGChunks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
