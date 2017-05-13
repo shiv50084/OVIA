@@ -21,27 +21,27 @@ extern "C" {
         SetCMDMinSwitches(CMD, 3);
         
         SetSwitchFlag(CMD, 0, "Input", 5);
-        SetSwitchDescription(CMD, 0, "Input file or stdin with: '-'\n");
+        SetSwitchDescription(CMD, 0, "Input file or stdin with: -");
         SetSwitchResultStatus(CMD, 0, false);
         
         SetSwitchFlag(CMD, 1, "Output", 6);
-        SetSwitchDescription(CMD, 1, "Output file or stdout with: '-'\n");
+        SetSwitchDescription(CMD, 1, "Output file or stdout with: -");
         SetSwitchResultStatus(CMD, 1, false);
         
         SetSwitchFlag(CMD, 2, "Resolution", 10);
-        SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format\n");
+        SetSwitchDescription(CMD, 2, "Resolution in WidthxHeight format");
         SetSwitchResultStatus(CMD, 2, false);
         
         SetSwitchFlag(CMD, 3, "Encode", 6);
-        SetSwitchDescription(CMD, 4, "Encode input to PNG\n");
+        SetSwitchDescription(CMD, 4, "Encode input to PNG");
         SetSwitchResultStatus(CMD, 4, true);
         
         SetSwitchFlag(CMD, 4, "Decode", 6);
-        SetSwitchDescription(CMD, 3, "Decode PNG to output\n");
+        SetSwitchDescription(CMD, 3, "Decode PNG to output");
         SetSwitchResultStatus(CMD, 3, true);
         
         SetSwitchFlag(CMD, 5, "Optimize", 8); // Should quotes be included with the string in strlen?
-        SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)\n");
+        SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)");
         SetSwitchResultStatus(CMD, 5, true);
         
         SetSwitchFlag(CMD, 6, "Help", 4);
