@@ -33,12 +33,12 @@ extern "C" {
         SetSwitchResultStatus(CMD, 2, false);
         
         SetSwitchFlag(CMD, 3, "Encode", 6);
-        SetSwitchDescription(CMD, 4, "Encode input to PNG");
-        SetSwitchResultStatus(CMD, 4, true);
+        SetSwitchDescription(CMD, 3, "Encode input to PNG");
+        SetSwitchResultStatus(CMD, 3, true);
         
         SetSwitchFlag(CMD, 4, "Decode", 6);
-        SetSwitchDescription(CMD, 3, "Decode PNG to output");
-        SetSwitchResultStatus(CMD, 3, true);
+        SetSwitchDescription(CMD, 4, "Decode PNG to output");
+        SetSwitchResultStatus(CMD, 4, true);
         
         SetSwitchFlag(CMD, 5, "Optimize", 8); // Should quotes be included with the string in strlen?
         SetSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)");
