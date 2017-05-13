@@ -452,7 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
@@ -468,7 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
@@ -482,7 +482,7 @@
 		2CCB244D1E3B9E660057A30C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
@@ -498,7 +498,7 @@
 		2CCB244E1E3B9E660057A30C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
