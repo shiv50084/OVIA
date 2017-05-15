@@ -20,31 +20,31 @@ extern "C" {
         
         SetCMDSwitchFlag(CMD, 0, "Input", 5);
         SetCMDSwitchDescription(CMD, 0, "Input file or stdin with: '-'");
-        SetCMDSwitchResultStatus(CMD, 0, false);
+        SetCMDSwitchResultStatus(CMD, 0, true);
         
         SetCMDSwitchFlag(CMD, 1, "Output", 6);
         SetCMDSwitchDescription(CMD, 1, "Output file or stdout with: '-'");
-        SetCMDSwitchResultStatus(CMD, 1, false);
+        SetCMDSwitchResultStatus(CMD, 1, true);
         
         SetCMDSwitchFlag(CMD, 2, "Decode", 6);
         SetCMDSwitchDescription(CMD, 2, "Decode input FLAC to output");
-        SetCMDSwitchResultStatus(CMD, 2, true);
+        SetCMDSwitchResultStatus(CMD, 2, false);
         
         SetCMDSwitchFlag(CMD, 3, "Encode", 6);
         SetCMDSwitchDescription(CMD, 3, "Encode input to output FLAC");
-        SetCMDSwitchResultStatus(CMD, 3, true);
+        SetCMDSwitchResultStatus(CMD, 3, false);
         
         SetCMDSwitchFlag(CMD, 4, "Reencode", 8);
         SetCMDSwitchDescription(CMD, 4, "Reencodes the input flac with -O");
-        SetCMDSwitchResultStatus(CMD, 4, true);
+        SetCMDSwitchResultStatus(CMD, 4, false);
         
         SetCMDSwitchFlag(CMD, 5, "Subset", 6);
         SetCMDSwitchDescription(CMD, 5, "Limit encoding to subset format");
-        SetCMDSwitchResultStatus(CMD, 5, true);
+        SetCMDSwitchResultStatus(CMD, 5, false);
         
         SetCMDSwitchFlag(CMD, 6, "Optimize", 8);
         SetCMDSwitchDescription(CMD, 6, "Optimize encoded FLAC to be as small as possible");
-        SetCMDSwitchResultStatus(CMD, 6, true);
+        SetCMDSwitchResultStatus(CMD, 6, false);
         
         return CMD;
     }
