@@ -35,6 +35,13 @@
 			remoteGlobalIDString = 2C3065591E809042009F1A54;
 			remoteInfo = libPCM;
 		};
+		2C7B4BEA1EC9A8D70078DC59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2CD232211EB0ECDD005E4D8C;
+			remoteInfo = TrimSilence;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0FB6801E845396005DEE50 /* libPCM.a */,
+				2C7B4BEB1EC9A8D70078DC59 /* TrimSilence */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,6 +320,13 @@
 			remoteRef = 2C0FB67F1E845396005DEE50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2C7B4BEB1EC9A8D70078DC59 /* TrimSilence */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = TrimSilence;
+			remoteRef = 2C7B4BEA1EC9A8D70078DC59 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,7 +377,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -416,7 +431,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -445,7 +460,7 @@
 		2C7D1E0C1DCB0FF10014CAA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
@@ -459,7 +474,7 @@
 		2C7D1E0D1DCB0FF10014CAA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
@@ -475,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
@@ -490,7 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
