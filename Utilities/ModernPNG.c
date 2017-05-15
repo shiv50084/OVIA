@@ -2,7 +2,7 @@
 
 #include "../libModernPNG/include/libModernPNG.h"
 
-#define ModernFLACVersion "0.1.0"
+#define ModernPNGVersion "0.1.0"
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,7 +12,7 @@ extern "C" {
         CommandLineOptions *CMD = InitCommandLineOptions(7);
         
         SetCMDName(CMD, "ModernPNG");
-        SetCMDVersion(CMD, ModernFLACVersion);
+        SetCMDVersion(CMD, ModernPNGVersion);
         SetCMDAuthor(CMD, "BumbleBritches57");
         SetCMDCopyright(CMD, "2017-2017");
         SetCMDDescription(CMD, "PNG encoder/decoder written from scratch in modern C");
