@@ -22,33 +22,31 @@ extern "C" {
         
         SetCMDSwitchFlag(CMD, 0, "Input", 5);
         SetCMDSwitchDescription(CMD, 0, "Input file or stdin with: -");
-        SetCMDSwitchResultStatus(CMD, 0, false);
+        SetCMDSwitchResultStatus(CMD, 0, true);
         
         SetCMDSwitchFlag(CMD, 1, "Output", 6);
         SetCMDSwitchDescription(CMD, 1, "Output file or stdout with: -");
-        SetCMDSwitchResultStatus(CMD, 1, false);
+        SetCMDSwitchResultStatus(CMD, 1, true);
         
         SetCMDSwitchFlag(CMD, 2, "Resolution", 10);
         SetCMDSwitchDescription(CMD, 2, "Resolution in WidthxHeight format");
-        SetCMDSwitchResultStatus(CMD, 2, false);
+        SetCMDSwitchResultStatus(CMD, 2, true);
         
         SetCMDSwitchFlag(CMD, 3, "Encode", 6);
         SetCMDSwitchDescription(CMD, 3, "Encode input to PNG");
-        SetCMDSwitchResultStatus(CMD, 3, true);
+        SetCMDSwitchResultStatus(CMD, 3, false);
         
         SetCMDSwitchFlag(CMD, 4, "Decode", 6);
         SetCMDSwitchDescription(CMD, 4, "Decode PNG to output");
-        SetCMDSwitchResultStatus(CMD, 4, true);
+        SetCMDSwitchResultStatus(CMD, 4, false);
         
-        SetCMDSwitchFlag(CMD, 5, "Optimize", 8); // Should quotes be included with the string in strlen?
+        SetCMDSwitchFlag(CMD, 5, "Optimize", 8);
         SetCMDSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)");
-        SetCMDSwitchResultStatus(CMD, 5, true);
+        SetCMDSwitchResultStatus(CMD, 5, false);
         
         SetCMDSwitchFlag(CMD, 6, "Help", 4);
         SetCMDSwitchDescription(CMD, 6, "Prints all the command line options");
-        SetCMDSwitchResultStatus(CMD, 6, true);
-        
-        // Switch 6 is NULL, aka the auto Help option. Fuck it, the user will just have to code that themselves.
+        SetCMDSwitchResultStatus(CMD, 6, false);
         
         return CMD;
     }
