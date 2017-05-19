@@ -137,13 +137,13 @@
 		2C7D1E101DCB10260014CAA2 /* libModernFLAC */ = {
 			isa = PBXGroup;
 			children = (
-				2C7D1E111DCB10300014CAA2 /* Include */,
-				2C7D1E121DCB10360014CAA2 /* src */,
+				2C7D1E111DCB10300014CAA2 /* Headers */,
+				2C7D1E121DCB10360014CAA2 /* Source */,
 			);
 			name = libModernFLAC;
 			sourceTree = "<group>";
 		};
-		2C7D1E111DCB10300014CAA2 /* Include */ = {
+		2C7D1E111DCB10300014CAA2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				2C8AAE081E8436A0007F8867 /* libModernFLAC.h */,
@@ -151,17 +151,17 @@
 				2C8AADFD1E843611007F8867 /* Decoder */,
 				2C8AADFC1E84360B007F8867 /* Encoder */,
 			);
-			name = Include;
+			name = Headers;
 			sourceTree = "<group>";
 		};
-		2C7D1E121DCB10360014CAA2 /* src */ = {
+		2C7D1E121DCB10360014CAA2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				2C41829D1E909BD000771EC6 /* FLACTypes.c */,
 				2C8AAE031E843663007F8867 /* Decoder */,
 				2C8AAE021E84365B007F8867 /* Encoder */,
 			);
-			name = src;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		2C8AADFC1E84360B007F8867 /* Encoder */ = {
