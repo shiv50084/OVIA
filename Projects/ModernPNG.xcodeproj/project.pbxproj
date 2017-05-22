@@ -388,7 +388,12 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fvectorize";
+				OTHER_CFLAGS = (
+					"-fvectorize",
+					"-ferror-limit=1024",
+					"-Wall",
+					"-pedantic",
+				);
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
@@ -441,7 +446,12 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = "-fvectorize";
+				OTHER_CFLAGS = (
+					"-fvectorize",
+					"-ferror-limit=1024",
+					"-Wall",
+					"-pedantic",
+				);
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
@@ -460,6 +470,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -475,6 +486,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -491,6 +503,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
 				MACH_O_TYPE = mh_execute;
+				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -506,6 +519,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LLVM_LTO = YES;
 				MACH_O_TYPE = mh_execute;
+				OTHER_CFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
