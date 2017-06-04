@@ -28,40 +28,49 @@ extern "C" {
         SetCMDSwitchDescription(CMD, 1, "Output file or stdout with: -");
         SetCMDSwitchResultStatus(CMD, 1, true);
         
-        /* Start Encode Options */
-        SetCMDSwitchFlag(CMD, 2, "Encode", 6);
-        SetCMDSwitchDescription(CMD, 2, "Encode input to PNG");
-        SetCMDSwitchResultStatus(CMD, 2, false);
+        SetCMDSwitchFlag(CMD, 2, "LeftEye", 7); // lefteye/righteye is just a piece of metadata to associate with input/output files
+        SetCMDSwitchDescription(CMD, 2, "The left view for encoding or decoding");
+        SetCMDSwitchResultStatus(CMD, 2, true);
         
-        SetCMDSwitchFlag(CMD, 3, "Resolution", 10);
-        SetCMDSwitchDescription(CMD, 3, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
+        SetCMDSwitchFlag(CMD, 3, "RightEye", 8);
+        SetCMDSwitchDescription(CMD, 3, "The right view for encoding or decoding");
         SetCMDSwitchResultStatus(CMD, 3, true);
         
-        SetCMDSwitchFlag(CMD, 4, "Interlace", 10);
-        SetCMDSwitchDescription(CMD, 4, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
-        SetCMDSwitchResultStatus(CMD, 4, true);
+        /* Start Encode Options */
+        SetCMDSwitchFlag(CMD, 4, "Encode", 6);
+        SetCMDSwitchDescription(CMD, 4, "Encode input to PNG");
+        SetCMDSwitchResultStatus(CMD, 4, false);
         
-        SetCMDSwitchFlag(CMD, 5, "Optimize", 8);
-        SetCMDSwitchDescription(CMD, 5, "Optimize the encoded PNG to be as small as possible (try all filter options)");
-        SetCMDSwitchResultStatus(CMD, 5, false);
+        SetCMDSwitchFlag(CMD, 5, "Resolution", 10);
+        SetCMDSwitchDescription(CMD, 5, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
+        SetCMDSwitchResultStatus(CMD, 5, true);
         
-        SetCMDSwitchFlag(CMD, 5, "Stereo3D", 8);
-        SetCMDSwitchDescription(CMD, 5, "Encode an image as a single stereoscopic, 3D image (the first option should be the left eye)");
-        SetCMDSwitchResultStatus(CMD, 5, false);
+        SetCMDSwitchFlag(CMD, 6, "Interlace", 10);
+        SetCMDSwitchDescription(CMD, 6, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
+        SetCMDSwitchResultStatus(CMD, 6, true);
+        
+        SetCMDSwitchFlag(CMD, 7, "Optimize", 8);
+        SetCMDSwitchDescription(CMD, 7, "Optimize the encoded PNG to be as small as possible (try all filter options)");
+        SetCMDSwitchResultStatus(CMD, 7, false);
+        
+        SetCMDSwitchFlag(CMD, 8, "Combine3D", 8);
+        SetCMDSwitchDescription(CMD, 8, "Encode an image as a single stereoscopic, 3D image (the first option should be the left eye)");
+        SetCMDSwitchResultStatus(CMD, 8, false);
         /* End Encode Options */
         
         /* Start Decode Options */
-        SetCMDSwitchFlag(CMD, 6, "Decode", 6);
-        SetCMDSwitchDescription(CMD, 6, "Decode PNG to output");
-        SetCMDSwitchResultStatus(CMD, 6, false);
+        SetCMDSwitchFlag(CMD, 9, "Decode", 6);
+        SetCMDSwitchDescription(CMD, 9, "Decode PNG to output");
+        SetCMDSwitchResultStatus(CMD, 9, false);
         
-        /* Enc Decode Options */
+        SetCMDSwitchFlag(CMD, 10, "Split3D", 6);
+        SetCMDSwitchDescription(CMD, 10, "Split 3D PNG to 2 output files");
+        SetCMDSwitchResultStatus(CMD, 10, false);
+        /* End Decode Options */
         
-        
-        
-        SetCMDSwitchFlag(CMD, 7, "Help", 4);
-        SetCMDSwitchDescription(CMD, 7, "Prints all the command line options");
-        SetCMDSwitchResultStatus(CMD, 7, false);
+        SetCMDSwitchFlag(CMD, 11, "Help", 4);
+        SetCMDSwitchDescription(CMD, 11, "Prints all the command line options");
+        SetCMDSwitchResultStatus(CMD, 11, false);
         
         return CMD;
     }
