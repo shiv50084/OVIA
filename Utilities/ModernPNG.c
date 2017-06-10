@@ -9,7 +9,7 @@ extern "C" {
 #endif
     
     CommandLineOptions *SetModernPNGOptions(void) {
-        CommandLineOptions *CMD = InitCommandLineOptions(7);
+        CommandLineOptions *CMD = InitCommandLineOptions(12);
         
         SetCMDName(CMD, "ModernPNG");
         SetCMDVersion(CMD, ModernPNGVersion);
