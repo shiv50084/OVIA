@@ -95,7 +95,7 @@ extern "C" {
         CommandLineInterface *CLI = SetModernPNGOptions();
         ParseCommandLineArguments(CLI, argc, argv);
         
-        if (GetCLISwitchPresence(CLI, Combine3D) == true) {
+        if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Combine3D) == true) {
             // 3D image, so check for LeftEye/RightEye
             BitInput  *Lefteye    = InitBitInput();
             BitInput  *Righteye   = InitBitInput();
@@ -108,7 +108,7 @@ extern "C" {
             OpenInputFile(Lefteye,  GetCLIArgumentResult(CLI, LeftEyeArg));
             OpenInputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg));
             OpenOutputFile(Stereo,  GetCLIArgumentResult(CLI, StereoArg));
-        } else if (GetCLISwitchPresence(CLI, Split3D) == true) {
+        } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Split3D) == true) {
             BitInput  *Stereo     = InitBitInput();
             BitOutput *Lefteye    = InitBitOutput();
             BitOutput *Righteye   = InitBitOutput();
