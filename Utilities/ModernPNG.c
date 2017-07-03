@@ -18,14 +18,12 @@ extern "C" {
         Resolution = 5,
         Interlace  = 6,
         Optimize   = 7,
-        Combine3D  = 8,
-        Decode     = 9,
-        Split3D    = 10,
-        Help       = 11,
+        Decode     = 8,
+        Help       = 9,
     };
     
     CommandLineInterface *SetModernPNGOptions(void) {
-        CommandLineInterface *CLI = InitCommandLineInterface(12);
+        CommandLineInterface *CLI = InitCommandLineInterface(10);
         
         SetCLIName(CLI, "ModernPNG");
         SetCLIAuthor(CLI, "BumbleBritches57");
@@ -68,20 +66,12 @@ extern "C" {
         SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
         SetCLISwitchDescription(CLI, Optimize, "Optimize the encoded PNG to be as small as possible (try all filter options)");
         SetCLISwitchResultStatus(CLI, Optimize, false);
-        
-        SetCLISwitchFlag(CLI, Combine3D, "Combine3D", 8);
-        SetCLISwitchDescription(CLI, Combine3D, "Encode an image as a single stereoscopic, 3D image (the first option should be the left eye)");
-        SetCLISwitchResultStatus(CLI, Combine3D, false);
         /* End Encode Options */
         
         /* Start Decode Options */
         SetCLISwitchFlag(CLI, Decode, "Decode", 6);
         SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
-        
-        SetCLISwitchFlag(CLI, Split3D, "Split3D", 6);
-        SetCLISwitchDescription(CLI, Split3D, "Split 3D PNG to 2 output files");
-        SetCLISwitchResultStatus(CLI, Split3D, false);
         /* End Decode Options */
         
         SetCLISwitchFlag(CLI, Help, "Help", 4);
@@ -95,27 +85,27 @@ extern "C" {
         CommandLineInterface *CLI = SetModernPNGOptions();
         ParseCommandLineArguments(CLI, argc, argv);
         
-        if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Combine3D) == true) {
+        if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Encode) == true) {
             // 3D image, so check for LeftEye/RightEye
             BitInput  *Lefteye    = InitBitInput();
             BitInput  *Righteye   = InitBitInput();
             BitOutput *Stereo     = InitBitOutput();
             
-            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Combine3D, LeftEye);
-            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Combine3D, RightEye);
-            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Combine3D, Output);
+            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Encode, LeftEye);
+            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Encode, RightEye);
+            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Encode, Output);
             
             OpenInputFile(Lefteye,  GetCLIArgumentResult(CLI, LeftEyeArg));
             OpenInputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg));
             OpenOutputFile(Stereo,  GetCLIArgumentResult(CLI, StereoArg));
-        } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Split3D) == true) {
+        } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Decode) == true) {
             BitInput  *Stereo     = InitBitInput();
             BitOutput *Lefteye    = InitBitOutput();
             BitOutput *Righteye   = InitBitOutput();
             
-            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Split3D, Output);
-            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Split3D, LeftEye);
-            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Split3D, RightEye);
+            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Decode, Output);
+            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Decode, LeftEye);
+            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Decode, RightEye);
             
             OpenInputFile(Stereo, GetCLIArgumentResult(CLI, StereoArg));
             OpenOutputFile(Lefteye, GetCLIArgumentResult(CLI, LeftEyeArg));
@@ -133,16 +123,16 @@ extern "C" {
         }
         
         /*
-        // We should add a function to BitIO that can tell us if an input command is a network address or a file.
-        if        (GetCLISwitchPresence(CLI, 2) == true) {
-            // Split string into resolution.
-        } else if (GetCLISwitchPresence(CLI, Encode) == true) { // Encode
-            EncodePNG     *Enc   = InitEncodePNG();
-            PNGEncodeImage(Enc, BitO);
-        } else if (GetCLISwitchPresence(CLI, Decode) == true) { // Decode
-            DecodePNG     *Dec   = InitDecodePNG();
-            PNGDecodeImage(InputBitB, Dec, NULL);
-        }
+         // We should add a function to BitIO that can tell us if an input command is a network address or a file.
+         if        (GetCLISwitchPresence(CLI, 2) == true) {
+         // Split string into resolution.
+         } else if (GetCLISwitchPresence(CLI, Encode) == true) { // Encode
+         EncodePNG     *Enc   = InitEncodePNG();
+         PNGEncodeImage(Enc, BitO);
+         } else if (GetCLISwitchPresence(CLI, Decode) == true) { // Decode
+         DecodePNG     *Dec   = InitDecodePNG();
+         PNGDecodeImage(InputBitB, Dec, NULL);
+         }
          */
         
         DeinitCommandLineInterface(CLI);
