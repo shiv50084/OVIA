@@ -122,19 +122,6 @@ extern "C" {
             OpenOutputFile(OutputFile, &OutputPath);
         }
         
-        /*
-         // We should add a function to BitIO that can tell us if an input command is a network address or a file.
-         if        (GetCLISwitchPresence(CLI, 2) == true) {
-         // Split string into resolution.
-         } else if (GetCLISwitchPresence(CLI, Encode) == true) { // Encode
-         EncodePNG     *Enc   = InitEncodePNG();
-         PNGEncodeImage(Enc, BitO);
-         } else if (GetCLISwitchPresence(CLI, Decode) == true) { // Decode
-         DecodePNG     *Dec   = InitDecodePNG();
-         PNGDecodeImage(InputBitB, Dec, NULL);
-         }
-         */
-        
         DeinitCommandLineInterface(CLI);
         
         return EXIT_SUCCESS;
