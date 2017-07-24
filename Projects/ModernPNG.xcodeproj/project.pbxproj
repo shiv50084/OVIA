@@ -19,7 +19,7 @@
 		2C52D1A81EA4A676006C1BF5 /* ReadPNGChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C52D1A61EA4A676006C1BF5 /* ReadPNGChunks.c */; };
 		2C52D1AA1EA4A6A4006C1BF5 /* EncodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52D1A91EA4A6A4006C1BF5 /* EncodePNG.h */; };
 		2C52D1AD1EA4A6B2006C1BF5 /* DecodePNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52D1AB1EA4A6B2006C1BF5 /* DecodePNG.h */; };
-		2C52D1AE1EA4A6B2006C1BF5 /* ReadPNGChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52D1AC1EA4A6B2006C1BF5 /* ReadPNGChunks.h */; };
+		2C7BEEE71F26895600A57116 /* ReadPNGChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52D1AC1EA4A6B2006C1BF5 /* ReadPNGChunks.h */; };
 		2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADEE1E8430A4007F8867 /* libModernPNG.h */; };
 		2C8AADF11E8430AC007F8867 /* ModernPNGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF01E8430AC007F8867 /* ModernPNGTypes.h */; };
 		2CBC41A01F25975600BBA28A /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBC419A1F25972400BBA28A /* libPCM.a */; };
@@ -216,11 +216,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C52D1AE1EA4A6B2006C1BF5 /* ReadPNGChunks.h in Headers */,
 				2C42371A1EA1E5C700ECEE34 /* ModernPNGTables.h in Headers */,
 				2C52D1AD1EA4A6B2006C1BF5 /* DecodePNG.h in Headers */,
 				2C8AADF11E8430AC007F8867 /* ModernPNGTypes.h in Headers */,
 				2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */,
+				2C7BEEE71F26895600A57116 /* ReadPNGChunks.h in Headers */,
 				2C52D1AA1EA4A6A4006C1BF5 /* EncodePNG.h in Headers */,
 				2C4237181EA1E4C100ECEE34 /* ModernPNGShared.h in Headers */,
 			);
