@@ -1,4 +1,5 @@
-#include "../Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
+#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
+#include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
 

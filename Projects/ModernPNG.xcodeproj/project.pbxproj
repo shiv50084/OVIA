@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C03FC621E84C82C0075BA8C /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C03FC611E84C8150075BA8C /* libBitIO.a */; };
 		2C03FC641E84C8500075BA8C /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C03FC631E84C8500075BA8C /* ModernPNG.c */; };
 		2C146D7B1EB8FC3100D7F523 /* DecodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C146D7A1EB8FC3100D7F523 /* DecodeAdam7.c */; };
 		2C146D7D1EB90D2200D7F523 /* EncodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C146D7C1EB90D2200D7F523 /* EncodeAdam7.c */; };
@@ -23,16 +22,24 @@
 		2C52D1AE1EA4A6B2006C1BF5 /* ReadPNGChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52D1AC1EA4A6B2006C1BF5 /* ReadPNGChunks.h */; };
 		2C8AADEF1E8430A4007F8867 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADEE1E8430A4007F8867 /* libModernPNG.h */; };
 		2C8AADF11E8430AC007F8867 /* ModernPNGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AADF01E8430AC007F8867 /* ModernPNGTypes.h */; };
+		2CBC41A01F25975600BBA28A /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBC419A1F25972400BBA28A /* libPCM.a */; };
 		2CCB24531E3B9F8C0057A30C /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCB24331E3B9C550057A30C /* libModernPNG.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C03FC601E84C8150075BA8C /* PBXContainerItemProxy */ = {
+		2CBC41991F25972400BBA28A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */;
+			containerPortal = 2CBC41931F25972400BBA28A /* libPCM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 2C419FD51E5B00CC00FC804F;
-			remoteInfo = libBitIO;
+			remoteGlobalIDString = 2C3065591E809042009F1A54;
+			remoteInfo = libPCM;
+		};
+		2CBC419B1F25972400BBA28A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CBC41931F25972400BBA28A /* libPCM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2CD232211EB0ECDD005E4D8C;
+			remoteInfo = TrimSilence;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,7 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitIO.xcodeproj; path = ../Dependencies/BitIO/Projects/BitIO.xcodeproj; sourceTree = "<group>"; };
 		2C03FC631E84C8500075BA8C /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
 		2C146D7A1EB8FC3100D7F523 /* DecodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodeAdam7.c; path = ../libModernPNG/src/Decode/DecodeAdam7.c; sourceTree = "<group>"; };
 		2C146D7C1EB90D2200D7F523 /* EncodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeAdam7.c; path = ../libModernPNG/src/Encode/EncodeAdam7.c; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 		2C52D1AC1EA4A6B2006C1BF5 /* ReadPNGChunks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadPNGChunks.h; path = ../libModernPNG/include/Decode/ReadPNGChunks.h; sourceTree = "<group>"; };
 		2C8AADEE1E8430A4007F8867 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
 		2C8AADF01E8430AC007F8867 /* ModernPNGTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModernPNGTypes.h; path = ../libModernPNG/include/ModernPNGTypes.h; sourceTree = "<group>"; };
+		2CBC41931F25972400BBA28A /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
 		2CCB24331E3B9C550057A30C /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCB24481E3B9E660057A30C /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C03FC621E84C82C0075BA8C /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBC41A01F25975600BBA28A /* libPCM.a in Frameworks */,
 				2CCB24531E3B9F8C0057A30C /* libModernPNG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,17 +99,9 @@
 		2C03FC581E84C7FD0075BA8C /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */,
+				2CBC41931F25972400BBA28A /* libPCM.xcodeproj */,
 			);
 			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		2C03FC5A1E84C8150075BA8C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2C03FC611E84C8150075BA8C /* libBitIO.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2C85329D1E842E920012919F /* Decode */ = {
@@ -172,6 +171,15 @@
 				2C8D95741E55520300C90703 /* Source */,
 			);
 			name = libModernPNG;
+			sourceTree = "<group>";
+		};
+		2CBC41941F25972400BBA28A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CBC419A1F25972400BBA28A /* libPCM.a */,
+				2CBC419C1F25972400BBA28A /* TrimSilence */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2CCB242A1E3B9C550057A30C = {
@@ -288,24 +296,31 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2C03FC5A1E84C8150075BA8C /* Products */;
-					ProjectRef = 2C03FC591E84C8150075BA8C /* BitIO.xcodeproj */;
+					ProductGroup = 2CBC41941F25972400BBA28A /* Products */;
+					ProjectRef = 2CBC41931F25972400BBA28A /* libPCM.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				2CCB24321E3B9C550057A30C /* libModernPNG */,
 				2CCB24471E3B9E660057A30C /* ModernPNG */,
+				2CCB24321E3B9C550057A30C /* libModernPNG */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C03FC611E84C8150075BA8C /* libBitIO.a */ = {
+		2CBC419A1F25972400BBA28A /* libPCM.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libBitIO.a;
-			remoteRef = 2C03FC601E84C8150075BA8C /* PBXContainerItemProxy */;
+			path = libPCM.a;
+			remoteRef = 2CBC41991F25972400BBA28A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2CBC419C1F25972400BBA28A /* TrimSilence */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = TrimSilence;
+			remoteRef = 2CBC419B1F25972400BBA28A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
