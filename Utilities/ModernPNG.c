@@ -8,7 +8,7 @@
 extern "C" {
 #endif
     
-    enum CommandLineSwitchNames {
+    enum ModernPNGCommandLineSwitchNames {
         Input      = 0,
         Output     = 1,
         LeftEye    = 2,
@@ -57,14 +57,17 @@ extern "C" {
         SetCLISwitchFlag(CLI, Resolution, "Resolution", 10);
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Resolution, true);
+        SetCLISwitchMetaFlag(CLI, Encode, Resolution);
         
         SetCLISwitchFlag(CLI, Interlace, "Interlace", 10);
         SetCLISwitchDescription(CLI, Interlace, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Interlace, true);
+        SetCLISwitchMetaFlag(CLI, Encode, Interlace);
         
         SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
         SetCLISwitchDescription(CLI, Optimize, "Optimize the encoded PNG to be as small as possible (try all filter options)");
         SetCLISwitchResultStatus(CLI, Optimize, false);
+        SetCLISwitchMetaFlag(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
@@ -90,23 +93,23 @@ extern "C" {
             BitInput  *Righteye   = InitBitInput();
             BitOutput *Stereo     = InitBitOutput();
             
-            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Encode, LeftEye);
-            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Encode, RightEye);
-            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Encode, Output);
+            uint64_t LeftEyeArg   = GetCLIChildSwitchArgument(CLI, Encode, LeftEye);
+            uint64_t RightEyeArg  = GetCLIChildSwitchArgument(CLI, Encode, RightEye);
+            uint64_t StereoArg    = GetCLIChildSwitchArgument(CLI, Encode, Output);
             
-            OpenInputFile(Lefteye,  GetCLIArgumentResult(CLI, LeftEyeArg));
-            OpenInputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg));
+            OpenInputFile(Lefteye, GetCLIArgumentResult(CLI, LeftEyeArg), false);
+            OpenInputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg), false);
             OpenOutputFile(Stereo,  GetCLIArgumentResult(CLI, StereoArg));
         } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Decode) == true) {
             BitInput  *Stereo     = InitBitInput();
             BitOutput *Lefteye    = InitBitOutput();
             BitOutput *Righteye   = InitBitOutput();
             
-            uint64_t StereoArg    = GetCLIMetaSwitchArgument(CLI, Decode, Output);
-            uint64_t LeftEyeArg   = GetCLIMetaSwitchArgument(CLI, Decode, LeftEye);
-            uint64_t RightEyeArg  = GetCLIMetaSwitchArgument(CLI, Decode, RightEye);
+            uint64_t StereoArg    = GetCLIChildSwitchArgument(CLI, Decode, Output);
+            uint64_t LeftEyeArg   = GetCLIChildSwitchArgument(CLI, Decode, LeftEye);
+            uint64_t RightEyeArg  = GetCLIChildSwitchArgument(CLI, Decode, RightEye);
             
-            OpenInputFile(Stereo, GetCLIArgumentResult(CLI, StereoArg));
+            OpenInputFile(Stereo, GetCLIArgumentResult(CLI, StereoArg), false);
             OpenOutputFile(Lefteye, GetCLIArgumentResult(CLI, LeftEyeArg));
             OpenOutputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg));
         } else {
@@ -117,7 +120,7 @@ extern "C" {
             char       InputPath  = GetCLIArgumentResult(CLI, Input);
             char      OutputPath  = GetCLIArgumentResult(CLI, Output);
             
-            OpenInputFile(InputFile, &InputPath);
+            OpenInputFile(InputFile, &InputPath, false);
             OpenOutputFile(OutputFile, &OutputPath);
         }
         
