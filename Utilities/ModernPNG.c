@@ -50,6 +50,12 @@ extern "C" {
         SetCLISwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
         SetCLISwitchResultStatus(CLI, RightEye, true);
         
+        /* General Meta Switches */
+        SetCLISwitchMetaFlag(CLI, Input, LeftEye);
+        SetCLISwitchMetaFlag(CLI, Input, RightEye);
+        SetCLISwitchMetaFlag(CLI, Output, LeftEye);
+        SetCLISwitchMetaFlag(CLI, Output, RightEye);
+        
         /* Start Encode Options */
         SetCLISwitchFlag(CLI, Encode, "Encode", 6);
         SetCLISwitchDescription(CLI, Encode, "Encode input to PNG");
@@ -66,7 +72,7 @@ extern "C" {
         SetCLISwitchMetaFlag(CLI, Encode, Interlace);
         
         SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
-        SetCLISwitchDescription(CLI, Optimize, "Optimize the encoded PNG to be as small as possible (try all filter options)");
+        SetCLISwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
         SetCLISwitchResultStatus(CLI, Optimize, false);
         SetCLISwitchMetaFlag(CLI, Encode, Optimize);
         /* End Encode Options */
