@@ -15,15 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\libModernPNG\include\PNGShared.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libModernPNG\include\PNGTables.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libModernPNG\include\PNGTypes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\libModernPNG\include\Decode\DecodePNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,11 +27,14 @@
     <ClInclude Include="..\libModernPNG\include\libModernPNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\libModernPNG\include\ModernPNGTables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libModernPNG\include\ModernPNGTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libModernPNG\src\PNGShared.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\libModernPNG\src\Decode\DecodeAdam7.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,6 +51,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\libModernPNG\src\Encode\WritePNGChunks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Encode\ComposePNGChunks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libModernPNG\src\Encode\FilterEnc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

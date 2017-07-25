@@ -23,18 +23,18 @@
     <ClInclude Include="..\libModernPNG\include\Decode\ReadPNGChunks.h" />
     <ClInclude Include="..\libModernPNG\include\Encode\EncodePNG.h" />
     <ClInclude Include="..\libModernPNG\include\libModernPNG.h" />
-    <ClInclude Include="..\libModernPNG\include\PNGShared.h" />
-    <ClInclude Include="..\libModernPNG\include\PNGTables.h" />
-    <ClInclude Include="..\libModernPNG\include\PNGTypes.h" />
+    <ClInclude Include="..\libModernPNG\include\ModernPNGTables.h" />
+    <ClInclude Include="..\libModernPNG\include\ModernPNGTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libModernPNG\src\Decode\DecodeAdam7.c" />
     <ClCompile Include="..\libModernPNG\src\Decode\DecodePNG.c" />
     <ClCompile Include="..\libModernPNG\src\Decode\ReadPNGChunks.c" />
+    <ClCompile Include="..\libModernPNG\src\Encode\ComposePNGChunks.c" />
     <ClCompile Include="..\libModernPNG\src\Encode\EncodeAdam7.c" />
     <ClCompile Include="..\libModernPNG\src\Encode\EncodePNG.c" />
+    <ClCompile Include="..\libModernPNG\src\Encode\FilterEnc.c" />
     <ClCompile Include="..\libModernPNG\src\Encode\WritePNGChunks.c" />
-    <ClCompile Include="..\libModernPNG\src\PNGShared.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -49,12 +49,13 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -62,12 +63,13 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -91,18 +93,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)..\BUILD\$(Platform)\</OutDir>
     <IntDir>$(OutDir)\Intermediate\</IntDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)..\BUILD\$(Platform)\</OutDir>
     <IntDir>$(OutDir)\Intermediate\</IntDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(ProjectDir)..\BUILD\$(Platform)\</OutDir>
     <IntDir>$(OutDir)\Intermediate\</IntDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)..\BUILD\$(Platform)\</OutDir>
     <IntDir>$(OutDir)\Intermediate\</IntDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
