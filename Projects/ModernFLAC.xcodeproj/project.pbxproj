@@ -404,6 +404,8 @@
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
+				SUPPORTED_PLATFORMS = "macosx iphoneos";
+				VALID_ARCHS = "AArch64 x86_64";
 			};
 			name = Debug;
 		};
@@ -452,6 +454,8 @@
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
+				SUPPORTED_PLATFORMS = "macosx iphoneos";
+				VALID_ARCHS = "AArch64 x86_64";
 			};
 			name = Release;
 		};
