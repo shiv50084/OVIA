@@ -23,8 +23,8 @@
     <ClInclude Include="..\libModernPNG\include\Decode\ReadPNGChunks.h" />
     <ClInclude Include="..\libModernPNG\include\Encode\EncodePNG.h" />
     <ClInclude Include="..\libModernPNG\include\libModernPNG.h" />
-    <ClInclude Include="..\libModernPNG\include\ModernPNGTables.h" />
-    <ClInclude Include="..\libModernPNG\include\ModernPNGTypes.h" />
+    <ClInclude Include="..\libModernPNG\include\Private\ModernPNGTables.h" />
+    <ClInclude Include="..\libModernPNG\include\Private\ModernPNGTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libModernPNG\src\Decode\DecodeAdam7.c" />

@@ -3,7 +3,7 @@
 
 #include "../libModernPNG/include/libModernPNG.h"
 
-#define ModernPNGVersion "0.1.0"
+#define ModernPNGVersion "0.5.0"
 
 #ifdef __cplusplus
 extern "C" {
@@ -31,7 +31,7 @@ extern "C" {
         SetCLICopyright(CLI, "2017 - 2017");
         SetCLIDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
         SetCLILicense(CLI, "Revised BSD (3 clause)", false);
-        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause", false);
+        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
         SetCLIMinSwitches(CLI, 3);
         
         SetCLISwitchFlag(CLI, Input, "Input", 5);
@@ -51,10 +51,10 @@ extern "C" {
         SetCLISwitchResultStatus(CLI, RightEye, true);
         
         /* General Meta Switches */
-        SetCLISwitchMetaFlag(CLI, Input, LeftEye);
-        SetCLISwitchMetaFlag(CLI, Input, RightEye);
-        SetCLISwitchMetaFlag(CLI, Output, LeftEye);
-        SetCLISwitchMetaFlag(CLI, Output, RightEye);
+        SetCLISwitchAsChild(CLI, Input, LeftEye);
+        SetCLISwitchAsChild(CLI, Input, RightEye);
+        SetCLISwitchAsChild(CLI, Output, LeftEye);
+        SetCLISwitchAsChild(CLI, Output, RightEye);
         
         /* Start Encode Options */
         SetCLISwitchFlag(CLI, Encode, "Encode", 6);
@@ -64,17 +64,17 @@ extern "C" {
         SetCLISwitchFlag(CLI, Resolution, "Resolution", 10);
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Resolution, true);
-        SetCLISwitchMetaFlag(CLI, Encode, Resolution);
+        SetCLISwitchAsChild(CLI, Encode, Resolution);
         
         SetCLISwitchFlag(CLI, Interlace, "Interlace", 10);
         SetCLISwitchDescription(CLI, Interlace, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Interlace, true);
-        SetCLISwitchMetaFlag(CLI, Encode, Interlace);
+        SetCLISwitchAsChild(CLI, Encode, Interlace);
         
         SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
         SetCLISwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
         SetCLISwitchResultStatus(CLI, Optimize, false);
-        SetCLISwitchMetaFlag(CLI, Encode, Optimize);
+        SetCLISwitchAsChild(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
@@ -124,11 +124,11 @@ extern "C" {
             BitInput  *InputFile  = InitBitInput();
             BitOutput *OutputFile = InitBitOutput();
             
-            char       InputPath  = GetCLIArgumentResult(CLI, Input);
-            char      OutputPath  = GetCLIArgumentResult(CLI, Output);
+            char       *InputPath  = GetCLIArgumentResult(CLI, Input);
+            char      *OutputPath  = GetCLIArgumentResult(CLI, Output);
             
-            OpenInputFile(InputFile, &InputPath, false);
-            OpenOutputFile(OutputFile, &OutputPath);
+            OpenInputFile(InputFile, InputPath, false);
+            OpenOutputFile(OutputFile, OutputPath);
         }
         
         DeinitCommandLineInterface(CLI);

@@ -27,10 +27,10 @@
     <ClInclude Include="..\libModernPNG\include\libModernPNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\libModernPNG\include\ModernPNGTables.h">
+    <ClInclude Include="..\libModernPNG\include\Private\ModernPNGTables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\libModernPNG\include\ModernPNGTypes.h">
+    <ClInclude Include="..\libModernPNG\include\Private\ModernPNGTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
