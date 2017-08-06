@@ -1,58 +1,73 @@
-#include <stdio.h>
+//#include <stdio.h>
 
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
+
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
-#include "../libModernFLAC/include/Decoder/DecodeFLAC.h"
-#include "../libModernFLAC/include/Encoder/EncodeFLAC.h"
+
+#include "../libModernFLAC/include/libModernFLAC.h"
+
+#define ModernFLACVersion "0.1.0"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
     
+    enum ModernFLACCommandLineSwitchNames {
+        Input    = 0,
+        Output   = 1,
+        Encode   = 2,
+        Subset   = 3,
+        Optimize = 4,
+        Decode   = 5,
+        Help     = 6,
+    };
+    
     CommandLineInterface *SetModernFLACOptions(void) {
         CommandLineInterface *CLI = InitCommandLineInterface(7);
         
         SetCLIName(CLI, "ModernFLAC");
-        SetCLIDescription(CLI, "FLAC encoder/decoder written in modern C");
         SetCLIAuthor(CLI, "BumbleBritches57");
-        SetCLICopyright(CLI, "2017-2017");
+        SetCLIVersion(CLI, ModernFLACVersion);
+        SetCLICopyright(CLI, "2017 - 2017");
+        SetCLIDescription(CLI, "FLAC encoder/decoder written in modern C");
         SetCLILicense(CLI, "Revised BSD (3 clause)", false);
         SetCLIMinSwitches(CLI, 3);
         
-        SetCLISwitchFlag(CLI, 0, "Input", 5);
-        SetCLISwitchDescription(CLI, 0, "Input file or stdin with: '-'");
-        SetCLISwitchResultStatus(CLI, 0, true);
+        SetCLISwitchFlag(CLI, Input, "Input", 5);
+        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'");
+        SetCLISwitchResultStatus(CLI, Input, true);
         
-        SetCLISwitchFlag(CLI, 1, "Output", 6);
-        SetCLISwitchDescription(CLI, 1, "Output file or stdout with: '-'");
-        SetCLISwitchResultStatus(CLI, 1, true);
+        SetCLISwitchFlag(CLI, Output, "Output", 6);
+        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'");
+        SetCLISwitchResultStatus(CLI, Output, true);
         
-        SetCLISwitchFlag(CLI, 2, "Decode", 6);
-        SetCLISwitchDescription(CLI, 2, "Decode input FLAC to output");
-        SetCLISwitchResultStatus(CLI, 2, false);
+        SetCLISwitchFlag(CLI, Encode, "Encode", 6);
+        SetCLISwitchDescription(CLI, Encode, "Encode input to output FLAC");
+        SetCLISwitchResultStatus(CLI, Encode, false);
         
-        SetCLISwitchFlag(CLI, 3, "Encode", 6);
-        SetCLISwitchDescription(CLI, 3, "Encode input to output FLAC");
-        SetCLISwitchResultStatus(CLI, 3, false);
+        SetCLISwitchFlag(CLI, Subset, "Subset", 6);
+        SetCLISwitchDescription(CLI, Subset, "Limit encoding to subset format");
+        SetCLISwitchResultStatus(CLI, Subset, false);
+        SetCLISwitchMetaFlag(CLI, Encode, Subset);
         
-        SetCLISwitchFlag(CLI, 4, "Reencode", 8);
-        SetCLISwitchDescription(CLI, 4, "Reencodes the input flac with -O");
-        SetCLISwitchResultStatus(CLI, 4, false);
+        SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
+        SetCLISwitchDescription(CLI, Optimize, "Optimize encoded FLAC to be as small as possible");
+        SetCLISwitchResultStatus(CLI, Optimize, false);
         
-        SetCLISwitchFlag(CLI, 5, "Subset", 6);
-        SetCLISwitchDescription(CLI, 5, "Limit encoding to subset format");
-        SetCLISwitchResultStatus(CLI, 5, false);
+        SetCLISwitchFlag(CLI, Decode, "Decode", 6);
+        SetCLISwitchDescription(CLI, Decode, "Decode input FLAC to output");
+        SetCLISwitchResultStatus(CLI, Decode, false);
         
-        SetCLISwitchFlag(CLI, 6, "Optimize", 8);
-        SetCLISwitchDescription(CLI, 6, "Optimize encoded FLAC to be as small as possible");
-        SetCLISwitchResultStatus(CLI, 6, false);
+        SetCLISwitchFlag(CLI, Help, "Help", 4);
+        SetCLISwitchDescription(CLI, Help, "Displays this usage information");
+        SetCLISwitchResultStatus(CLI, Help, false);
         
         return CLI;
     }
     
-    void FLACDecodeFile(BitInput *BitI, BitOutput *BitO, DecodeFLAC *Dec, CommandLineInterface *CLI) {
-        uint32_t FileMagic = ReadBits(BitI, 32, true);
+    void FLACDecodeFile(BitBuffer *InputFLAC, BitOutput *BitO, DecodeFLAC *Dec, CommandLineInterface *CLI) {
+        uint32_t FileMagic = ReadBits(InputFLAC, 32, true);
         
         if (FileMagic != FLACMagic) {
             // Not a FLAC file
@@ -60,28 +75,28 @@ extern "C" {
             snprintf(Error, BitIOStringSize, "Not a FLAC file, magic was: 0x%X\n", FileMagic);
             Log(LOG_ERR, "ModernFLAC", "FLACDecodeFile", Error);
         } else {
-            for (size_t Byte = 4; Byte < GetBitInputFileSize(BitI); Byte++) { // loop to decode file
+            for (size_t Byte = 4; Byte < GetBitInputFileSize(InputFLAC); Byte++) { // loop to decode file
                 while (Dec->LastMetadataBlock == false) {
-                    FLACParseMetadata(BitI, Dec);
+                    FLACParseMetadata(InputFLAC, Dec);
                 }
-                if (ReadBits(BitI, 14, true) == FLACFrameMagic) {
-                    FLACReadFrame(BitI, Dec);
+                if (ReadBits(InputFLAC, 14, true) == FLACFrameMagic) {
+                    FLACReadFrame(InputFLAC, Dec);
                 }
             }
         }
     }
     
-    void FLACEncodeFile(BitInput *BitI, BitOutput *BitO, EncodeFLAC *Enc, CommandLineInterface *CLI) {
+    void FLACEncodeFile(BitBuffer *InputFLAC, BitOutput *BitO, EncodeFLAC *Enc, CommandLineInterface *CLI) {
         Enc->EncodeSubset = GetCLISwitchPresence(CLI, 4);
         Enc->OptimizeFile = GetCLISwitchPresence(CLI, 5);
         // Start requesting PCM samples to encode into frames, given all PCM formats are interleaved, you'll need to handle that.
     }
     
-    void CloseEverything(BitInput *BitI, BitOutput *BitO, PCMFile *PCM, CommandLineInterface *CLI, DecodeFLAC *Dec, EncodeFLAC *Enc) {
-        CloseBitInput(BitI);
+    void CloseEverything(BitBuffer *InputFLAC, BitOutput *BitO, PCMFile *PCM, CommandLineInterface *CLI, DecodeFLAC *Dec, EncodeFLAC *Enc) {
         CloseBitOutput(BitO);
+        CloseBitBuffer(InputFLAC);
         ClosePCMFile(PCM);
-        CloseCommandLineInterface(CLI);
+        DeinitCommandLineInterface(CLI);
         CloseFLACDecoder(Dec);
         CloseFLACEncoder(Enc);
     }
@@ -90,12 +105,12 @@ extern "C" {
         CommandLineInterface *CLI = SetModernFLACOptions();
         
         ParseCommandLineArguments(CLI, argc, argv);
-        BitInput           *BitI    = InitBitInput();
+        BitInput           *InputFLAC    = InitBitInput();
         BitOutput          *BitO    = InitBitOutput();
         PCMFile            *PCM     = InitPCMFile();
         DecodeFLAC         *Dec     = InitDecodeFLAC();
         EncodeFLAC         *Enc     = InitEncodeFLAC();
-        OpenCLIInputFile(BitI, CLI, 0);
+        OpenCLIInputFile(InputFLAC, CLI, 0);
         OpenCLIOutputFile(BitO, CLI, 1);
         
         bool Decode   = GetCLISwitchPresence(CLI, 2);
@@ -105,12 +120,12 @@ extern "C" {
         
         // Find out if -d or -e was included on the command line
         if (Decode == true || Reencode == true) {
-            if (ReadBits(BitI, 32, true) == FLACMagic) {
-                for (uint8_t Byte = 0; Byte < GetBitInputFileSize(BitI); Byte++) {
-                    if (PeekBits(BitI, 14, true) == FLACFrameMagic) {
-                        FLACReadFrame(BitI, Dec);
+            if (ReadBits(InputFLAC, 32, true) == FLACMagic) {
+                for (uint8_t Byte = 0; Byte < GetBitInputFileSize(InputFLAC); Byte++) {
+                    if (PeekBits(InputFLAC, 14, true) == FLACFrameMagic) {
+                        FLACReadFrame(InputFLAC, Dec);
                     } else {
-                        FLACParseMetadata(BitI, Dec);
+                        FLACParseMetadata(InputFLAC, Dec);
                     }
                 }
             }
@@ -119,7 +134,7 @@ extern "C" {
         } else if (Encode == true) {
             Enc->EncodeSubset = GetCLISwitchPresence(CLI, 5);
             Enc->OptimizeFile = GetCLISwitchPresence(CLI, 6);
-            IdentifyPCMFile(BitI, PCM);
+            IdentifyPCMFile(InputFLAC, PCM);
             EncodeFLACFile(PCM, BitO, Enc);
             
             // Encode the file to FLAC
@@ -128,7 +143,7 @@ extern "C" {
             // Reencode the input
         }
         
-        CloseEverything(BitI, BitO, PCM, CLI, Dec, Enc);
+        CloseEverything(InputFLAC, BitO, PCM, CLI, Dec, Enc);
         
         return EXIT_SUCCESS;
     }
