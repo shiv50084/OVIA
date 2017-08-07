@@ -37,10 +37,12 @@ extern "C" {
         SetCLISwitchFlag(CLI, Input, "Input", 5);
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -");
         SetCLISwitchResultStatus(CLI, Input, true);
+        SetCLISwitchAsMain(CLI, Input, true);
         
         SetCLISwitchFlag(CLI, Output, "Output", 6);
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -");
         SetCLISwitchResultStatus(CLI, Output, true);
+        SetCLISwitchAsMain(CLI, Output, true);
         
         SetCLISwitchFlag(CLI, LeftEye, "LeftEye", 7);
         SetCLISwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
@@ -60,6 +62,7 @@ extern "C" {
         SetCLISwitchFlag(CLI, Encode, "Encode", 6);
         SetCLISwitchDescription(CLI, Encode, "Encode input to PNG");
         SetCLISwitchResultStatus(CLI, Encode, false);
+        SetCLISwitchAsMain(CLI, Encode, true);
         
         SetCLISwitchFlag(CLI, Resolution, "Resolution", 10);
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
@@ -81,48 +84,57 @@ extern "C" {
         SetCLISwitchFlag(CLI, Decode, "Decode", 6);
         SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
+        SetCLISwitchAsMain(CLI, Decode, true);
         /* End Decode Options */
         
         SetCLISwitchFlag(CLI, Help, "Help", 4);
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, false);
+        SetCLISwitchAsMain(CLI, Decode, true);
         
         return CLI;
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineInterface *CLI = SetModernPNGOptions();
+        CommandLineInterface *CLI  = SetModernPNGOptions();
         ParseCommandLineArguments(CLI, argc, argv);
+        
+        /*
+         So, the question is, does the Input switch have LeftEye or RightEye listed in the arguments?
+         
+         How do I generalize this to be included in CommandLineIO?
+         
+         */
         
         if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Encode) == true) {
             // 3D image, so check for LeftEye/RightEye
-            BitInput  *Lefteye    = InitBitInput();
-            BitInput  *Righteye   = InitBitInput();
-            BitOutput *Stereo     = InitBitOutput();
+            BitInput  *Lefteye     = InitBitInput();
+            BitInput  *Righteye    = InitBitInput();
+            BitOutput *Stereo      = InitBitOutput();
             
-            uint64_t LeftEyeArg   = GetCLIChildSwitchArgument(CLI, Encode, LeftEye);
-            uint64_t RightEyeArg  = GetCLIChildSwitchArgument(CLI, Encode, RightEye);
-            uint64_t StereoArg    = GetCLIChildSwitchArgument(CLI, Encode, Output);
+            uint64_t LeftEyeArg    = GetCLIChildSwitchArgument(CLI, Encode, LeftEye);
+            uint64_t RightEyeArg   = GetCLIChildSwitchArgument(CLI, Encode, RightEye);
+            uint64_t StereoArg     = GetCLIChildSwitchArgument(CLI, Encode, Output);
             
-            OpenInputFile(Lefteye, GetCLIArgumentResult(CLI, LeftEyeArg), false);
-            OpenInputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg), false);
-            OpenOutputFile(Stereo,  GetCLIArgumentResult(CLI, StereoArg));
+            OpenInputFile(Lefteye,   GetCLIArgumentResult(CLI, LeftEyeArg), false);
+            OpenInputFile(Righteye,  GetCLIArgumentResult(CLI, RightEyeArg), false);
+            OpenOutputFile(Stereo,   GetCLIArgumentResult(CLI, StereoArg));
         } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Decode) == true) {
-            BitInput  *Stereo     = InitBitInput();
-            BitOutput *Lefteye    = InitBitOutput();
-            BitOutput *Righteye   = InitBitOutput();
+            BitInput  *Stereo      = InitBitInput();
+            BitOutput *Lefteye     = InitBitOutput();
+            BitOutput *Righteye    = InitBitOutput();
             
-            uint64_t StereoArg    = GetCLIChildSwitchArgument(CLI, Decode, Output);
-            uint64_t LeftEyeArg   = GetCLIChildSwitchArgument(CLI, Decode, LeftEye);
-            uint64_t RightEyeArg  = GetCLIChildSwitchArgument(CLI, Decode, RightEye);
+            uint64_t StereoArg     = GetCLIChildSwitchArgument(CLI, Decode, Output);
+            uint64_t LeftEyeArg    = GetCLIChildSwitchArgument(CLI, Decode, LeftEye);
+            uint64_t RightEyeArg   = GetCLIChildSwitchArgument(CLI, Decode, RightEye);
             
-            OpenInputFile(Stereo, GetCLIArgumentResult(CLI, StereoArg), false);
-            OpenOutputFile(Lefteye, GetCLIArgumentResult(CLI, LeftEyeArg));
+            OpenInputFile(Stereo,    GetCLIArgumentResult(CLI, StereoArg), false);
+            OpenOutputFile(Lefteye,  GetCLIArgumentResult(CLI, LeftEyeArg));
             OpenOutputFile(Righteye, GetCLIArgumentResult(CLI, RightEyeArg));
         } else {
             // 2D image
-            BitInput  *InputFile  = InitBitInput();
-            BitOutput *OutputFile = InitBitOutput();
+            BitInput  *InputFile   = InitBitInput();
+            BitOutput *OutputFile  = InitBitOutput();
             
             char       *InputPath  = GetCLIArgumentResult(CLI, Input);
             char      *OutputPath  = GetCLIArgumentResult(CLI, Output);
