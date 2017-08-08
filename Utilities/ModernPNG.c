@@ -1,4 +1,4 @@
-#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
+#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
@@ -20,17 +20,18 @@ extern "C" {
         Optimize   = 7,
         Decode     = 8,
         Help       = 9,
+        LogFile    = 10,
     };
     
-    CommandLineInterface *SetModernPNGOptions(void) {
-        CommandLineInterface *CLI = InitCommandLineInterface(10);
+    CommandLineIO *SetModernPNGOptions(void) {
+        CommandLineIO *CLI = InitCommandLineIO(11);
         
         SetCLIName(CLI, "ModernPNG");
         SetCLIAuthor(CLI, "BumbleBritches57");
         SetCLIVersion(CLI, ModernPNGVersion);
         SetCLICopyright(CLI, "2017 - 2017");
         SetCLIDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD (3 clause)", false);
+        SetCLILicense(CLI, "Revised BSD", "a truly free open source license", false);
         SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
         SetCLIMinSwitches(CLI, 3);
         
@@ -90,14 +91,23 @@ extern "C" {
         SetCLISwitchFlag(CLI, Help, "Help", 4);
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, false);
-        SetCLISwitchAsMain(CLI, Decode, true);
+        SetCLISwitchAsMain(CLI, Help, true);
+        
+        SetCLISwitchFlag(CLI, LogFile, "LogFile", 7);
+        SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
+        SetCLISwitchResultStatus(CLI, LogFile, false);
+        SetCLISwitchAsMain(CLI, LogFile, true);
         
         return CLI;
     }
     
     int main(int argc, const char * argv[]) {
-        CommandLineInterface *CLI  = SetModernPNGOptions();
+        CommandLineIO *CLI  = SetModernPNGOptions();
         ParseCommandLineArguments(CLI, argc, argv);
+        
+        uint64_t LogArgumentNum = GetCLISwitchNumFromFlag(CLI, LogFile);
+        char    *LogFilePath    = GetCLIArgumentResult(CLI, LogArgumentNum);
+        OpenLogFile(LogFilePath);
         
         /*
          So, the question is, does the Input switch have LeftEye or RightEye listed in the arguments?
@@ -143,7 +153,7 @@ extern "C" {
             OpenOutputFile(OutputFile, OutputPath);
         }
         
-        DeinitCommandLineInterface(CLI);
+        DeinitCommandLineIO(CLI);
         
         return EXIT_SUCCESS;
     }
