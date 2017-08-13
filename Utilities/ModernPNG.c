@@ -35,21 +35,21 @@ extern "C" {
         SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
         SetCLIMinSwitches(CLI, 3);
         
-        SetCLISwitchFlag(CLI, Input, "Input", 5);
+        SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -");
         SetCLISwitchResultStatus(CLI, Input, true);
         SetCLISwitchAsMain(CLI, Input, true);
         
-        SetCLISwitchFlag(CLI, Output, "Output", 6);
+        SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -");
         SetCLISwitchResultStatus(CLI, Output, true);
         SetCLISwitchAsMain(CLI, Output, true);
         
-        SetCLISwitchFlag(CLI, LeftEye, "LeftEye", 7);
+        SetCLISwitchFlag(CLI, LeftEye, "LeftEye");
         SetCLISwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
         SetCLISwitchResultStatus(CLI, LeftEye, true);
         
-        SetCLISwitchFlag(CLI, RightEye, "RightEye", 8);
+        SetCLISwitchFlag(CLI, RightEye, "RightEye");
         SetCLISwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
         SetCLISwitchResultStatus(CLI, RightEye, true);
         
@@ -60,40 +60,40 @@ extern "C" {
         SetCLISwitchAsChild(CLI, Output, RightEye);
         
         /* Start Encode Options */
-        SetCLISwitchFlag(CLI, Encode, "Encode", 6);
+        SetCLISwitchFlag(CLI, Encode, "Encode");
         SetCLISwitchDescription(CLI, Encode, "Encode input to PNG");
         SetCLISwitchResultStatus(CLI, Encode, false);
         SetCLISwitchAsMain(CLI, Encode, true);
         
-        SetCLISwitchFlag(CLI, Resolution, "Resolution", 10);
+        SetCLISwitchFlag(CLI, Resolution, "Resolution");
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Resolution, true);
         SetCLISwitchAsChild(CLI, Encode, Resolution);
         
-        SetCLISwitchFlag(CLI, Interlace, "Interlace", 10);
+        SetCLISwitchFlag(CLI, Interlace, "Interlace");
         SetCLISwitchDescription(CLI, Interlace, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
         SetCLISwitchResultStatus(CLI, Interlace, true);
         SetCLISwitchAsChild(CLI, Encode, Interlace);
         
-        SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
+        SetCLISwitchFlag(CLI, Optimize, "Optimize");
         SetCLISwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
         SetCLISwitchResultStatus(CLI, Optimize, false);
         SetCLISwitchAsChild(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
-        SetCLISwitchFlag(CLI, Decode, "Decode", 6);
+        SetCLISwitchFlag(CLI, Decode, "Decode");
         SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
         SetCLISwitchAsMain(CLI, Decode, true);
         /* End Decode Options */
         
-        SetCLISwitchFlag(CLI, Help, "Help", 4);
+        SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, false);
         SetCLISwitchAsMain(CLI, Help, true);
         
-        SetCLISwitchFlag(CLI, LogFile, "LogFile", 7);
+        SetCLISwitchFlag(CLI, LogFile, "LogFile");
         SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
         SetCLISwitchResultStatus(CLI, LogFile, false);
         SetCLISwitchAsMain(CLI, LogFile, true);
