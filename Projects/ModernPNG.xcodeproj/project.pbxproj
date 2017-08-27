@@ -24,9 +24,9 @@
 		2C6B1A9E1F4053DF00ABF2F8 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
 		2C6B1AB71F40547900ABF2F8 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AB61F40547900ABF2F8 /* libBitIO.a */; };
 		2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */; };
-		2C6B1AB91F40548400ABF2F8 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AA71F40540300ABF2F8 /* libPCM.a */; };
 		2C90C2921F4F9C8C00497C35 /* libModernPNGEntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C90C2911F4F9C8C00497C35 /* libModernPNGEntropyCoders.c */; };
 		2C90C2961F4F9E7A00497C35 /* libModernPNGEntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C90C2951F4F9E7A00497C35 /* libModernPNGEntropyCoders.h */; };
+		2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */,
-				2C6B1AB91F40548400ABF2F8 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
