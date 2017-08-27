@@ -97,8 +97,8 @@ extern "C" {
         CloseBitBuffer(InputFLAC);
         ClosePCMFile(PCM);
         DeinitCommandLineInterface(CLI);
-        CloseFLACDecoder(Dec);
-        CloseFLACEncoder(Enc);
+        DeinitFLACDecoder(Dec);
+        DeinitFLACEncoder(Enc);
     }
     
     int main(int argc, const char *argv[]) {
