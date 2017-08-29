@@ -71,9 +71,7 @@ extern "C" {
         
         if (FileMagic != FLACMagic) {
             // Not a FLAC file
-            char Error[BitIOStringSize];
-            snprintf(Error, BitIOStringSize, "Not a FLAC file, magic was: 0x%X\n", FileMagic);
-            Log(LOG_ERR, "ModernFLAC", "FLACDecodeFile", Error);
+            Log(LOG_ERR, "libModernFLAC", "FLACDecodeFile", "Not a FLAC file, magic was: 0x%X\n", FileMagic);
         } else {
             for (size_t Byte = 4; Byte < GetBitInputFileSize(InputFLAC); Byte++) { // loop to decode file
                 while (Dec->LastMetadataBlock == false) {
