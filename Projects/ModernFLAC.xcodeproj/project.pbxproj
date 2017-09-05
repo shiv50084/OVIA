@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C4C46171E8AF57C00C24F4C /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
+		2C4F6F581F5978EA00122AD1 /* ModernFLACCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */; };
+		2C4F6F5C1F59791800122AD1 /* ModernFLACCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */; };
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2CED19631E89711900204FC6 /* libModernFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC504AA1E194B58004A3685 /* libModernFLAC.a */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
+		2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModernFLACCommon.h; path = ../libModernFLAC/include/Private/Common/ModernFLACCommon.h; sourceTree = "<group>"; };
+		2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLACCommon.c; path = ../libModernFLAC/src/Common/ModernFLACCommon.c; sourceTree = "<group>"; };
 		2C7D1E041DCB0FF10014CAA2 /* ModernFLAC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernFLAC; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8AAE081E8436A0007F8867 /* libModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC.h; path = ../libModernFLAC/include/libModernFLAC.h; sourceTree = "<group>"; };
 		2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLAC.c; path = ../ModernFLAC/ModernFLAC.c; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				2CED67BE1F52286600241290 /* ModernFLACTypes.h */,
 				2CED67BF1F52286600241290 /* ModernFLACEntropyCoders.h */,
+				2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 		2CED67CC1F52292E00241290 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */,
 				2CED67CD1F52294100241290 /* ModernFLACEntropyCoders.c */,
 			);
 			name = Common;
@@ -246,6 +252,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4F6F581F5978EA00122AD1 /* ModernFLACCommon.h in Headers */,
 				2CED67C31F52287000241290 /* ParseModernFLAC.h in Headers */,
 				2CED67F01F522EEF00241290 /* EncodeModernFLAC.h in Headers */,
 				2CED67C81F52289D00241290 /* ComposeModernFLAC.h in Headers */,
@@ -377,6 +384,7 @@
 				2CED67DD1F5229A000241290 /* ComposeModernFLAC.c in Sources */,
 				2CED67E61F5229AC00241290 /* ParseModernFLAC.c in Sources */,
 				2CED67DC1F5229A000241290 /* ApodizeModernFLAC.c in Sources */,
+				2C4F6F5C1F59791800122AD1 /* ModernFLACCommon.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
