@@ -21,9 +21,8 @@
 		2C6B1A931F4053A300ABF2F8 /* libModernPNGEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A921F4053A300ABF2F8 /* libModernPNGEncode.h */; };
 		2C6B1A961F4053AD00ABF2F8 /* libModernPNGDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A941F4053AD00ABF2F8 /* libModernPNGDecode.h */; };
 		2C6B1A971F4053AD00ABF2F8 /* libModernPNGReadChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A951F4053AD00ABF2F8 /* libModernPNGReadChunks.h */; };
-		2C6B1A9E1F4053DF00ABF2F8 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
-		2C6B1AB71F40547900ABF2F8 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AB61F40547900ABF2F8 /* libBitIO.a */; };
 		2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */; };
+		2C8365951F60C1010007EC42 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8365941F60C1010007EC42 /* libBitIO.a */; };
 		2C90C2921F4F9C8C00497C35 /* libModernPNGEntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C90C2911F4F9C8C00497C35 /* libModernPNGEntropyCoders.c */; };
 		2C90C2961F4F9E7A00497C35 /* libModernPNGEntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C90C2951F4F9E7A00497C35 /* libModernPNGEntropyCoders.h */; };
 		2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
@@ -78,6 +77,7 @@
 		2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
 		2C6B1AAE1F40543A00ABF2F8 /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B1AB61F40547900ABF2F8 /* libBitIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitIO.a; path = ../Dependencies/libPCM/Dependencies/BitIO/Projects/build/Debug/libBitIO.a; sourceTree = "<group>"; };
+		2C8365941F60C1010007EC42 /* libBitIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBitIO.a; path = "../../../Library/Developer/Xcode/DerivedData/ModernPNG-annkpbohjcbxmnehnvrgthxhmnyk/Build/Products/Debug/libBitIO.a"; sourceTree = "<group>"; };
 		2C90C2911F4F9C8C00497C35 /* libModernPNGEntropyCoders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNGEntropyCoders.c; path = ../libModernPNG/src/Common/libModernPNGEntropyCoders.c; sourceTree = "<group>"; };
 		2C90C2951F4F9E7A00497C35 /* libModernPNGEntropyCoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNGEntropyCoders.h; path = ../libModernPNG/include/Private/Common/libModernPNGEntropyCoders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6B1AB71F40547900ABF2F8 /* libBitIO.a in Frameworks */,
+				2C8365951F60C1010007EC42 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +245,7 @@
 		2C6B1AB51F40547900ABF2F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C8365941F60C1010007EC42 /* libBitIO.a */,
 				2C6B1AB61F40547900ABF2F8 /* libBitIO.a */,
 			);
 			name = Frameworks;
@@ -374,7 +375,6 @@
 				2C6B1A811F40535700ABF2F8 /* libModernPNGDecode.c in Sources */,
 				2C6B1A7C1F40534D00ABF2F8 /* libModernPNGEncodeFilter.c in Sources */,
 				2C6B1A831F40535700ABF2F8 /* libModernPNGReadChunks.c in Sources */,
-				2C6B1A9E1F4053DF00ABF2F8 /* ModernPNG.c in Sources */,
 				2C6B1A7D1F40534D00ABF2F8 /* libModernPNGWriteChunks.c in Sources */,
 				2C90C2921F4F9C8C00497C35 /* libModernPNGEntropyCoders.c in Sources */,
 				2C6B1A7A1F40534D00ABF2F8 /* libModernPNGEncode.c in Sources */,

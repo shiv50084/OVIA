@@ -38,12 +38,12 @@ extern "C" {
         SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -");
         SetCLISwitchResultStatus(CLI, Input, true);
-        SetCLISwitchAsMain(CLI, Input, true);
+        SetCLISwitchAsMaster(CLI, Input, true);
         
         SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -");
         SetCLISwitchResultStatus(CLI, Output, true);
-        SetCLISwitchAsMain(CLI, Output, true);
+        SetCLISwitchAsMaster(CLI, Output, true);
         
         SetCLISwitchFlag(CLI, LeftEye, "LeftEye");
         SetCLISwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
@@ -63,7 +63,7 @@ extern "C" {
         SetCLISwitchFlag(CLI, Encode, "Encode");
         SetCLISwitchDescription(CLI, Encode, "Encode input to PNG");
         SetCLISwitchResultStatus(CLI, Encode, false);
-        SetCLISwitchAsMain(CLI, Encode, true);
+        SetCLISwitchAsMaster(CLI, Encode, true);
         
         SetCLISwitchFlag(CLI, Resolution, "Resolution");
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
@@ -85,18 +85,18 @@ extern "C" {
         SetCLISwitchFlag(CLI, Decode, "Decode");
         SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
-        SetCLISwitchAsMain(CLI, Decode, true);
+        SetCLISwitchAsMaster(CLI, Decode, true);
         /* End Decode Options */
         
         SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, false);
-        SetCLISwitchAsMain(CLI, Help, true);
+        SetCLISwitchAsMaster(CLI, Help, true);
         
         SetCLISwitchFlag(CLI, LogFile, "LogFile");
         SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
         SetCLISwitchResultStatus(CLI, LogFile, false);
-        SetCLISwitchAsMain(CLI, LogFile, true);
+        SetCLISwitchAsMaster(CLI, LogFile, true);
         
         return CLI;
     }
@@ -116,7 +116,9 @@ extern "C" {
          
          */
         
-        if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Encode) == true) {
+        uint64_t InputLeftEyeArgument  = GetCLIChildSwitchArgument(CLI, Input, LeftEye);
+        uint64_t InputRightEyeArgument = GetCLIChildSwitchArgument(CLI, Input, RightEye);
+        if ((InputLeftEyeArgument != 0xFFFFFFFFFFFFFFFFULL && InputRightEyeArgument != 0xFFFFFFFFFFFFFFFFULL) && GetCLIArgumentNumFromFlag(CLI, Encode) == true) {
             // 3D image, so check for LeftEye/RightEye
             BitInput  *Lefteye     = InitBitInput();
             BitInput  *Righteye    = InitBitInput();
@@ -129,7 +131,7 @@ extern "C" {
             OpenInputFile(Lefteye,   GetCLIArgumentResult(CLI, LeftEyeArg), false);
             OpenInputFile(Righteye,  GetCLIArgumentResult(CLI, RightEyeArg), false);
             OpenOutputFile(Stereo,   GetCLIArgumentResult(CLI, StereoArg));
-        } else if ((GetCLISwitchPresence(CLI, LeftEye) && GetCLISwitchPresence(CLI, RightEye)) && GetCLISwitchPresence(CLI, Decode) == true) {
+        } else if ((InputLeftEyeArgument != 0xFFFFFFFFFFFFFFFFULL && InputRightEyeArgument != 0xFFFFFFFFFFFFFFFFULL) && GetCLIArgumentNumFromFlag(CLI, Decode) == true) {
             BitInput  *Stereo      = InitBitInput();
             BitOutput *Lefteye     = InitBitOutput();
             BitOutput *Righteye    = InitBitOutput();
