@@ -12,15 +12,15 @@ extern "C" {
     enum ModernPNGCommandLineSwitchNames {
         Input      = 0,
         Output     = 1,
-        LeftEye    = 2,
-        RightEye   = 3,
-        Encode     = 4,
-        Resolution = 5,
-        Interlace  = 6,
-        Optimize   = 7,
-        Decode     = 8,
-        Help       = 9,
-        LogFile    = 10,
+        LogFile    = 2,
+        LeftEye    = 3,
+        RightEye   = 4,
+        Encode     = 5,
+        Resolution = 6,
+        Interlace  = 7,
+        Optimize   = 8,
+        Decode     = 9,
+        Help       = 10,
     };
     
     CommandLineIO *SetModernPNGOptions(void) {
@@ -38,12 +38,17 @@ extern "C" {
         SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -");
         SetCLISwitchResultStatus(CLI, Input, true);
-        SetCLISwitchAsMaster(CLI, Input, true);
+        SetCLISwitchAsMaster(CLI, Input);
         
         SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -");
         SetCLISwitchResultStatus(CLI, Output, true);
-        SetCLISwitchAsMaster(CLI, Output, true);
+        SetCLISwitchAsMaster(CLI, Output);
+        
+        SetCLISwitchFlag(CLI, LogFile, "LogFile");
+        SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
+        SetCLISwitchResultStatus(CLI, LogFile, false);
+        SetCLISwitchAsMaster(CLI, LogFile);
         
         SetCLISwitchFlag(CLI, LeftEye, "LeftEye");
         SetCLISwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
@@ -63,7 +68,7 @@ extern "C" {
         SetCLISwitchFlag(CLI, Encode, "Encode");
         SetCLISwitchDescription(CLI, Encode, "Encode input to PNG");
         SetCLISwitchResultStatus(CLI, Encode, false);
-        SetCLISwitchAsMaster(CLI, Encode, true);
+        SetCLISwitchAsMaster(CLI, Encode);
         
         SetCLISwitchFlag(CLI, Resolution, "Resolution");
         SetCLISwitchDescription(CLI, Resolution, "Resolution in WidthxHeight format (if 3D specify the per eye resolution)");
@@ -85,18 +90,13 @@ extern "C" {
         SetCLISwitchFlag(CLI, Decode, "Decode");
         SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
-        SetCLISwitchAsMaster(CLI, Decode, true);
+        SetCLISwitchAsMaster(CLI, Decode);
         /* End Decode Options */
         
         SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
         SetCLISwitchResultStatus(CLI, Help, false);
-        SetCLISwitchAsMaster(CLI, Help, true);
-        
-        SetCLISwitchFlag(CLI, LogFile, "LogFile");
-        SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
-        SetCLISwitchResultStatus(CLI, LogFile, false);
-        SetCLISwitchAsMaster(CLI, LogFile, true);
+        SetCLISwitchAsMaster(CLI, Help);
         
         return CLI;
     }
