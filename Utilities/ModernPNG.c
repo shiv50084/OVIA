@@ -10,17 +10,24 @@ extern "C" {
 #endif
     
     enum ModernPNGCommandLineSwitchNames {
-        Input      = 0,
-        Output     = 1,
-        LogFile    = 2,
-        LeftEye    = 3,
-        RightEye   = 4,
-        Encode     = 5,
-        Resolution = 6,
-        Interlace  = 7,
-        Optimize   = 8,
-        Decode     = 9,
-        Help       = 10,
+        /* General Options */
+        Input       = 0,
+        Output      = 1,
+        LogFile     = 2,
+        LeftEye     = 3,
+        RightEye    = 4,
+        Help        = 13,
+        /* Encode Options */
+        Encode      = 5,
+        Resolution  = 6,
+        Interlace   = 7,
+        Optimize    = 8,
+        /* Decode Options */
+        Decode      = 9,
+        /* Metadata Options */
+        InsertMeta  = 10,
+        ExtractMeta = 11,
+        RemoveMeta  = 12,
     };
     
     CommandLineIO *SetModernPNGOptions(void) {
@@ -92,6 +99,22 @@ extern "C" {
         SetCLISwitchResultStatus(CLI, Decode, false);
         SetCLISwitchAsMaster(CLI, Decode);
         /* End Decode Options */
+        
+        /* Metadata Options */
+        SetCLISwitchFlag(CLI, InsertMeta, "InsertMeta");
+        SetCLISwitchDescription(CLI, InsertMeta, "Adds metadata to LIVC file");
+        SetCLISwitchResultStatus(CLI, InsertMeta, false);
+        SetCLISwitchAsMaster(CLI, InsertMeta);
+        
+        SetCLISwitchFlag(CLI, ExtractMeta, "ExtractMeta");
+        SetCLISwitchDescription(CLI, ExtractMeta, "Extracts metadata from LIVC file");
+        SetCLISwitchResultStatus(CLI, ExtractMeta, false);
+        SetCLISwitchAsMaster(CLI, ExtractMeta);
+        
+        SetCLISwitchFlag(CLI, RemoveMeta, "RemoveMeta");
+        SetCLISwitchDescription(CLI, RemoveMeta, "Removes metadata from LIVC file");
+        SetCLISwitchResultStatus(CLI, RemoveMeta, false);
+        SetCLISwitchAsMaster(CLI, RemoveMeta);
         
         SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
