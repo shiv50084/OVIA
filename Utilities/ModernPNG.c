@@ -1,4 +1,5 @@
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
 #include "../libModernPNG/include/libModernPNG.h"
@@ -132,12 +133,7 @@ extern "C" {
         char    *LogFilePath    = GetCLIArgumentResult(CLI, LogArgumentNum);
         OpenLogFile(LogFilePath);
         
-        /*
-         So, the question is, does the Input switch have LeftEye or RightEye listed in the arguments?
-         
-         How do I generalize this to be included in CommandLineIO?
-         
-         */
+        // So, we need to know if we're supposed to Encode, Decode, add metadata, remove metadata, and what kind of image if it is encoding or decoding.
         
         uint64_t InputLeftEyeArgument  = GetCLIChildSwitchArgument(CLI, Input, LeftEye);
         uint64_t InputRightEyeArgument = GetCLIChildSwitchArgument(CLI, Input, RightEye);
