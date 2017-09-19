@@ -1,8 +1,5 @@
-//#include <stdio.h>
-
-#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineInterface.h"
+#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
-
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
 #include "../libModernFLAC/include/libModernFLAC.h"
@@ -23,43 +20,44 @@ extern "C" {
         Help     = 6,
     };
     
-    CommandLineInterface *SetModernFLACOptions(void) {
-        CommandLineInterface *CLI = InitCommandLineInterface(7);
+    CommandLineIO *SetModernFLACOptions(void) {
+        CommandLineIO *CLI = InitCommandLineIO(7);
         
         SetCLIName(CLI, "ModernFLAC");
         SetCLIAuthor(CLI, "BumbleBritches57");
         SetCLIVersion(CLI, ModernFLACVersion);
         SetCLICopyright(CLI, "2017 - 2017");
-        SetCLIDescription(CLI, "FLAC encoder/decoder written in modern C");
-        SetCLILicense(CLI, "Revised BSD (3 clause)", false);
+        SetCLIDescription(CLI, "FLAC encoder/decoder written in Modern C");
+        SetCLILicense(CLI, "Revised BSD (3 clause)", "Open source license", false);
+        SetCLILicenseURL(CLI, "https://tldrlegal.com/license/bsd-3-clause-license-(revised)");
         SetCLIMinSwitches(CLI, 3);
         
-        SetCLISwitchFlag(CLI, Input, "Input", 5);
+        SetCLISwitchFlag(CLI, Input, "Input");
         SetCLISwitchDescription(CLI, Input, "Input file or stdin with: '-'");
         SetCLISwitchResultStatus(CLI, Input, true);
         
-        SetCLISwitchFlag(CLI, Output, "Output", 6);
+        SetCLISwitchFlag(CLI, Output, "Output");
         SetCLISwitchDescription(CLI, Output, "Output file or stdout with: '-'");
         SetCLISwitchResultStatus(CLI, Output, true);
         
-        SetCLISwitchFlag(CLI, Encode, "Encode", 6);
+        SetCLISwitchFlag(CLI, Encode, "Encode");
         SetCLISwitchDescription(CLI, Encode, "Encode input to output FLAC");
         SetCLISwitchResultStatus(CLI, Encode, false);
         
-        SetCLISwitchFlag(CLI, Subset, "Subset", 6);
+        SetCLISwitchFlag(CLI, Subset, "Subset");
         SetCLISwitchDescription(CLI, Subset, "Limit encoding to subset format");
         SetCLISwitchResultStatus(CLI, Subset, false);
         SetCLISwitchMetaFlag(CLI, Encode, Subset);
         
-        SetCLISwitchFlag(CLI, Optimize, "Optimize", 8);
+        SetCLISwitchFlag(CLI, Optimize, "Optimize");
         SetCLISwitchDescription(CLI, Optimize, "Optimize encoded FLAC to be as small as possible");
         SetCLISwitchResultStatus(CLI, Optimize, false);
         
-        SetCLISwitchFlag(CLI, Decode, "Decode", 6);
+        SetCLISwitchFlag(CLI, Decode, "Decode");
         SetCLISwitchDescription(CLI, Decode, "Decode input FLAC to output");
         SetCLISwitchResultStatus(CLI, Decode, false);
         
-        SetCLISwitchFlag(CLI, Help, "Help", 4);
+        SetCLISwitchFlag(CLI, Help, "Help");
         SetCLISwitchDescription(CLI, Help, "Displays this usage information");
         SetCLISwitchResultStatus(CLI, Help, false);
         
@@ -94,13 +92,13 @@ extern "C" {
         CloseBitOutput(BitO);
         CloseBitBuffer(InputFLAC);
         ClosePCMFile(PCM);
-        DeinitCommandLineInterface(CLI);
+        DeinitCommandLineIO(CLI);
         DeinitFLACDecoder(Dec);
         DeinitFLACEncoder(Enc);
     }
     
     int main(int argc, const char *argv[]) {
-        CommandLineInterface *CLI = SetModernFLACOptions();
+        CommandLineIO *CLI = SetModernFLACOptions();
         
         ParseCommandLineArguments(CLI, argc, argv);
         BitInput           *InputFLAC    = InitBitInput();

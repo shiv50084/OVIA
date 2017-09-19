@@ -8,26 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2C4C46171E8AF57C00C24F4C /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0FB6801E845396005DEE50 /* libPCM.a */; };
-		2C4F6F581F5978EA00122AD1 /* ModernFLACCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */; };
-		2C4F6F5C1F59791800122AD1 /* ModernFLACCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */; };
+		2C4F6F581F5978EA00122AD1 /* libModernFLAC_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4F6F571F5978EA00122AD1 /* libModernFLAC_Common.h */; };
+		2C4F6F5C1F59791800122AD1 /* libModernFLAC_Common.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F6F5B1F59791800122AD1 /* libModernFLAC_Common.c */; };
 		2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8AAE081E8436A0007F8867 /* libModernFLAC.h */; };
 		2C8AAE0E1E8436DC007F8867 /* ModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */; };
 		2CED19631E89711900204FC6 /* libModernFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC504AA1E194B58004A3685 /* libModernFLAC.a */; };
-		2CED67C01F52286600241290 /* ModernFLACTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67BE1F52286600241290 /* ModernFLACTypes.h */; };
-		2CED67C11F52286600241290 /* ModernFLACEntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67BF1F52286600241290 /* ModernFLACEntropyCoders.h */; };
-		2CED67C31F52287000241290 /* ParseModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C21F52287000241290 /* ParseModernFLAC.h */; };
-		2CED67C51F52287E00241290 /* DeapodizeModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C41F52287E00241290 /* DeapodizeModernFLAC.h */; };
-		2CED67C81F52289D00241290 /* ComposeModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C61F52289D00241290 /* ComposeModernFLAC.h */; };
-		2CED67C91F52289D00241290 /* ApodizeModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C71F52289D00241290 /* ApodizeModernFLAC.h */; };
-		2CED67CF1F52294100241290 /* ModernFLACEntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67CD1F52294100241290 /* ModernFLACEntropyCoders.c */; };
-		2CED67DC1F5229A000241290 /* ApodizeModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67D91F5229A000241290 /* ApodizeModernFLAC.c */; };
-		2CED67DD1F5229A000241290 /* ComposeModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DA1F5229A000241290 /* ComposeModernFLAC.c */; };
-		2CED67DE1F5229A000241290 /* EncodeModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DB1F5229A000241290 /* EncodeModernFLAC.c */; };
-		2CED67E31F5229AC00241290 /* DeapodizeModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DF1F5229AC00241290 /* DeapodizeModernFLAC.c */; };
-		2CED67E41F5229AC00241290 /* DecodeModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67E01F5229AC00241290 /* DecodeModernFLAC.c */; };
-		2CED67E61F5229AC00241290 /* ParseModernFLAC.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67E21F5229AC00241290 /* ParseModernFLAC.c */; };
-		2CED67EC1F522DCB00241290 /* DecodeModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67EB1F522DCB00241290 /* DecodeModernFLAC.h */; };
-		2CED67F01F522EEF00241290 /* EncodeModernFLAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67EF1F522EEF00241290 /* EncodeModernFLAC.h */; };
+		2CED67C01F52286600241290 /* libModernFLAC_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67BE1F52286600241290 /* libModernFLAC_Types.h */; };
+		2CED67C11F52286600241290 /* libModernFLAC_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67BF1F52286600241290 /* libModernFLAC_EntropyCoders.h */; };
+		2CED67C31F52287000241290 /* libModernFLAC_Parse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C21F52287000241290 /* libModernFLAC_Parse.h */; };
+		2CED67C51F52287E00241290 /* libModernFLAC_Deapodize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C41F52287E00241290 /* libModernFLAC_Deapodize.h */; };
+		2CED67C81F52289D00241290 /* libModernFLAC_Compose.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C61F52289D00241290 /* libModernFLAC_Compose.h */; };
+		2CED67C91F52289D00241290 /* libModernFLAC_Apodize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67C71F52289D00241290 /* libModernFLAC_Apodize.h */; };
+		2CED67CF1F52294100241290 /* libModernFLAC_EntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67CD1F52294100241290 /* libModernFLAC_EntropyCoders.c */; };
+		2CED67DC1F5229A000241290 /* libModernFLAC_Apodize.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67D91F5229A000241290 /* libModernFLAC_Apodize.c */; };
+		2CED67DD1F5229A000241290 /* libModernFLAC_Compose.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DA1F5229A000241290 /* libModernFLAC_Compose.c */; };
+		2CED67DE1F5229A000241290 /* libModernFLAC_Encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DB1F5229A000241290 /* libModernFLAC_Encode.c */; };
+		2CED67E31F5229AC00241290 /* libModernFLAC_Deapodize.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67DF1F5229AC00241290 /* libModernFLAC_Deapodize.c */; };
+		2CED67E41F5229AC00241290 /* libModernFLAC_Decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67E01F5229AC00241290 /* libModernFLAC_Decode.c */; };
+		2CED67E61F5229AC00241290 /* libModernFLAC_Parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CED67E21F5229AC00241290 /* libModernFLAC_Parse.c */; };
+		2CED67EC1F522DCB00241290 /* libModernFLAC_Decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67EB1F522DCB00241290 /* libModernFLAC_Decode.h */; };
+		2CED67F01F522EEF00241290 /* libModernFLAC_Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CED67EF1F522EEF00241290 /* libModernFLAC_Encode.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,27 +61,27 @@
 
 /* Begin PBXFileReference section */
 		2C0FB67B1E845396005DEE50 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
-		2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModernFLACCommon.h; path = ../libModernFLAC/include/Private/Common/ModernFLACCommon.h; sourceTree = "<group>"; };
-		2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLACCommon.c; path = ../libModernFLAC/src/Common/ModernFLACCommon.c; sourceTree = "<group>"; };
+		2C4F6F571F5978EA00122AD1 /* libModernFLAC_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Common.h; path = ../libModernFLAC/include/Private/Common/libModernFLAC_Common.h; sourceTree = "<group>"; };
+		2C4F6F5B1F59791800122AD1 /* libModernFLAC_Common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Common.c; path = ../libModernFLAC/src/Common/libModernFLAC_Common.c; sourceTree = "<group>"; };
 		2C7D1E041DCB0FF10014CAA2 /* ModernFLAC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernFLAC; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8AAE081E8436A0007F8867 /* libModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC.h; path = ../libModernFLAC/include/libModernFLAC.h; sourceTree = "<group>"; };
 		2C8AAE0D1E8436DC007F8867 /* ModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLAC.c; path = ../ModernFLAC/ModernFLAC.c; sourceTree = "<group>"; };
 		2CC504AA1E194B58004A3685 /* libModernFLAC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernFLAC.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CED67BE1F52286600241290 /* ModernFLACTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModernFLACTypes.h; path = ../libModernFLAC/include/Private/Common/ModernFLACTypes.h; sourceTree = "<group>"; };
-		2CED67BF1F52286600241290 /* ModernFLACEntropyCoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModernFLACEntropyCoders.h; path = ../libModernFLAC/include/Private/Common/ModernFLACEntropyCoders.h; sourceTree = "<group>"; };
-		2CED67C21F52287000241290 /* ParseModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseModernFLAC.h; path = ../libModernFLAC/include/Private/Decode/ParseModernFLAC.h; sourceTree = "<group>"; };
-		2CED67C41F52287E00241290 /* DeapodizeModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeapodizeModernFLAC.h; path = ../libModernFLAC/include/Private/Decode/DeapodizeModernFLAC.h; sourceTree = "<group>"; };
-		2CED67C61F52289D00241290 /* ComposeModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComposeModernFLAC.h; path = ../libModernFLAC/include/Private/Encode/ComposeModernFLAC.h; sourceTree = "<group>"; };
-		2CED67C71F52289D00241290 /* ApodizeModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApodizeModernFLAC.h; path = ../libModernFLAC/include/Private/Encode/ApodizeModernFLAC.h; sourceTree = "<group>"; };
-		2CED67CD1F52294100241290 /* ModernFLACEntropyCoders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernFLACEntropyCoders.c; path = ../libModernFLAC/src/Common/ModernFLACEntropyCoders.c; sourceTree = "<group>"; };
-		2CED67D91F5229A000241290 /* ApodizeModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ApodizeModernFLAC.c; path = ../libModernFLAC/src/Encode/ApodizeModernFLAC.c; sourceTree = "<group>"; };
-		2CED67DA1F5229A000241290 /* ComposeModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ComposeModernFLAC.c; path = ../libModernFLAC/src/Encode/ComposeModernFLAC.c; sourceTree = "<group>"; };
-		2CED67DB1F5229A000241290 /* EncodeModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EncodeModernFLAC.c; path = ../libModernFLAC/src/Encode/EncodeModernFLAC.c; sourceTree = "<group>"; };
-		2CED67DF1F5229AC00241290 /* DeapodizeModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DeapodizeModernFLAC.c; path = ../libModernFLAC/src/Decode/DeapodizeModernFLAC.c; sourceTree = "<group>"; };
-		2CED67E01F5229AC00241290 /* DecodeModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DecodeModernFLAC.c; path = ../libModernFLAC/src/Decode/DecodeModernFLAC.c; sourceTree = "<group>"; };
-		2CED67E21F5229AC00241290 /* ParseModernFLAC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ParseModernFLAC.c; path = ../libModernFLAC/src/Decode/ParseModernFLAC.c; sourceTree = "<group>"; };
-		2CED67EB1F522DCB00241290 /* DecodeModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecodeModernFLAC.h; path = ../libModernFLAC/include/Private/Decode/DecodeModernFLAC.h; sourceTree = "<group>"; };
-		2CED67EF1F522EEF00241290 /* EncodeModernFLAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EncodeModernFLAC.h; path = ../libModernFLAC/include/Private/Encode/EncodeModernFLAC.h; sourceTree = "<group>"; };
+		2CED67BE1F52286600241290 /* libModernFLAC_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Types.h; path = ../libModernFLAC/include/Private/Common/libModernFLAC_Types.h; sourceTree = "<group>"; };
+		2CED67BF1F52286600241290 /* libModernFLAC_EntropyCoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_EntropyCoders.h; path = ../libModernFLAC/include/Private/Common/libModernFLAC_EntropyCoders.h; sourceTree = "<group>"; };
+		2CED67C21F52287000241290 /* libModernFLAC_Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Parse.h; path = ../libModernFLAC/include/Private/Decode/libModernFLAC_Parse.h; sourceTree = "<group>"; };
+		2CED67C41F52287E00241290 /* libModernFLAC_Deapodize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Deapodize.h; path = ../libModernFLAC/include/Private/Decode/libModernFLAC_Deapodize.h; sourceTree = "<group>"; };
+		2CED67C61F52289D00241290 /* libModernFLAC_Compose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Compose.h; path = ../libModernFLAC/include/Private/Encode/libModernFLAC_Compose.h; sourceTree = "<group>"; };
+		2CED67C71F52289D00241290 /* libModernFLAC_Apodize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Apodize.h; path = ../libModernFLAC/include/Private/Encode/libModernFLAC_Apodize.h; sourceTree = "<group>"; };
+		2CED67CD1F52294100241290 /* libModernFLAC_EntropyCoders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_EntropyCoders.c; path = ../libModernFLAC/src/Common/libModernFLAC_EntropyCoders.c; sourceTree = "<group>"; };
+		2CED67D91F5229A000241290 /* libModernFLAC_Apodize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Apodize.c; path = ../libModernFLAC/src/Encode/libModernFLAC_Apodize.c; sourceTree = "<group>"; };
+		2CED67DA1F5229A000241290 /* libModernFLAC_Compose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Compose.c; path = ../libModernFLAC/src/Encode/libModernFLAC_Compose.c; sourceTree = "<group>"; };
+		2CED67DB1F5229A000241290 /* libModernFLAC_Encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Encode.c; path = ../libModernFLAC/src/Encode/libModernFLAC_Encode.c; sourceTree = "<group>"; };
+		2CED67DF1F5229AC00241290 /* libModernFLAC_Deapodize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Deapodize.c; path = ../libModernFLAC/src/Decode/libModernFLAC_Deapodize.c; sourceTree = "<group>"; };
+		2CED67E01F5229AC00241290 /* libModernFLAC_Decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Decode.c; path = ../libModernFLAC/src/Decode/libModernFLAC_Decode.c; sourceTree = "<group>"; };
+		2CED67E21F5229AC00241290 /* libModernFLAC_Parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernFLAC_Parse.c; path = ../libModernFLAC/src/Decode/libModernFLAC_Parse.c; sourceTree = "<group>"; };
+		2CED67EB1F522DCB00241290 /* libModernFLAC_Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Decode.h; path = ../libModernFLAC/include/Private/Decode/libModernFLAC_Decode.h; sourceTree = "<group>"; };
+		2CED67EF1F522EEF00241290 /* libModernFLAC_Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernFLAC_Encode.h; path = ../libModernFLAC/include/Private/Encode/libModernFLAC_Encode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +171,9 @@
 		2C8AADFC1E84360B007F8867 /* Encode */ = {
 			isa = PBXGroup;
 			children = (
-				2CED67EF1F522EEF00241290 /* EncodeModernFLAC.h */,
-				2CED67C61F52289D00241290 /* ComposeModernFLAC.h */,
-				2CED67C71F52289D00241290 /* ApodizeModernFLAC.h */,
+				2CED67EF1F522EEF00241290 /* libModernFLAC_Encode.h */,
+				2CED67C61F52289D00241290 /* libModernFLAC_Compose.h */,
+				2CED67C71F52289D00241290 /* libModernFLAC_Apodize.h */,
 			);
 			name = Encode;
 			sourceTree = "<group>";
@@ -181,9 +181,9 @@
 		2C8AADFD1E843611007F8867 /* Decode */ = {
 			isa = PBXGroup;
 			children = (
-				2CED67EB1F522DCB00241290 /* DecodeModernFLAC.h */,
-				2CED67C21F52287000241290 /* ParseModernFLAC.h */,
-				2CED67C41F52287E00241290 /* DeapodizeModernFLAC.h */,
+				2CED67EB1F522DCB00241290 /* libModernFLAC_Decode.h */,
+				2CED67C21F52287000241290 /* libModernFLAC_Parse.h */,
+				2CED67C41F52287E00241290 /* libModernFLAC_Deapodize.h */,
 			);
 			name = Decode;
 			sourceTree = "<group>";
@@ -191,9 +191,9 @@
 		2C8AAE021E84365B007F8867 /* Encode */ = {
 			isa = PBXGroup;
 			children = (
-				2CED67DB1F5229A000241290 /* EncodeModernFLAC.c */,
-				2CED67DA1F5229A000241290 /* ComposeModernFLAC.c */,
-				2CED67D91F5229A000241290 /* ApodizeModernFLAC.c */,
+				2CED67DB1F5229A000241290 /* libModernFLAC_Encode.c */,
+				2CED67DA1F5229A000241290 /* libModernFLAC_Compose.c */,
+				2CED67D91F5229A000241290 /* libModernFLAC_Apodize.c */,
 			);
 			name = Encode;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 		2C8AAE031E843663007F8867 /* Decode */ = {
 			isa = PBXGroup;
 			children = (
-				2CED67E01F5229AC00241290 /* DecodeModernFLAC.c */,
-				2CED67E21F5229AC00241290 /* ParseModernFLAC.c */,
-				2CED67DF1F5229AC00241290 /* DeapodizeModernFLAC.c */,
+				2CED67E01F5229AC00241290 /* libModernFLAC_Decode.c */,
+				2CED67E21F5229AC00241290 /* libModernFLAC_Parse.c */,
+				2CED67DF1F5229AC00241290 /* libModernFLAC_Deapodize.c */,
 			);
 			name = Decode;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 		2CED67BD1F52285A00241290 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2CED67BE1F52286600241290 /* ModernFLACTypes.h */,
-				2CED67BF1F52286600241290 /* ModernFLACEntropyCoders.h */,
-				2C4F6F571F5978EA00122AD1 /* ModernFLACCommon.h */,
+				2CED67BE1F52286600241290 /* libModernFLAC_Types.h */,
+				2CED67BF1F52286600241290 /* libModernFLAC_EntropyCoders.h */,
+				2C4F6F571F5978EA00122AD1 /* libModernFLAC_Common.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 		2CED67CC1F52292E00241290 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2C4F6F5B1F59791800122AD1 /* ModernFLACCommon.c */,
-				2CED67CD1F52294100241290 /* ModernFLACEntropyCoders.c */,
+				2C4F6F5B1F59791800122AD1 /* libModernFLAC_Common.c */,
+				2CED67CD1F52294100241290 /* libModernFLAC_EntropyCoders.c */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -252,16 +252,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C4F6F581F5978EA00122AD1 /* ModernFLACCommon.h in Headers */,
-				2CED67C31F52287000241290 /* ParseModernFLAC.h in Headers */,
-				2CED67F01F522EEF00241290 /* EncodeModernFLAC.h in Headers */,
-				2CED67C81F52289D00241290 /* ComposeModernFLAC.h in Headers */,
-				2CED67C51F52287E00241290 /* DeapodizeModernFLAC.h in Headers */,
-				2CED67C11F52286600241290 /* ModernFLACEntropyCoders.h in Headers */,
-				2CED67C91F52289D00241290 /* ApodizeModernFLAC.h in Headers */,
+				2C4F6F581F5978EA00122AD1 /* libModernFLAC_Common.h in Headers */,
+				2CED67C31F52287000241290 /* libModernFLAC_Parse.h in Headers */,
+				2CED67F01F522EEF00241290 /* libModernFLAC_Encode.h in Headers */,
+				2CED67C81F52289D00241290 /* libModernFLAC_Compose.h in Headers */,
+				2CED67C51F52287E00241290 /* libModernFLAC_Deapodize.h in Headers */,
+				2CED67C11F52286600241290 /* libModernFLAC_EntropyCoders.h in Headers */,
+				2CED67C91F52289D00241290 /* libModernFLAC_Apodize.h in Headers */,
 				2C8AAE091E8436A0007F8867 /* libModernFLAC.h in Headers */,
-				2CED67C01F52286600241290 /* ModernFLACTypes.h in Headers */,
-				2CED67EC1F522DCB00241290 /* DecodeModernFLAC.h in Headers */,
+				2CED67C01F52286600241290 /* libModernFLAC_Types.h in Headers */,
+				2CED67EC1F522DCB00241290 /* libModernFLAC_Decode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,14 +377,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CED67DE1F5229A000241290 /* EncodeModernFLAC.c in Sources */,
-				2CED67CF1F52294100241290 /* ModernFLACEntropyCoders.c in Sources */,
-				2CED67E31F5229AC00241290 /* DeapodizeModernFLAC.c in Sources */,
-				2CED67E41F5229AC00241290 /* DecodeModernFLAC.c in Sources */,
-				2CED67DD1F5229A000241290 /* ComposeModernFLAC.c in Sources */,
-				2CED67E61F5229AC00241290 /* ParseModernFLAC.c in Sources */,
-				2CED67DC1F5229A000241290 /* ApodizeModernFLAC.c in Sources */,
-				2C4F6F5C1F59791800122AD1 /* ModernFLACCommon.c in Sources */,
+				2CED67DE1F5229A000241290 /* libModernFLAC_Encode.c in Sources */,
+				2CED67CF1F52294100241290 /* libModernFLAC_EntropyCoders.c in Sources */,
+				2CED67E31F5229AC00241290 /* libModernFLAC_Deapodize.c in Sources */,
+				2CED67E41F5229AC00241290 /* libModernFLAC_Decode.c in Sources */,
+				2CED67DD1F5229A000241290 /* libModernFLAC_Compose.c in Sources */,
+				2CED67E61F5229AC00241290 /* libModernFLAC_Parse.c in Sources */,
+				2CED67DC1F5229A000241290 /* libModernFLAC_Apodize.c in Sources */,
+				2C4F6F5C1F59791800122AD1 /* libModernFLAC_Common.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
