@@ -32,15 +32,14 @@ extern "C" {
     };
     
     CommandLineIO *SetModernPNGOptions(void) {
-        CommandLineIO *CLI = InitCommandLineIO(11);
+        CommandLineIO *CLI = InitCommandLineIO(14);
         
         SetCLIName(CLI, "ModernPNG");
         SetCLIAuthor(CLI, "BumbleBritches57");
         SetCLIVersion(CLI, ModernPNGVersion);
         SetCLICopyright(CLI, "2017 - 2017");
         SetCLIDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD", "a truly free open source license", false);
-        SetCLILicenseURL(CLI, "https://opensource.org/licenses/BSD-3-Clause");
+        SetCLILicense(CLI, "Revised BSD", "A permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
         SetCLIMinSwitches(CLI, 3);
         
         SetCLISwitchFlag(CLI, Input, "Input");
