@@ -25,6 +25,7 @@
 		2C76C3741F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3731F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c */; };
 		2C76C3781F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3771F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c */; };
 		2C8365951F60C1010007EC42 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8365941F60C1010007EC42 /* libBitIO.a */; };
+		2C8AB29D1F79CAF600FBA4B7 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AA71F40540300ABF2F8 /* libPCM.a */; };
 		2C90C2921F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C90C2911F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c */; };
 		2C90C2961F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C90C2951F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h */; };
 		2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
@@ -99,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8AB29D1F79CAF600FBA4B7 /* libPCM.a in Frameworks */,
 				2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +319,7 @@
 		2C6B1A5F1F4052F400ABF2F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Marcus Johnson";
 				TargetAttributes = {
 					2C6B1A661F4052F400ABF2F8 = {
@@ -420,7 +422,9 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -430,6 +434,8 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -509,7 +515,9 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -519,6 +527,8 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -580,6 +590,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=x86_64]" = (
+					"$(inherited)",
+					"RuntimeLSByte=1",
+					"RuntimeLSBit=1",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "macosx iphoneos";
 				VALID_ARCHS = "arm64 x86_64";
@@ -591,6 +606,15 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 628J9L7WK5;
 				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=0",
+					"$(inherited)",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=x86_64]" = (
+					"$(inherited)",
+					"RuntimeLSByte=1",
+					"RuntimeLSBit=1",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "macosx iphoneos";
 				VALID_ARCHS = "arm64 x86_64";

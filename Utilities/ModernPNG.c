@@ -128,7 +128,9 @@ extern "C" {
         CommandLineIO *CLI  = SetModernPNGOptions();
         ParseCommandLineArguments(CLI, argc, argv);
         
-        uint64_t LogArgumentNum = GetCLISwitchNumFromFlag(CLI, LogFile);
+        Log(LOG_INFO, "ModernPNG", "main", "Testing Variadic log entries %d, %d, %d", 1, 2, 3);
+        
+        uint64_t LogArgumentNum = GetCLISwitchNumFromFlag(CLI, "LogFile");
         char    *LogFilePath    = GetCLIArgumentResult(CLI, LogArgumentNum);
         OpenLogFile(LogFilePath);
         
