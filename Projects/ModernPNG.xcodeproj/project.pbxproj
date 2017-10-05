@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2446221F80F35E00A7C562 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8365941F60C1010007EC42 /* libBitIO.a */; };
+		2C2446251F80F36A00A7C562 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2446261F80F36A00A7C562 /* libBitIO.a */; };
 		2C6B1A791F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */; };
 		2C6B1A7A1F40534D00ABF2F8 /* libModernPNG_Encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */; };
-		2C6B1A7B1F40534D00ABF2F8 /* libModernPNG_EncodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A761F40534D00ABF2F8 /* libModernPNG_EncodeAdam7.c */; };
-		2C6B1A7C1F40534D00ABF2F8 /* libModernPNG_EncodeFilter.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A771F40534D00ABF2F8 /* libModernPNG_EncodeFilter.c */; };
 		2C6B1A7D1F40534D00ABF2F8 /* libModernPNG_WriteChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */; };
 		2C6B1A811F40535700ABF2F8 /* libModernPNG_Decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */; };
-		2C6B1A821F40535700ABF2F8 /* libModernPNG_DecodeAdam7.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A7F1F40535700ABF2F8 /* libModernPNG_DecodeAdam7.c */; };
 		2C6B1A831F40535700ABF2F8 /* libModernPNG_ReadChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */; };
 		2C6B1A8A1F40537A00ABF2F8 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A891F40537A00ABF2F8 /* libModernPNG.h */; };
 		2C6B1A901F40539B00ABF2F8 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A8E1F40539B00ABF2F8 /* libModernPNG_Tables.h */; };
@@ -24,7 +23,6 @@
 		2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */; };
 		2C76C3741F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3731F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c */; };
 		2C76C3781F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3771F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c */; };
-		2C8365951F60C1010007EC42 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8365941F60C1010007EC42 /* libBitIO.a */; };
 		2C8AB29D1F79CAF600FBA4B7 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AA71F40540300ABF2F8 /* libPCM.a */; };
 		2C90C2921F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C90C2911F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c */; };
 		2C90C2961F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C90C2951F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h */; };
@@ -61,14 +59,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C2446261F80F36A00A7C562 /* libBitIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBitIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ComposeChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_ComposeChunks.c; sourceTree = "<group>"; };
 		2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Encode.c; path = ../libModernPNG/src/Encode/libModernPNG_Encode.c; sourceTree = "<group>"; };
-		2C6B1A761F40534D00ABF2F8 /* libModernPNG_EncodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_EncodeAdam7.c; path = ../libModernPNG/src/Encode/libModernPNG_EncodeAdam7.c; sourceTree = "<group>"; };
-		2C6B1A771F40534D00ABF2F8 /* libModernPNG_EncodeFilter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_EncodeFilter.c; path = ../libModernPNG/src/Encode/libModernPNG_EncodeFilter.c; sourceTree = "<group>"; };
 		2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_WriteChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_WriteChunks.c; sourceTree = "<group>"; };
 		2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Decode.c; path = ../libModernPNG/src/Decode/libModernPNG_Decode.c; sourceTree = "<group>"; };
-		2C6B1A7F1F40535700ABF2F8 /* libModernPNG_DecodeAdam7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_DecodeAdam7.c; path = ../libModernPNG/src/Decode/libModernPNG_DecodeAdam7.c; sourceTree = "<group>"; };
 		2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ReadChunks.c; path = ../libModernPNG/src/Decode/libModernPNG_ReadChunks.c; sourceTree = "<group>"; };
 		2C6B1A891F40537A00ABF2F8 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
 		2C6B1A8E1F40539B00ABF2F8 /* libModernPNG_Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Tables.h; path = ../libModernPNG/include/Private/libModernPNG_Tables.h; sourceTree = "<group>"; };
@@ -92,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8365951F60C1010007EC42 /* libBitIO.a in Frameworks */,
+				2C2446251F80F36A00A7C562 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2446221F80F35E00A7C562 /* libBitIO.a in Frameworks */,
 				2C8AB29D1F79CAF600FBA4B7 /* libPCM.a in Frameworks */,
 				2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */,
 			);
@@ -161,8 +158,6 @@
 			children = (
 				2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */,
 				2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */,
-				2C6B1A761F40534D00ABF2F8 /* libModernPNG_EncodeAdam7.c */,
-				2C6B1A771F40534D00ABF2F8 /* libModernPNG_EncodeFilter.c */,
 				2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */,
 			);
 			name = Encode;
@@ -172,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */,
-				2C6B1A7F1F40535700ABF2F8 /* libModernPNG_DecodeAdam7.c */,
 				2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */,
 			);
 			name = Decode;
@@ -253,6 +247,7 @@
 		2C6B1AB51F40547900ABF2F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C2446261F80F36A00A7C562 /* libBitIO.a */,
 				2C8365941F60C1010007EC42 /* libBitIO.a */,
 				2C6B1AB61F40547900ABF2F8 /* libBitIO.a */,
 			);
@@ -381,15 +376,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6B1A811F40535700ABF2F8 /* libModernPNG_Decode.c in Sources */,
-				2C6B1A7C1F40534D00ABF2F8 /* libModernPNG_EncodeFilter.c in Sources */,
 				2C6B1A831F40535700ABF2F8 /* libModernPNG_ReadChunks.c in Sources */,
 				2C76C3781F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c in Sources */,
 				2C6B1A7D1F40534D00ABF2F8 /* libModernPNG_WriteChunks.c in Sources */,
 				2C90C2921F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c in Sources */,
 				2C6B1A7A1F40534D00ABF2F8 /* libModernPNG_Encode.c in Sources */,
-				2C6B1A7B1F40534D00ABF2F8 /* libModernPNG_EncodeAdam7.c in Sources */,
 				2C6B1A791F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c in Sources */,
-				2C6B1A821F40535700ABF2F8 /* libModernPNG_DecodeAdam7.c in Sources */,
 				2C76C3741F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
