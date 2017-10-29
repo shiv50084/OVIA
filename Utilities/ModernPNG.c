@@ -135,7 +135,7 @@ extern "C" {
             uint64_t NumInputFiles               = GetCLINumArgumentsWithIndependentAndDependents(CLI, Input, 0);
             uint64_t NumOutputFiles              = GetCLINumArgumentsWithIndependentAndDependents(CLI, Output, 0);
             
-            if (EncodePNG == true) { // If we're supposed to Encode files to PNG, do this.
+            if (EncodePNG == Yes) { // If we're supposed to Encode files to PNG, do this.
                 if (NumInputFiles == 1 && NumOutputFiles == 1) {
                     Encode2D = true;
                     /* 2D Input */
@@ -176,7 +176,7 @@ extern "C" {
                 } else {
                     Log(LOG_ERR, "ModernPNG", "Main", "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
                 }
-            } else if (DecodePNG == true) { // If we're supposed to Decode a PNG file, do this.
+            } else if (DecodePNG == Yes) { // If we're supposed to Decode a PNG file, do this.
                 if (NumInputFiles == 1 && NumOutputFiles == 1) {
                     Decode2D = true;
                     /* 2D Input */
