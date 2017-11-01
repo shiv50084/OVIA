@@ -67,7 +67,7 @@ extern "C" {
         uint32_t FileMagic = ReadBits(BitIOMSByte, BitIOLSBit, InputFLAC, 32);
         
         if (FileMagic != FLACMagic) {
-            Log(LOG_ERR, "ModernFLAC", "FLACDecodeFile", "Not a FLAC file, magic was: 0x%X\n", FileMagic);
+            BitIOLog(LOG_ERROR, "ModernFLAC", "FLACDecodeFile", "Not a FLAC file, magic was: 0x%X\n", FileMagic);
         } else {
             for (size_t Byte = 4; Byte < GetBitInputFileSize(InputFLAC); Byte++) { // loop to decode file
                 while (Dec->LastMetadataBlock == false) {
