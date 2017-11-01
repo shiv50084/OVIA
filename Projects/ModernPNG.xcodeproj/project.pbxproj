@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C2446221F80F35E00A7C562 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8365941F60C1010007EC42 /* libBitIO.a */; };
 		2C2446251F80F36A00A7C562 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2446261F80F36A00A7C562 /* libBitIO.a */; };
 		2C6B1A791F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */; };
 		2C6B1A7A1F40534D00ABF2F8 /* libModernPNG_Encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */; };
@@ -96,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C2446221F80F35E00A7C562 /* libBitIO.a in Frameworks */,
 				2C8AB29D1F79CAF600FBA4B7 /* libPCM.a in Frameworks */,
 				2C6B1AB81F40548400ABF2F8 /* libModernPNG.a in Frameworks */,
 			);
@@ -540,7 +538,7 @@
 				GCC_ENABLE_TRIGRAPHS = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "-DNODEBUG";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
