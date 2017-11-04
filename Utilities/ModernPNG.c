@@ -174,7 +174,7 @@ extern "C" {
                     BitOutputOpenFile(Output3D, Output3DPath);
                     /* 3D Output */
                 } else {
-                    BitIOLog(LOG_ERROR, "ModernPNG", "Main", "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
+                    BitIOLog(LOG_ERROR, "ModernPNG", __func__, "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
                 }
             } else if (DecodePNG == Yes) { // If we're supposed to Decode a PNG file, do this.
                 if (NumInputFiles == 1 && NumOutputFiles == 1) {
@@ -215,7 +215,7 @@ extern "C" {
                     BitOutputOpenFile(OutputRightEye, OutputRightEyePath);
                     /*  RightEye Output */
                 } else {
-                    BitIOLog(LOG_ERROR, "ModernPNG", "Main", "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
+                    BitIOLog(LOG_ERROR, "ModernPNG", __func__, "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
                 }
             }
         }
