@@ -3,7 +3,8 @@
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
-char *ModernPNGVersion = "0.5.0";
+static const char *ModernPNGVersion     = "0.5.0";
+static const char *ModernPNGProgramName = "ModernPNG";
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,80 +34,115 @@ extern "C" {
         Histogram   = 15,
         /* Help Option */
         Help        = 16,
+        NumOptions  = 17,
     };
     
     static CommandLineIO *SetModernPNGOptions(void) {
-        CommandLineIO *CLI = CommandLineIOInit(17);
+        CommandLineIO *CLI = CommandLineIO_Init(NumOptions);
         
-        SetCLIName(CLI, "ModernPNG");
-        SetCLIAuthor(CLI, "BumbleBritches57");
-        SetCLIVersion(CLI, ModernPNGVersion);
-        SetCLICopyright(CLI, "2017 - 2017");
-        SetCLIDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
-        SetCLILicense(CLI, "Revised BSD", "A permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
-        SetCLIMinArguments(CLI, 3);
-        SetCLIHelpSwitch(CLI, Help);
+        CLISetName(CLI, "ModernPNG");
+        CLISetAuthor(CLI, "BumbleBritches57");
+        CLISetVersion(CLI, ModernPNGVersion);
+        CLISetCopyright(CLI, "2017 - 2017");
+        CLISetDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
+        CLISetLicense(CLI, "Revised BSD", "A permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", false);
+        CLISetMinArguments(CLI, 3);
+        CLISetHelpSwitch(CLI, Help);
         
-        SetCLISwitchFlag(CLI, Input, "Input");
-        SetCLISwitchDescription(CLI, Input, "Input file or stdin with: -");
-        SetCLISwitchAsIndependent(CLI, Input);
+        CLISetSwitchFlag(CLI, Input, "Input");
+        CLISetSwitchDescription(CLI, Input, "Input file or stdin with: -");
+        CLISetSwitchType(CLI, Input, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, Output, "Output");
-        SetCLISwitchDescription(CLI, Output, "Output file or stdout with: -");
-        SetCLISwitchAsIndependent(CLI, Output);
+        CLISetSwitchFlag(CLI, Output, "Output");
+        CLISetSwitchDescription(CLI, Output, "Output file or stdout with: -");
+        CLISetSwitchType(CLI, Output, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, LogFile, "LogFile");
-        SetCLISwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
-        SetCLISwitchAsIndependent(CLI, LogFile);
+        CLISetSwitchFlag(CLI, LogFile, "LogFile");
+        CLISetSwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
+        CLISetSwitchType(CLI, LogFile, SingleSwitchWithResult);
         
-        SetCLISwitchFlag(CLI, LeftEye, "LeftEye");
-        SetCLISwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
-        SetCLISwitchAsDependent(CLI, Input, LeftEye);
-        SetCLISwitchAsDependent(CLI, Output, LeftEye);
+        CLISetSwitchFlag(CLI, LeftEye, "LeftEye");
+        CLISetSwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
+        CLISetSwitchType(CLI, LeftEye, SlaveSwitch);
         
-        SetCLISwitchFlag(CLI, RightEye, "RightEye");
-        SetCLISwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
-        SetCLISwitchAsDependent(CLI, Input, RightEye);
-        SetCLISwitchAsDependent(CLI, Output, RightEye);
+        CLISetSwitchFlag(CLI, RightEye, "RightEye");
+        CLISetSwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
+        CLISetSwitchType(CLI, RightEye, SlaveSwitch);
+        
+        CLISetSwitchAsSlave(CLI, Input, LeftEye);
+        CLISetSwitchAsSlave(CLI, Input, RightEye);
+        CLISetSwitchAsSlave(CLI, Output, LeftEye);
+        CLISetSwitchAsSlave(CLI, Output, RightEye);
         
         /* Start Encode Options */
-        SetCLISwitchFlag(CLI, Encode, "Encode");
-        SetCLISwitchDescription(CLI, Encode, "Encode input(s) to PNG");
-        SetCLISwitchAsIndependent(CLI, Encode);
+        CLISetSwitchFlag(CLI, Encode, "Encode");
+        CLISetSwitchDescription(CLI, Encode, "Encode input(s) to PNG");
+        CLISetSwitchType(CLI, Encode, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, Interlace, "Interlace");
-        SetCLISwitchDescription(CLI, Interlace, "Should we encode the PNG with Adam7 Interlacing? (Currently not supported)");
-        SetCLISwitchAsDependent(CLI, Encode, Interlace);
+        CLISetSwitchFlag(CLI, Interlace, "Interlace");
+        CLISetSwitchDescription(CLI, Interlace, "Should we encode the PNG with Adam7 Interlacing? (Currently not supported)");
+        CLISetSwitchType(CLI, Interlace, SingleSwitchNoResult);
+        CLISetSwitchAsSlave(CLI, Encode, Interlace);
         
-        SetCLISwitchFlag(CLI, Optimize, "Optimize");
-        SetCLISwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
-        SetCLISwitchAsDependent(CLI, Encode, Optimize);
+        CLISetSwitchFlag(CLI, Optimize, "Optimize");
+        CLISetSwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
+        CLISetSwitchType(CLI, Optimize, SingleSwitchNoResult);
+        CLISetSwitchAsSlave(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
-        SetCLISwitchFlag(CLI, Decode, "Decode");
-        SetCLISwitchDescription(CLI, Decode, "Decode PNG to output");
-        SetCLISwitchAsIndependent(CLI, Decode);
+        CLISetSwitchFlag(CLI, Decode, "Decode");
+        CLISetSwitchDescription(CLI, Decode, "Decode PNG to output");
+        CLISetSwitchType(CLI, Decode, SingleSwitchNoResult);
         /* End Decode Options */
         
         /* Metadata Options */
-        SetCLISwitchFlag(CLI, InsertMeta, "InsertMeta");
-        SetCLISwitchDescription(CLI, InsertMeta, "Adds metadata to PNG file");
-        SetCLISwitchAsIndependent(CLI, InsertMeta);
+        CLISetSwitchFlag(CLI, InsertMeta, "InsertMeta");
+        CLISetSwitchDescription(CLI, InsertMeta, "Adds metadata to PNG file");
+        CLISetSwitchType(CLI, InsertMeta, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, ExtractMeta, "ExtractMeta");
-        SetCLISwitchDescription(CLI, ExtractMeta, "Extracts metadata from PNG file");
-        SetCLISwitchAsIndependent(CLI, ExtractMeta);
+        CLISetSwitchFlag(CLI, ExtractMeta, "ExtractMeta");
+        CLISetSwitchDescription(CLI, ExtractMeta, "Extracts metadata from PNG file");
+       	CLISetSwitchType(CLI, ExtractMeta, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, RemoveMeta, "RemoveMeta");
-        SetCLISwitchDescription(CLI, RemoveMeta, "Removes metadata from PNG file");
-        SetCLISwitchAsIndependent(CLI, RemoveMeta);
+        CLISetSwitchFlag(CLI, RemoveMeta, "RemoveMeta");
+        CLISetSwitchDescription(CLI, RemoveMeta, "Removes metadata from PNG file");
+        CLISetSwitchType(CLI, RemoveMeta, MasterSwitch);
         
-        SetCLISwitchFlag(CLI, Help, "Help");
-        SetCLISwitchDescription(CLI, Help, "Prints all the command line options");
-        SetCLISwitchAsIndependent(CLI, Help);
+        CLISetSwitchFlag(CLI, Help, "Help");
+        CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
+        CLISetSwitchType(CLI, Help, SingleSwitchNoResult);
         
         return CLI;
+    }
+    
+    typedef enum FileTypes {
+        UnknownFileFormat = 0,
+        PNGFileFormat     = 1,
+        PXMFileFormat     = 2,
+        BMPFileFormat     = 3,
+    } FileTypes;
+    
+    static FileTypes IdentifyInputFileFromBitBuffer(BitBuffer *BitB) {
+        FileTypes InputFileType = 0;
+        uint64_t First8Bytes  = PeekBits(BitIOMSByte, BitIOLSBit, BitB, 64);
+        uint16_t First2Bytes  = PeekBits(BitIOLSByte, BitIOLSBit, BitB, 16);
+        if (First8Bytes == PNGMagic) {
+            InputFileType = PNGFileFormat;
+        } else if (First2Bytes == PXM_PBMA || First2Bytes == PXM_PBMB || First2Bytes == PXM_PGMA || First2Bytes == PXM_PGMB || First2Bytes == PXM_PPMA || First2Bytes == PXM_PPMB || First2Bytes == PXM_PAMB) {
+            InputFileType = PXMFileFormat;
+        } else if (First2Bytes == BMP_BM || First2Bytes == BMP_BitmapArray) {
+            InputFileType = BMPFileFormat;
+        }
+        return InputFileType;
+    }
+    
+    static void SetOutputFormatFromExtension(char *Extension) {
+        if (strcasecmp(Extension, "bmp") == 0) {
+            // Output Format = BMP
+        } else if (strcasecmp(Extension, "pxm") == 0 || strcasecmp(Extension, "pnm") == 0 || strcasecmp(Extension, "pam") == 0 || strcasecmp(Extension, "pbm") == 0 || strcasecmp(Extension, "pgm") == 0) {
+            // Output format = PXM
+        }
     }
     
     int main(int argc, const char * argv[]) {
@@ -115,6 +151,9 @@ extern "C" {
             exit(EXIT_FAILURE);
         } else {
             ParseCommandLineArguments(CLI, argc, argv);
+            
+            DecodePNG *Dec                      = NULL;
+            EncodePNG *Enc                      = NULL;
             
             bool Encode3D                        = false;
             bool Decode3D                        = false;
@@ -130,90 +169,170 @@ extern "C" {
             BitOutput *Output3D                  = NULL;
             BitOutput *Output2D                  = NULL;
             
-            bool     EncodePNG                   = GetCLIArgumentPresenceFromSwitch(CLI, Encode);
-            bool     DecodePNG                   = GetCLIArgumentPresenceFromSwitch(CLI, Decode);
-            uint64_t NumInputFiles               = GetCLINumArgumentsWithIndependentAndDependents(CLI, Input, 0);
-            uint64_t NumOutputFiles              = GetCLINumArgumentsWithIndependentAndDependents(CLI, Output, 0);
+            BitBuffer *InputLeftFile             = NULL;
+            BitBuffer *InputRightFile            = NULL;
+            BitBuffer *Input2DFile               = NULL;
+            BitBuffer *Input3DFile               = NULL;
+            BitBuffer *OutputLeftFile            = NULL;
+            BitBuffer *OutputRightFile           = NULL;
+            BitBuffer *Output2DFile              = NULL;
+            BitBuffer *Output3DFile              = NULL;
             
-            if (EncodePNG == Yes) { // If we're supposed to Encode files to PNG, do this.
+            bool     EncodeAsPNG                 = 0;
+            bool     DecodeAsPNG                 = 0;
+            
+            uint64_t NumEncodeArguments          = CLIGetNumMatchingArguments(CLI, Encode, 0, NULL);
+            uint64_t NumDecodeArguments          = CLIGetNumMatchingArguments(CLI, Encode, 0, NULL);
+            
+            uint64_t InputSlaves[2]              = {LeftEye, RightEye};
+            uint64_t OutputSlaves[2]             = {LeftEye, RightEye};
+            
+            uint64_t NumInputFiles               = CLIGetNumMatchingArguments(CLI, Input, 2, InputSlaves);
+            uint64_t NumOutputFiles              = CLIGetNumMatchingArguments(CLI, Encode, 0, OutputSlaves);
+            
+            uint64_t LeftEyeSlave[1]             = {LeftEye};
+            uint64_t RightEyeSlave[1]            = {RightEye};
+            
+            FileTypes Input2DFileType            = UnknownFileFormat;
+            FileTypes Input3DFileType            = UnknownFileFormat;
+            FileTypes InputLeftFileType          = UnknownFileFormat;
+            FileTypes InputRightFileType         = UnknownFileFormat;
+            
+            FileTypes Output2DFileType           = UnknownFileFormat;
+            FileTypes Output3DFileType           = UnknownFileFormat;
+            FileTypes OutputLeftFileType         = UnknownFileFormat;
+            FileTypes OutputRightFileType        = UnknownFileFormat;
+            
+            if (NumEncodeArguments == 1) {
+                EncodeAsPNG = Yes;
+            } else if (NumDecodeArguments == 1) {
+                DecodeAsPNG = Yes;
+            }
+            
+            if (EncodeAsPNG == Yes) { // If we're supposed to Encode files to PNG, do this.
                 if (NumInputFiles == 1 && NumOutputFiles == 1) {
                     Encode2D = true;
                     /* 2D Input */
-                    uint64_t  Input2DArg         = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
-                    char     *Input2DPath        = GetCLIArgumentResult(CLI, Input2DArg);
-                    Input2D                      = BitInputInit();
-                    BitInputOpenFile(Input2D, Input2DPath);
+                    uint64_t  Input2DArg         = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
+                    char     *Input2DPath        = CLIGetArgumentResult(CLI, Input2DArg);
+                    Input2D                      = BitInput_Init();
+                    BitInput_OpenFile(Input2D, Input2DPath);
+                    Input2DFile                  = BitBuffer_Init(8);
+                    BitInput_Read2BitBuffer(Input2D, Input2DFile, 8);
                     /* 2D Input */
                     
                     /* 2D Output */
-                    uint64_t  Output2DArg        = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
-                    char     *Output2DPath       = GetCLIArgumentResult(CLI, Output2DArg);
-                    Output2D                     = BitOutputInit();
-                    BitOutputOpenFile(Output2D, Output2DPath);
+                    uint64_t  Output2DArg        = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
+                    char     *Output2DPath       = CLIGetArgumentResult(CLI, Output2DArg);
+                    Output2D                     = BitOutput_Init();
+                    BitOutput_OpenFile(Output2D, Output2DPath);
+                    Output2DFile                 = BitBuffer_Init(8);
+                    BitOutput_WriteBitBuffer(Output2D, Output3DFile, 4096);
                     /* 2D Output */
+                    
+                    /* Decode Input, Encode Output */
+                    Input2DFileType              = IdentifyInputFileFromBitBuffer(Input2DFile);
+                    /* Decode Input, Encode Output */
                 } else if (NumInputFiles == 2 && NumOutputFiles == 1) {
                     Encode3D = true;
                     /* LeftEye Input */
-                    uint64_t InputLeftEyeArg     = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 1, LeftEye);
-                    char *InputLeftEyePath       = GetCLIArgumentResult(CLI, InputLeftEyeArg);
-                    InputLeftEye                 = BitInputInit();
-                    BitInputOpenFile(InputLeftEye, InputLeftEyePath);
+                    uint64_t InputLeftEyeArg     = CLIGetMatchingArgumentNum(CLI, 1, Input, 1, LeftEyeSlave);
+                    char *InputLeftEyePath       = CLIGetArgumentResult(CLI, InputLeftEyeArg);
+                    InputLeftEye                 = BitInput_Init();
+                    BitInput_OpenFile(InputLeftEye, InputLeftEyePath);
+                    InputLeftFile                = BitBuffer_Init(8);
+                    BitInput_Read2BitBuffer(InputLeftEye, InputLeftFile, 8);
                     /*  LeftEye Input */
                     
                     /*  RightEye Input */
-                    uint64_t InputRightEyeArg    = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 1, RightEye);
-                    char *InputRightEyePath      = GetCLIArgumentResult(CLI, InputRightEyeArg);
-                    InputRightEye                = BitInputInit();
-                    BitInputOpenFile(InputRightEye, InputRightEyePath);
+                    uint64_t InputRightEyeArg    = CLIGetMatchingArgumentNum(CLI, 1, Input, 1, RightEyeSlave);
+                    char *InputRightEyePath      = CLIGetArgumentResult(CLI, InputRightEyeArg);
+                    InputRightEye                = BitInput_Init();
+                    BitInput_OpenFile(InputRightEye, InputRightEyePath);
+                    InputRightFile               = BitBuffer_Init(8);
+                    BitInput_Read2BitBuffer(InputRightEye, InputRightFile, 8);
                     /*  RightEye Input */
                     
                     /* 3D Output */
-                    uint64_t  Output3DArg        = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
-                    char     *Output3DPath       = GetCLIArgumentResult(CLI, Output3DArg);
-                    Output3D                     = BitOutputInit();
-                    BitOutputOpenFile(Output3D, Output3DPath);
+                    uint64_t  Output3DArg        = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
+                    char     *Output3DPath       = CLIGetArgumentResult(CLI, Output3DArg);
+                    Output3D                     = BitOutput_Init();
+                    BitOutput_OpenFile(Output3D, Output3DPath);
+                    Output3DFile                 = BitBuffer_Init(8);
+                    BitOutput_WriteBitBuffer(Output3D, Output3DFile, 4096);
                     /* 3D Output */
+                    
+                    /* Decode Input, Encode Output */
+                    InputLeftFileType             = IdentifyInputFileFromBitBuffer(InputLeftFile);
+                    InputRightFileType            = IdentifyInputFileFromBitBuffer(InputRightFile);
+                    /* Decode Input, Encode Output */
                 } else {
                     BitIOLog(LOG_ERROR, "ModernPNG", __func__, "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
                 }
-            } else if (DecodePNG == Yes) { // If we're supposed to Decode a PNG file, do this.
+            } else if (DecodeAsPNG == Yes) { // If we're supposed to Decode a PNG file, do this.
                 if (NumInputFiles == 1 && NumOutputFiles == 1) {
                     Decode2D = true;
                     /* 2D Input */
-                    uint64_t  Input2DArg         = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
-                    char     *Input2DPath        = GetCLIArgumentResult(CLI, Input2DArg);
-                    Input2D                      = BitInputInit();
-                    BitInputOpenFile(Input2D, Input2DPath);
+                    uint64_t  Input2DArg         = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
+                    char     *Input2DPath        = CLIGetArgumentResult(CLI, Input2DArg);
+                    Input2D                      = BitInput_Init();
+                    BitInput_OpenFile(Input2D, Input2DPath);
+                    Input2DFile                  = BitBuffer_Init(8);
+                    BitInput_Read2BitBuffer(Input2D, Input2DFile, 8);
                     /* 2D Input */
                     
                     /* 2D Output */
-                    uint64_t  Output2DArg        = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 0);
-                    char     *Output2DPath       = GetCLIArgumentResult(CLI, Output2DArg);
-                    Output2D                     = BitOutputInit();
-                    BitOutputOpenFile(Output2D, Output2DPath);
+                    uint64_t  Output2DArg        = CLIGetMatchingArgumentNum(CLI, 1, Output, 0, NULL);
+                    char     *Output2DPath       = CLIGetArgumentResult(CLI, Output2DArg);
+                    Output2D                     = BitOutput_Init();
+                    BitOutput_OpenFile(Output2D, Output2DPath);
+                    Output2DFile                 = BitBuffer_Init(8);
+                    BitOutput_WriteBitBuffer(Output2D, Output2DFile, 4096);
                     /* 2D Output */
+                    
+                    /* Decode Input, Encode Output */
+                    // For this, we need to find the extension of the output path, so we can decode it to the format the user wants.
+                    Output2DFileType = GetExtensionFromPath(Output2DPath);
+                    /* Decode Input, Encode Output */
                 } else if (NumInputFiles == 1 && NumOutputFiles == 2) {
                     Decode3D = true;
                     /* 3D Input */
-                    uint64_t  Input3DArg         = GetCLIArgumentNumWithIndependentAndDependents(CLI, Input, 0);
-                    char     *Input3DPath        = GetCLIArgumentResult(CLI, Input3DArg);
-                    Input3D                      = BitInputInit();
-                    BitInputOpenFile(Input3D, Input3DPath);
+                    uint64_t  Input3DArg         = CLIGetMatchingArgumentNum(CLI, 1, Input, 0, NULL);
+                    char     *Input3DPath        = CLIGetArgumentResult(CLI, Input3DArg);
+                    Input3D                      = BitInput_Init();
+                    BitInput_OpenFile(Input3D, Input3DPath);
+                    Input3DFile                  = BitBuffer_Init(8);
+                    BitInput_Read2BitBuffer(Input3D, Input3DFile, 8);
                     /* 3D Input */
                     
                     /* LeftEye Output */
-                    uint64_t  OutputLeftEyeArg   = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 1, LeftEye);
-                    char     *OutputLeftEyePath  = GetCLIArgumentResult(CLI, OutputLeftEyeArg);
-                    OutputLeftEye                = BitOutputInit();
-                    BitOutputOpenFile(OutputLeftEye, OutputLeftEyePath);
+                    uint64_t  OutputLeftEyeArg   = CLIGetMatchingArgumentNum(CLI, 1, Output, 1, LeftEyeSlave);
+                    char     *OutputLeftEyePath  = CLIGetArgumentResult(CLI, OutputLeftEyeArg);
+                    OutputLeftEye                = BitOutput_Init();
+                    BitOutput_OpenFile(OutputLeftEye, OutputLeftEyePath);
+                    OutputLeftFile               = BitBuffer_Init(8);
+                    BitOutput_WriteBitBuffer(OutputLeftEye, OutputLeftFile, 4096);
                     /* LeftEye Output */
                     
                     /*  RightEye Output */
-                    uint64_t  OutputRightEyeArg  = GetCLIArgumentNumWithIndependentAndDependents(CLI, Output, 1, RightEye);
-                    char     *OutputRightEyePath = GetCLIArgumentResult(CLI, OutputRightEyeArg);
-                    OutputRightEye               = BitOutputInit();
-                    BitOutputOpenFile(OutputRightEye, OutputRightEyePath);
+                    uint64_t  OutputRightEyeArg  = CLIGetMatchingArgumentNum(CLI, 1, Output, 1, RightEyeSlave);
+                    char     *OutputRightEyePath = CLIGetArgumentResult(CLI, OutputRightEyeArg);
+                    OutputRightEye               = BitOutput_Init();
+                    BitOutput_OpenFile(OutputRightEye, OutputRightEyePath);
+                    OutputRightFile              = BitBuffer_Init(8);
+                    BitOutput_WriteBitBuffer(OutputRightEye, OutputRightFile, 4096);
                     /*  RightEye Output */
+                    
+                    /* Decode Input, Encode Output */
+                    OutputLeftFileType  = GetExtensionFromPath(OutputLeftEyePath);
+                    OutputRightFileType = GetExtensionFromPath(OutputRightEyePath);
+                    
+                    // Decode the Input file, then encode that to the output format
+                    if (Input3DFileType == PNGFileFormat) {
+                        Dec = DecodePNGInit();
+                    }
+                 	uint16_t ***Decoded3DPixelArray = DecodePNGImage(Dec, Input3DFile);
+                    /* Decode Input, Encode Output */
                 } else {
                     BitIOLog(LOG_ERROR, "ModernPNG", __func__, "Too few/many Input %d or Output %d files, min is 1, max is 2", NumInputFiles, NumOutputFiles);
                 }
