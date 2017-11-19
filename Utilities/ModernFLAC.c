@@ -2,7 +2,7 @@
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
-#include "../libModernFLAC/include/libModernFLAC.h"
+#include "../ModernFLACLibraryName/include/ModernFLACLibraryName.h"
 
 #define ModernFLACVersion "0.1.0"
 
