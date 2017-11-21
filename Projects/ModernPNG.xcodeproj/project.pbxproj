@@ -3,56 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C4A9E5A1FB902E900B48376 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */; };
-		2C4A9E5B1FB902E900B48376 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6B1AA71F40540300ABF2F8 /* libPCM.a */; };
-		2C6B1A791F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */; };
-		2C6B1A7A1F40534D00ABF2F8 /* libModernPNG_Encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */; };
-		2C6B1A7D1F40534D00ABF2F8 /* libModernPNG_WriteChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */; };
-		2C6B1A811F40535700ABF2F8 /* libModernPNG_Decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */; };
-		2C6B1A831F40535700ABF2F8 /* libModernPNG_ReadChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */; };
-		2C6B1A8A1F40537A00ABF2F8 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A891F40537A00ABF2F8 /* libModernPNG.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C6B1A901F40539B00ABF2F8 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A8E1F40539B00ABF2F8 /* libModernPNG_Tables.h */; };
-		2C6B1A911F40539B00ABF2F8 /* libModernPNG_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A8F1F40539B00ABF2F8 /* libModernPNG_Types.h */; };
-		2C6B1A931F4053A300ABF2F8 /* libModernPNG_Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A921F4053A300ABF2F8 /* libModernPNG_Encode.h */; };
-		2C6B1A961F4053AD00ABF2F8 /* libModernPNG_Decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A941F4053AD00ABF2F8 /* libModernPNG_Decode.h */; };
-		2C6B1A971F4053AD00ABF2F8 /* libModernPNG_ReadChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6B1A951F4053AD00ABF2F8 /* libModernPNG_ReadChunks.h */; };
-		2C76C3741F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3731F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c */; };
-		2C76C3781F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C76C3771F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c */; };
-		2C90C2921F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C90C2911F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c */; };
-		2C90C2961F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C90C2951F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h */; };
-		2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */; };
+		2C5ED4B51FC4A9220093A757 /* ModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4B41FC4A9220093A757 /* ModernPNG.c */; };
+		2C5ED4C71FC4A9840093A757 /* libModernPNG_ExtractMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4C41FC4A9840093A757 /* libModernPNG_ExtractMetadata.c */; };
+		2C5ED4C81FC4A9840093A757 /* libModernPNG_AddMetadata.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4C51FC4A9840093A757 /* libModernPNG_AddMetadata.c */; };
+		2C5ED4C91FC4A9840093A757 /* libModernPNG_EntropyCoders.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4C61FC4A9840093A757 /* libModernPNG_EntropyCoders.c */; };
+		2C5ED4CC1FC4A9930093A757 /* libModernPNG_ReadChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4CA1FC4A9920093A757 /* libModernPNG_ReadChunks.c */; };
+		2C5ED4CD1FC4A9930093A757 /* libModernPNG_Decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4CB1FC4A9920093A757 /* libModernPNG_Decode.c */; };
+		2C5ED4D11FC4A99D0093A757 /* libModernPNG_ComposeChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4CE1FC4A99D0093A757 /* libModernPNG_ComposeChunks.c */; };
+		2C5ED4D21FC4A99D0093A757 /* libModernPNG_Encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4CF1FC4A99D0093A757 /* libModernPNG_Encode.c */; };
+		2C5ED4D31FC4A99D0093A757 /* libModernPNG_WriteChunks.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4D01FC4A99D0093A757 /* libModernPNG_WriteChunks.c */; };
+		2C5ED4D51FC4A9AC0093A757 /* libModernPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED4D41FC4A9AC0093A757 /* libModernPNG.c */; };
+		2C5ED4D81FC4A9C60093A757 /* libModernPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4D71FC4A9C60093A757 /* libModernPNG.h */; };
+		2C5ED4DD1FC4A9F90093A757 /* libModernPNG_Encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4DC1FC4A9F90093A757 /* libModernPNG_Encode.h */; };
+		2C5ED4E01FC4AA030093A757 /* libModernPNG_ReadChunks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4DE1FC4AA030093A757 /* libModernPNG_ReadChunks.h */; };
+		2C5ED4E11FC4AA030093A757 /* libModernPNG_Decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4DF1FC4AA030093A757 /* libModernPNG_Decode.h */; };
+		2C5ED4E31FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E21FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h */; };
+		2C5ED4E61FC4AA1A0093A757 /* libModernPNG_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */; };
+		2C5ED4E71FC4AA1A0093A757 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */; };
+		2C5ED4F61FC4AA790093A757 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F71FC4AA790093A757 /* libBitIO.a */; };
+		2C5ED4FA1FC4AA7F0093A757 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
+		2C5ED4FB1FC4AA990093A757 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C4A9E561FB902E000B48376 /* PBXContainerItemProxy */ = {
+		2C5ED4EF1FC4AA5A0093A757 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2C6B1A5F1F4052F400ABF2F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2C6B1A661F4052F400ABF2F8;
-			remoteInfo = libModernPNG;
-		};
-		2C6B1AA61F40540300ABF2F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */;
+			containerPortal = 2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 2C3065591E809042009F1A54;
+			remoteGlobalIDString = 2CBA98911FC26AC200AED24F;
 			remoteInfo = libPCM;
 		};
-		2C6B1AA81F40540300ABF2F8 /* PBXContainerItemProxy */ = {
+		2C5ED4F11FC4AA5A0093A757 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */;
+			containerPortal = 2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 2CD232211EB0ECDD005E4D8C;
+			remoteGlobalIDString = 2CBA98861FC26A8900AED24F;
 			remoteInfo = TrimSilence;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2C6B1AAC1F40543A00ABF2F8 /* CopyFiles */ = {
+		2C5ED4A51FC4A8690093A757 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -64,365 +59,369 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ComposeChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_ComposeChunks.c; sourceTree = "<group>"; };
-		2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Encode.c; path = ../libModernPNG/src/Encode/libModernPNG_Encode.c; sourceTree = "<group>"; };
-		2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_WriteChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_WriteChunks.c; sourceTree = "<group>"; };
-		2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Decode.c; path = ../libModernPNG/src/Decode/libModernPNG_Decode.c; sourceTree = "<group>"; };
-		2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ReadChunks.c; path = ../libModernPNG/src/Decode/libModernPNG_ReadChunks.c; sourceTree = "<group>"; };
-		2C6B1A891F40537A00ABF2F8 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
-		2C6B1A8E1F40539B00ABF2F8 /* libModernPNG_Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Tables.h; path = ../libModernPNG/include/Private/libModernPNG_Tables.h; sourceTree = "<group>"; };
-		2C6B1A8F1F40539B00ABF2F8 /* libModernPNG_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Types.h; path = ../libModernPNG/include/Private/libModernPNG_Types.h; sourceTree = "<group>"; };
-		2C6B1A921F4053A300ABF2F8 /* libModernPNG_Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Encode.h; path = ../libModernPNG/include/Private/Encode/libModernPNG_Encode.h; sourceTree = "<group>"; };
-		2C6B1A941F4053AD00ABF2F8 /* libModernPNG_Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Decode.h; path = ../libModernPNG/include/Private/Decode/libModernPNG_Decode.h; sourceTree = "<group>"; };
-		2C6B1A951F4053AD00ABF2F8 /* libModernPNG_ReadChunks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_ReadChunks.h; path = ../libModernPNG/include/Private/Decode/libModernPNG_ReadChunks.h; sourceTree = "<group>"; };
-		2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
-		2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
-		2C6B1AAE1F40543A00ABF2F8 /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C76C3731F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ExtractMetadata.c; path = ../libModernPNG/src/Common/libModernPNG_ExtractMetadata.c; sourceTree = "<group>"; };
-		2C76C3771F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = libModernPNG_AddMetadata.c; path = ../libModernPNG/src/Common/libModernPNG_AddMetadata.c; sourceTree = "<group>"; };
-		2C90C2911F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_EntropyCoders.c; path = ../libModernPNG/src/Common/libModernPNG_EntropyCoders.c; sourceTree = "<group>"; };
-		2C90C2951F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_EntropyCoders.h; path = ../libModernPNG/include/Private/Common/libModernPNG_EntropyCoders.h; sourceTree = "<group>"; };
+		2C5ED4A71FC4A8690093A757 /* ModernPNG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ModernPNG; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5ED4B41FC4A9220093A757 /* ModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ModernPNG.c; path = ../ModernPNG/ModernPNG.c; sourceTree = "<group>"; };
+		2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModernPNG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5ED4C41FC4A9840093A757 /* libModernPNG_ExtractMetadata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ExtractMetadata.c; path = ../libModernPNG/src/Common/libModernPNG_ExtractMetadata.c; sourceTree = "<group>"; };
+		2C5ED4C51FC4A9840093A757 /* libModernPNG_AddMetadata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_AddMetadata.c; path = ../libModernPNG/src/Common/libModernPNG_AddMetadata.c; sourceTree = "<group>"; };
+		2C5ED4C61FC4A9840093A757 /* libModernPNG_EntropyCoders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_EntropyCoders.c; path = ../libModernPNG/src/Common/libModernPNG_EntropyCoders.c; sourceTree = "<group>"; };
+		2C5ED4CA1FC4A9920093A757 /* libModernPNG_ReadChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ReadChunks.c; path = ../libModernPNG/src/Decode/libModernPNG_ReadChunks.c; sourceTree = "<group>"; };
+		2C5ED4CB1FC4A9920093A757 /* libModernPNG_Decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Decode.c; path = ../libModernPNG/src/Decode/libModernPNG_Decode.c; sourceTree = "<group>"; };
+		2C5ED4CE1FC4A99D0093A757 /* libModernPNG_ComposeChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_ComposeChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_ComposeChunks.c; sourceTree = "<group>"; };
+		2C5ED4CF1FC4A99D0093A757 /* libModernPNG_Encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_Encode.c; path = ../libModernPNG/src/Encode/libModernPNG_Encode.c; sourceTree = "<group>"; };
+		2C5ED4D01FC4A99D0093A757 /* libModernPNG_WriteChunks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG_WriteChunks.c; path = ../libModernPNG/src/Encode/libModernPNG_WriteChunks.c; sourceTree = "<group>"; };
+		2C5ED4D41FC4A9AC0093A757 /* libModernPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libModernPNG.c; path = ../libModernPNG/src/libModernPNG.c; sourceTree = "<group>"; };
+		2C5ED4D71FC4A9C60093A757 /* libModernPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG.h; path = ../libModernPNG/include/libModernPNG.h; sourceTree = "<group>"; };
+		2C5ED4DC1FC4A9F90093A757 /* libModernPNG_Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Encode.h; path = ../libModernPNG/include/Private/Encode/libModernPNG_Encode.h; sourceTree = "<group>"; };
+		2C5ED4DE1FC4AA030093A757 /* libModernPNG_ReadChunks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_ReadChunks.h; path = ../libModernPNG/include/Private/Decode/libModernPNG_ReadChunks.h; sourceTree = "<group>"; };
+		2C5ED4DF1FC4AA030093A757 /* libModernPNG_Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Decode.h; path = ../libModernPNG/include/Private/Decode/libModernPNG_Decode.h; sourceTree = "<group>"; };
+		2C5ED4E21FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_EntropyCoders.h; path = ../libModernPNG/include/Private/Common/libModernPNG_EntropyCoders.h; sourceTree = "<group>"; };
+		2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Types.h; path = ../libModernPNG/include/Private/libModernPNG_Types.h; sourceTree = "<group>"; };
+		2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Tables.h; path = ../libModernPNG/include/Private/libModernPNG_Tables.h; sourceTree = "<group>"; };
+		2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
+		2C5ED4F71FC4AA790093A757 /* libBitIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBitIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2C6B1A641F4052F400ABF2F8 /* Frameworks */ = {
+		2C5ED4A41FC4A8690093A757 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5ED4FB1FC4AA990093A757 /* libPCM.a in Frameworks */,
+				2C5ED4FA1FC4AA7F0093A757 /* libModernPNG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2C6B1AAB1F40543A00ABF2F8 /* Frameworks */ = {
+		2C5ED4B71FC4A9350093A757 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C4A9E5A1FB902E900B48376 /* libModernPNG.a in Frameworks */,
-				2C4A9E5B1FB902E900B48376 /* libPCM.a in Frameworks */,
+				2C5ED4F61FC4AA790093A757 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C6B1A5E1F4052F400ABF2F8 = {
+		2C5ED49E1FC4A8690093A757 = {
 			isa = PBXGroup;
 			children = (
-				2C6B1A9F1F4053E700ABF2F8 /* Dependencies */,
-				2C6B1A6E1F40530F00ABF2F8 /* libModernPNG */,
-				2C6B1A9C1F4053D100ABF2F8 /* ModernPNG */,
-				2C6B1A681F4052F400ABF2F8 /* Products */,
+				2C5ED4F51FC4AA790093A757 /* Frameworks */,
+				2C5ED4E91FC4AA3E0093A757 /* Dependencies */,
+				2C5ED4BE1FC4A93A0093A757 /* libModernPNG */,
+				2C5ED4B31FC4A90A0093A757 /* ModernPNG */,
+				2C5ED4A81FC4A8690093A757 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2C6B1A681F4052F400ABF2F8 /* Products */ = {
+		2C5ED4A81FC4A8690093A757 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */,
-				2C6B1AAE1F40543A00ABF2F8 /* ModernPNG */,
+				2C5ED4A71FC4A8690093A757 /* ModernPNG */,
+				2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C6B1A6E1F40530F00ABF2F8 /* libModernPNG */ = {
+		2C5ED4B31FC4A90A0093A757 /* ModernPNG */ = {
 			isa = PBXGroup;
 			children = (
-				2C6B1A701F40532200ABF2F8 /* Headers */,
-				2C6B1A6F1F40531800ABF2F8 /* Source */,
-			);
-			name = libModernPNG;
-			sourceTree = "<group>";
-		};
-		2C6B1A6F1F40531800ABF2F8 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A731F40533800ABF2F8 /* Common */,
-				2C6B1A721F40533200ABF2F8 /* Decode */,
-				2C6B1A711F40532D00ABF2F8 /* Encode */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		2C6B1A701F40532200ABF2F8 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A891F40537A00ABF2F8 /* libModernPNG.h */,
-				2C6B1A881F40537100ABF2F8 /* Private */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
-		2C6B1A711F40532D00ABF2F8 /* Encode */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A741F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c */,
-				2C6B1A751F40534D00ABF2F8 /* libModernPNG_Encode.c */,
-				2C6B1A781F40534D00ABF2F8 /* libModernPNG_WriteChunks.c */,
-			);
-			name = Encode;
-			sourceTree = "<group>";
-		};
-		2C6B1A721F40533200ABF2F8 /* Decode */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A7E1F40535700ABF2F8 /* libModernPNG_Decode.c */,
-				2C6B1A801F40535700ABF2F8 /* libModernPNG_ReadChunks.c */,
-			);
-			name = Decode;
-			sourceTree = "<group>";
-		};
-		2C6B1A731F40533800ABF2F8 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				2C90C2911F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c */,
-				2C76C3731F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c */,
-				2C76C3771F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		2C6B1A881F40537100ABF2F8 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A8E1F40539B00ABF2F8 /* libModernPNG_Tables.h */,
-				2C6B1A8F1F40539B00ABF2F8 /* libModernPNG_Types.h */,
-				2C6B1A8D1F40538E00ABF2F8 /* Common */,
-				2C6B1A8C1F40538900ABF2F8 /* Decode */,
-				2C6B1A8B1F40538300ABF2F8 /* Encode */,
-			);
-			name = Private;
-			sourceTree = "<group>";
-		};
-		2C6B1A8B1F40538300ABF2F8 /* Encode */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A921F4053A300ABF2F8 /* libModernPNG_Encode.h */,
-			);
-			name = Encode;
-			sourceTree = "<group>";
-		};
-		2C6B1A8C1F40538900ABF2F8 /* Decode */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A941F4053AD00ABF2F8 /* libModernPNG_Decode.h */,
-				2C6B1A951F4053AD00ABF2F8 /* libModernPNG_ReadChunks.h */,
-			);
-			name = Decode;
-			sourceTree = "<group>";
-		};
-		2C6B1A8D1F40538E00ABF2F8 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				2C90C2951F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		2C6B1A9C1F4053D100ABF2F8 /* ModernPNG */ = {
-			isa = PBXGroup;
-			children = (
-				2C6B1A9D1F4053DF00ABF2F8 /* ModernPNG.c */,
+				2C5ED4B41FC4A9220093A757 /* ModernPNG.c */,
 			);
 			name = ModernPNG;
 			sourceTree = "<group>";
 		};
-		2C6B1A9F1F4053E700ABF2F8 /* Dependencies */ = {
+		2C5ED4BE1FC4A93A0093A757 /* libModernPNG */ = {
 			isa = PBXGroup;
 			children = (
-				2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */,
+				2C5ED4C01FC4A9490093A757 /* Headers */,
+				2C5ED4BF1FC4A9430093A757 /* Source */,
+			);
+			name = libModernPNG;
+			sourceTree = "<group>";
+		};
+		2C5ED4BF1FC4A9430093A757 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4D41FC4A9AC0093A757 /* libModernPNG.c */,
+				2C5ED4C31FC4A9720093A757 /* Common */,
+				2C5ED4C21FC4A96D0093A757 /* Decode */,
+				2C5ED4C11FC4A9680093A757 /* Encode */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		2C5ED4C01FC4A9490093A757 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4D71FC4A9C60093A757 /* libModernPNG.h */,
+				2C5ED4D61FC4A9BB0093A757 /* Private */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		2C5ED4C11FC4A9680093A757 /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4CE1FC4A99D0093A757 /* libModernPNG_ComposeChunks.c */,
+				2C5ED4CF1FC4A99D0093A757 /* libModernPNG_Encode.c */,
+				2C5ED4D01FC4A99D0093A757 /* libModernPNG_WriteChunks.c */,
+			);
+			name = Encode;
+			sourceTree = "<group>";
+		};
+		2C5ED4C21FC4A96D0093A757 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4CB1FC4A9920093A757 /* libModernPNG_Decode.c */,
+				2C5ED4CA1FC4A9920093A757 /* libModernPNG_ReadChunks.c */,
+			);
+			name = Decode;
+			sourceTree = "<group>";
+		};
+		2C5ED4C31FC4A9720093A757 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4C51FC4A9840093A757 /* libModernPNG_AddMetadata.c */,
+				2C5ED4C61FC4A9840093A757 /* libModernPNG_EntropyCoders.c */,
+				2C5ED4C41FC4A9840093A757 /* libModernPNG_ExtractMetadata.c */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2C5ED4D61FC4A9BB0093A757 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */,
+				2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */,
+				2C5ED4DB1FC4A9DF0093A757 /* Common */,
+				2C5ED4DA1FC4A9DA0093A757 /* Decode */,
+				2C5ED4D91FC4A9D50093A757 /* Encode */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		2C5ED4D91FC4A9D50093A757 /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4DC1FC4A9F90093A757 /* libModernPNG_Encode.h */,
+			);
+			name = Encode;
+			sourceTree = "<group>";
+		};
+		2C5ED4DA1FC4A9DA0093A757 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4DF1FC4AA030093A757 /* libModernPNG_Decode.h */,
+				2C5ED4DE1FC4AA030093A757 /* libModernPNG_ReadChunks.h */,
+			);
+			name = Decode;
+			sourceTree = "<group>";
+		};
+		2C5ED4DB1FC4A9DF0093A757 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4E21FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2C5ED4E91FC4AA3E0093A757 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		2C6B1AA11F40540300ABF2F8 /* Products */ = {
+		2C5ED4EB1FC4AA5A0093A757 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C6B1AA71F40540300ABF2F8 /* libPCM.a */,
-				2C6B1AA91F40540300ABF2F8 /* TrimSilence */,
+				2C5ED4F01FC4AA5A0093A757 /* libPCM.a */,
+				2C5ED4F21FC4AA5A0093A757 /* TrimSilence */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2C5ED4F51FC4AA790093A757 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C5ED4F71FC4AA790093A757 /* libBitIO.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2C6B1A651F4052F400ABF2F8 /* Headers */ = {
+		2C5ED4B81FC4A9350093A757 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6B1A8A1F40537A00ABF2F8 /* libModernPNG.h in Headers */,
-				2C6B1A911F40539B00ABF2F8 /* libModernPNG_Types.h in Headers */,
-				2C6B1A901F40539B00ABF2F8 /* libModernPNG_Tables.h in Headers */,
-				2C90C2961F4F9E7A00497C35 /* libModernPNG_EntropyCoders.h in Headers */,
-				2C6B1A961F4053AD00ABF2F8 /* libModernPNG_Decode.h in Headers */,
-				2C6B1A971F4053AD00ABF2F8 /* libModernPNG_ReadChunks.h in Headers */,
-				2C6B1A931F4053A300ABF2F8 /* libModernPNG_Encode.h in Headers */,
+				2C5ED4D81FC4A9C60093A757 /* libModernPNG.h in Headers */,
+				2C5ED4E71FC4AA1A0093A757 /* libModernPNG_Tables.h in Headers */,
+				2C5ED4E61FC4AA1A0093A757 /* libModernPNG_Types.h in Headers */,
+				2C5ED4DD1FC4A9F90093A757 /* libModernPNG_Encode.h in Headers */,
+				2C5ED4E31FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h in Headers */,
+				2C5ED4E01FC4AA030093A757 /* libModernPNG_ReadChunks.h in Headers */,
+				2C5ED4E11FC4AA030093A757 /* libModernPNG_Decode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2C6B1A661F4052F400ABF2F8 /* libModernPNG */ = {
+		2C5ED4A61FC4A8690093A757 /* ModernPNG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C6B1A6B1F4052F400ABF2F8 /* Build configuration list for PBXNativeTarget "libModernPNG" */;
+			buildConfigurationList = 2C5ED4AE1FC4A8690093A757 /* Build configuration list for PBXNativeTarget "ModernPNG" */;
 			buildPhases = (
-				2C6B1A631F4052F400ABF2F8 /* Sources */,
-				2C6B1A641F4052F400ABF2F8 /* Frameworks */,
-				2C6B1A651F4052F400ABF2F8 /* Headers */,
+				2C5ED4A31FC4A8690093A757 /* Sources */,
+				2C5ED4A41FC4A8690093A757 /* Frameworks */,
+				2C5ED4A51FC4A8690093A757 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModernPNG;
+			productName = ModernPNG;
+			productReference = 2C5ED4A71FC4A8690093A757 /* ModernPNG */;
+			productType = "com.apple.product-type.tool";
+		};
+		2C5ED4B91FC4A9350093A757 /* libModernPNG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C5ED4BB1FC4A9350093A757 /* Build configuration list for PBXNativeTarget "libModernPNG" */;
+			buildPhases = (
+				2C5ED4B61FC4A9350093A757 /* Sources */,
+				2C5ED4B71FC4A9350093A757 /* Frameworks */,
+				2C5ED4B81FC4A9350093A757 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = libModernPNG;
-			productName = ModernPNG;
-			productReference = 2C6B1A671F4052F400ABF2F8 /* libModernPNG.a */;
+			productName = libModernPNG;
+			productReference = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		2C6B1AAD1F40543A00ABF2F8 /* ModernPNG */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2C6B1AB21F40543A00ABF2F8 /* Build configuration list for PBXNativeTarget "ModernPNG" */;
-			buildPhases = (
-				2C6B1AAA1F40543A00ABF2F8 /* Sources */,
-				2C6B1AAB1F40543A00ABF2F8 /* Frameworks */,
-				2C6B1AAC1F40543A00ABF2F8 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2C4A9E571FB902E000B48376 /* PBXTargetDependency */,
-			);
-			name = ModernPNG;
-			productName = ModernPNG;
-			productReference = 2C6B1AAE1F40543A00ABF2F8 /* ModernPNG */;
-			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2C6B1A5F1F4052F400ABF2F8 /* Project object */ = {
+		2C5ED49F1FC4A8690093A757 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Marcus Johnson";
 				TargetAttributes = {
-					2C6B1A661F4052F400ABF2F8 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 628J9L7WK5;
+					2C5ED4A61FC4A8690093A757 = {
+						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
-					2C6B1AAD1F40543A00ABF2F8 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 628J9L7WK5;
+					2C5ED4B91FC4A9350093A757 = {
+						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2C6B1A621F4052F400ABF2F8 /* Build configuration list for PBXProject "ModernPNG" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 2C5ED4A21FC4A8690093A757 /* Build configuration list for PBXProject "ModernPNG" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2C6B1A5E1F4052F400ABF2F8;
-			productRefGroup = 2C6B1A681F4052F400ABF2F8 /* Products */;
+			mainGroup = 2C5ED49E1FC4A8690093A757;
+			productRefGroup = 2C5ED4A81FC4A8690093A757 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2C6B1AA11F40540300ABF2F8 /* Products */;
-					ProjectRef = 2C6B1AA01F40540300ABF2F8 /* libPCM.xcodeproj */;
+					ProductGroup = 2C5ED4EB1FC4AA5A0093A757 /* Products */;
+					ProjectRef = 2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				2C6B1A661F4052F400ABF2F8 /* libModernPNG */,
-				2C6B1AAD1F40543A00ABF2F8 /* ModernPNG */,
+				2C5ED4A61FC4A8690093A757 /* ModernPNG */,
+				2C5ED4B91FC4A9350093A757 /* libModernPNG */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C6B1AA71F40540300ABF2F8 /* libPCM.a */ = {
+		2C5ED4F01FC4AA5A0093A757 /* libPCM.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libPCM.a;
-			remoteRef = 2C6B1AA61F40540300ABF2F8 /* PBXContainerItemProxy */;
+			remoteRef = 2C5ED4EF1FC4AA5A0093A757 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2C6B1AA91F40540300ABF2F8 /* TrimSilence */ = {
+		2C5ED4F21FC4AA5A0093A757 /* TrimSilence */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = TrimSilence;
-			remoteRef = 2C6B1AA81F40540300ABF2F8 /* PBXContainerItemProxy */;
+			remoteRef = 2C5ED4F11FC4AA5A0093A757 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2C6B1A631F4052F400ABF2F8 /* Sources */ = {
+		2C5ED4A31FC4A8690093A757 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6B1A811F40535700ABF2F8 /* libModernPNG_Decode.c in Sources */,
-				2C6B1A831F40535700ABF2F8 /* libModernPNG_ReadChunks.c in Sources */,
-				2C76C3781F708FDC00C6D9B4 /* libModernPNG_AddMetadata.c in Sources */,
-				2C6B1A7D1F40534D00ABF2F8 /* libModernPNG_WriteChunks.c in Sources */,
-				2C90C2921F4F9C8C00497C35 /* libModernPNG_EntropyCoders.c in Sources */,
-				2C6B1A7A1F40534D00ABF2F8 /* libModernPNG_Encode.c in Sources */,
-				2C6B1A791F40534D00ABF2F8 /* libModernPNG_ComposeChunks.c in Sources */,
-				2C76C3741F7088F600C6D9B4 /* libModernPNG_ExtractMetadata.c in Sources */,
+				2C5ED4B51FC4A9220093A757 /* ModernPNG.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2C6B1AAA1F40543A00ABF2F8 /* Sources */ = {
+		2C5ED4B61FC4A9350093A757 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CED67A41F5108CE00241290 /* ModernPNG.c in Sources */,
+				2C5ED4CD1FC4A9930093A757 /* libModernPNG_Decode.c in Sources */,
+				2C5ED4D11FC4A99D0093A757 /* libModernPNG_ComposeChunks.c in Sources */,
+				2C5ED4D31FC4A99D0093A757 /* libModernPNG_WriteChunks.c in Sources */,
+				2C5ED4C91FC4A9840093A757 /* libModernPNG_EntropyCoders.c in Sources */,
+				2C5ED4C71FC4A9840093A757 /* libModernPNG_ExtractMetadata.c in Sources */,
+				2C5ED4D51FC4A9AC0093A757 /* libModernPNG.c in Sources */,
+				2C5ED4CC1FC4A9930093A757 /* libModernPNG_ReadChunks.c in Sources */,
+				2C5ED4C81FC4A9840093A757 /* libModernPNG_AddMetadata.c in Sources */,
+				2C5ED4D21FC4A99D0093A757 /* libModernPNG_Encode.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2C4A9E571FB902E000B48376 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2C6B1A661F4052F400ABF2F8 /* libModernPNG */;
-			targetProxy = 2C4A9E561FB902E000B48376 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		2C6B1A691F4052F400ABF2F8 /* Debug */ = {
+		2C5ED4AC1FC4A8690093A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLY_RULES_IN_COPY_FILES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
-				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_STATIC_ANALYZER_MODE = shallow;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES;
-				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
@@ -430,37 +429,47 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMPILER_INDEX_STORE_ENABLE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_ENABLE_PASCAL_STRINGS = YES;
+				GCC_ENABLE_TRIGRAPHS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
 					"DEBUG=1",
+					"$(inherited)",
 				);
+				GCC_SHORT_ENUMS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
 				GCC_WARN_PEDANTIC = YES;
 				GCC_WARN_SHADOW = YES;
@@ -475,56 +484,57 @@
 				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				PLIST_FILE_OUTPUT_FORMAT = binary;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = macosx;
+				SEPARATE_STRIP = NO;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
-				STRIP_STYLE = "non-global";
+				STRIP_INSTALLED_PRODUCT = NO;
 				SUPPORTED_PLATFORMS = "macosx iphoneos";
 				VALID_ARCHS = "arm64 x86_64";
-				VERSION_INFO_EXPORT_DECL = libModernPNGVersion;
-				VERSION_INFO_FILE = libModernPNG.h;
 				WARNING_CFLAGS = (
-					"-ferror-limit=1024",
 					"-Weverything",
+					"-ferror-limit=1024",
 				);
 			};
 			name = Debug;
 		};
-		2C6B1A6A1F4052F400ABF2F8 /* Release */ = {
+		2C5ED4AD1FC4A8690093A757 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLY_RULES_IN_COPY_FILES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
-				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_MODULE_DEBUGGING = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_STATIC_ANALYZER_MODE = shallow;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES;
-				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
@@ -532,34 +542,43 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMPILER_INDEX_STORE_ENABLE = YES;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
-				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_ENABLE_PASCAL_STRINGS = YES;
+				GCC_ENABLE_TRIGRAPHS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_SHORT_ENUMS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
 				GCC_WARN_PEDANTIC = YES;
 				GCC_WARN_SHADOW = YES;
@@ -571,64 +590,69 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PROFILING_CODE = NO;
 				INFOPLIST_OUTPUT_FORMAT = binary;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PLIST_FILE_OUTPUT_FORMAT = binary;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = macosx;
+				SEPARATE_STRIP = YES;
 				STRINGS_FILE_OUTPUT_ENCODING = binary;
+				STRIP_INSTALLED_PRODUCT = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos";
+				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 x86_64";
-				VERSION_INFO_EXPORT_DECL = libModernPNGVersion;
-				VERSION_INFO_FILE = libModernPNG.h;
 				WARNING_CFLAGS = (
-					"-ferror-limit=1024",
 					"-Weverything",
+					"-ferror-limit=1024",
 				);
 			};
 			name = Release;
 		};
-		2C6B1A6C1F4052F400ABF2F8 /* Debug */ = {
+		2C5ED4AF1FC4A8690093A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULE_DEBUGGING = YES;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
-				EXECUTABLE_PREFIX = "";
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos";
-				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Debug;
 		};
-		2C6B1A6D1F4052F400ABF2F8 /* Release */ = {
+		2C5ED4B01FC4A8690093A757 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
-				EXECUTABLE_PREFIX = "";
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos";
-				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Release;
 		};
-		2C6B1AB31F40543A00ABF2F8 /* Debug */ = {
+		2C5ED4BC1FC4A9350093A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EXECUTABLE_PREFIX = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		2C6B1AB41F40543A00ABF2F8 /* Release */ = {
+		2C5ED4BD1FC4A9350093A757 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 628J9L7WK5;
+				EXECUTABLE_PREFIX = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -636,34 +660,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2C6B1A621F4052F400ABF2F8 /* Build configuration list for PBXProject "ModernPNG" */ = {
+		2C5ED4A21FC4A8690093A757 /* Build configuration list for PBXProject "ModernPNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2C6B1A691F4052F400ABF2F8 /* Debug */,
-				2C6B1A6A1F4052F400ABF2F8 /* Release */,
+				2C5ED4AC1FC4A8690093A757 /* Debug */,
+				2C5ED4AD1FC4A8690093A757 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C6B1A6B1F4052F400ABF2F8 /* Build configuration list for PBXNativeTarget "libModernPNG" */ = {
+		2C5ED4AE1FC4A8690093A757 /* Build configuration list for PBXNativeTarget "ModernPNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2C6B1A6C1F4052F400ABF2F8 /* Debug */,
-				2C6B1A6D1F4052F400ABF2F8 /* Release */,
+				2C5ED4AF1FC4A8690093A757 /* Debug */,
+				2C5ED4B01FC4A8690093A757 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C6B1AB21F40543A00ABF2F8 /* Build configuration list for PBXNativeTarget "ModernPNG" */ = {
+		2C5ED4BB1FC4A9350093A757 /* Build configuration list for PBXNativeTarget "libModernPNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2C6B1AB31F40543A00ABF2F8 /* Debug */,
-				2C6B1AB41F40543A00ABF2F8 /* Release */,
+				2C5ED4BC1FC4A9350093A757 /* Debug */,
+				2C5ED4BD1FC4A9350093A757 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2C6B1A5F1F4052F400ABF2F8 /* Project object */;
+	rootObject = 2C5ED49F1FC4A8690093A757 /* Project object */;
 }
