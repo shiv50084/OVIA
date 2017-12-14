@@ -65,6 +65,7 @@ extern "C" {
                 }
             }
         }
+        free(CurrentSampleValue);
     }
     
     int64_t ConvertSilenceLevel2Integer(char *Level) {
@@ -79,6 +80,7 @@ extern "C" {
         BitBuffer     *BitB         = BitBuffer_Init(40);
         
         ParseCommandLineOptions(CLI, argc, argv);
+        PrintCommandLineOptions(CLI);
         
         int64_t InputFileOption     = CLIGetOptionNum(CLI, Input, 0, NULL);
         int64_t OutputFileOption    = CLIGetOptionNum(CLI, Output, 0, NULL);
@@ -95,7 +97,6 @@ extern "C" {
         BitInput_OpenFile(BitI, InputPath);
         BitIOLog_OpenFile(LogFilePath);
         BitOutput_OpenFile(BitO, OutputPath);
-         
         
         if (strcasecmp(OutputExtension, ".wav") == 0) {
             PCM_SetOutputFileType(PCM, WAVFormat);
