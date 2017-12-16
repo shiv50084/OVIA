@@ -1,4 +1,5 @@
 #include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
+#include "../Dependencies/BitIO/libBitIO/include/BitIOLog.h"
 #include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 
 #include "../libPCM/include/libPCM.h"
