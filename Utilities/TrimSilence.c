@@ -74,7 +74,9 @@ extern "C" {
     }
     
     int main(int argc, const char *argv[]) {
-        CommandLineIO *CLI          = SetTrimSilenceOptions();
+        BitIOLog_SetProgramName(argv[0]);
+        
+        CommandLineIO *CLI          = SetTrimSilenceOptions(void);
         BitInput      *BitI         = BitInput_Init();
         BitOutput     *BitO         = BitOutput_Init();
         PCMFile       *PCM          = PCMFile_Init();
