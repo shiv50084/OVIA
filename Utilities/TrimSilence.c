@@ -98,12 +98,11 @@ extern "C" {
     }
     
     int main(int argc, const char *argv[]) {
-        
         CommandLineIO *CLI                = SetTrimSilenceOptions();
         BitInput      *BitI               = BitInput_Init();
         BitOutput     *BitO               = BitOutput_Init();
         PCMFile       *PCM                = PCMFile_Init();
-        BitBuffer     *BitB               = BitBuffer_Init(40);
+        BitBuffer     *BitB               = NULL;
         
         ParseCommandLineOptions(CLI, argc, argv);
         
@@ -147,6 +146,9 @@ extern "C" {
         } else {
             BitIOLog(BitIOLog_ERROR, u8"TrimSilence", __func__, "Unknown extension: %s", OutputExtension);
         }
+        
+        BitB = BitBuffer_Init(128);
+        
         
         // So now we go ahead and mess around with the samples, looking for empty SampleGroups, then write it all out with the generic Write functions that I need to write.
         
