@@ -47,7 +47,6 @@ extern "C" {
         UTF8Constant Switch4Name = u8"Help";
         UTF8Constant Switch4Description = u8"Prints all the command line options and their relationships";
         
-        
         BitIOLog_SetProgramName((UTF8String) ProgramName);
         
         CLISetName(CLI, (UTF8String)ProgramName);
@@ -114,12 +113,11 @@ extern "C" {
         UTF8String  InputPath             = CLIGetOptionResult(CLI, InputFileOption);
         UTF8String  OutputPath            = CLIGetOptionResult(CLI, OutputFileOption);
         UTF8String  OutputExtension       = GetExtensionFromPath(OutputPath);
-        uint64_t    OutputExtensionSize   = UTF8String_GetNumCodePoints(OutputExtension);
         UTF8String  LogFilePath           = CLIGetOptionResult(CLI, LogFileOption);
-        UTF8String  SilenceLevel          = CLIGetOptionResult(CLI, SilenceLevelOption);
+        UTF8String  SilenceLevelString8   = CLIGetOptionResult(CLI, SilenceLevelOption);
         uint64_t    SilenceLevelSize      = UTF8String_GetNumCodePoints(SilenceLevel);
-        UTF32String SilenceLevelUTF32     = UTF8String_Decode(SilenceLevel, SilenceLevelSize);
-        int64_t     SilenceValue          = UTF32String_ToNumber(SilenceLevelUTF32, SilenceLevelSize);
+        UTF32String SilenceLevelString32  = UTF8String_Decode(SilenceLevel);
+        int64_t     SilenceValue          = UTF32String_ToNumber(SilenceLevelString32);
         
         BitInput_OpenFile(BitI, InputPath);
         BitIOLog_OpenFile(LogFilePath);
@@ -130,18 +128,13 @@ extern "C" {
         UTF8Constant AIFExtension  = u8".aif";
         UTF8Constant AIFFExtension = u8".aiff";
         
-        UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)WAVExtension,  4, Yes, Yes);
-        UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)W64Extension,  4, Yes, Yes);
-        UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)AIFExtension,  4, Yes, Yes);
-        UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)AIFFExtension, 5, Yes, Yes);
-        
-        if (UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)WAVExtension,  4, Yes, Yes)) { // WAV output
+        if (UTF8String_Compare(OutputExtension, (UTF8String)WAVExtension, No, Yes)) { // WAV output
             PCM_SetOutputFileType(PCM, WAVFormat);
-        } else if (UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)W64Extension,  4, Yes, Yes)) {
+        } else if (UTF8String_Compare(OutputExtension, (UTF8String)W64Extension, No, Yes)) {
             PCM_SetOutputFileType(PCM, W64Format);
-        } else if (UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)AIFExtension,  4, Yes, Yes)) {
+        } else if (UTF8String_Compare(OutputExtension, (UTF8String)AIFExtension, No, Yes)) {
             PCM_SetOutputFileType(PCM, AIFFormat);
-        } else if (UTF8String_Compare(OutputExtension, OutputExtensionSize, (UTF8String)AIFFExtension, 5, Yes, Yes)) {
+        } else if (UTF8String_Compare(OutputExtension, (UTF8String)AIFFExtension, No, Yes)) {
             PCM_SetOutputFileType(PCM, AIFFormat);
         } else {
             BitIOLog(BitIOLog_ERROR, u8"TrimSilence", __func__, "Unknown extension: %s", OutputExtension);
