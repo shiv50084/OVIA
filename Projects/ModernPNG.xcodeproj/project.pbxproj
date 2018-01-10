@@ -24,9 +24,9 @@
 		2C5ED4E31FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E21FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h */; };
 		2C5ED4E61FC4AA1A0093A757 /* libModernPNG_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */; };
 		2C5ED4E71FC4AA1A0093A757 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */; };
-		2C5ED4F61FC4AA790093A757 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F71FC4AA790093A757 /* libBitIO.a */; };
-		2C5ED4FA1FC4AA7F0093A757 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
-		2C5ED4FB1FC4AA990093A757 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
+		2CCDF8782005BC8F00C66C83 /* libBitIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F71FC4AA790093A757 /* libBitIO.a */; };
+		2CCDF8792005BC9600C66C83 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
+		2CCDF87A2005BC9A00C66C83 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5ED4FB1FC4AA990093A757 /* libPCM.a in Frameworks */,
-				2C5ED4FA1FC4AA7F0093A757 /* libModernPNG.a in Frameworks */,
+				2CCDF87A2005BC9A00C66C83 /* libPCM.a in Frameworks */,
+				2CCDF8792005BC9600C66C83 /* libModernPNG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5ED4F61FC4AA790093A757 /* libBitIO.a in Frameworks */,
+				2CCDF8782005BC8F00C66C83 /* libBitIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +434,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMPILER_INDEX_STORE_ENABLE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -476,7 +476,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -489,7 +489,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = "-Wno-c99-compat";
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
@@ -547,7 +547,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMPILER_INDEX_STORE_ENABLE = YES;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -585,7 +585,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
@@ -598,7 +598,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = "-Wno-c99-compat";
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;

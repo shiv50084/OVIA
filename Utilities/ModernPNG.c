@@ -3,8 +3,8 @@
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
-static const char *ModernPNGVersion     = "0.5.0";
-static const char *ModernPNGProgramName = "ModernPNG";
+static UTF8Constant ModernPNGVersion     = u8"0.5.0";
+static UTF8String   ModernPNGProgramName = u8"ModernPNG";
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,78 +40,113 @@ extern "C" {
     static CommandLineIO *SetModernPNGOptions(void) {
         CommandLineIO *CLI = CommandLineIO_Init(NumOptions);
         
-        CLISetName(CLI, "ModernPNG");
-        CLISetAuthor(CLI, "BumbleBritches57");
-        CLISetVersion(CLI, ModernPNGVersion);
-        CLISetCopyright(CLI, "2017 - 2017");
-        CLISetDescription(CLI, "PNG encoder/decoder written from scratch in modern C");
-        CLISetLicense(CLI, "Revised BSD", "A permissive open source license", "https://opensource.org/licenses/BSD-3-Clause", No);
+        CLISetName(CLI, (UTF8String) ModernPNGProgramName);
+        CLISetAuthor(CLI, u8"BumbleBritches57");
+        CLISetVersion(CLI, (UTF8String) ModernPNGVersion);
+        CLISetCopyright(CLI, u8"2017+");
+        CLISetDescription(CLI, u8"PNG encoder/decoder written from scratch in modern C");
+        CLISetLicense(CLI, u8"Revised BSD", u8"A permissive open source license", u8"https://opensource.org/licenses/BSD-3-Clause", No);
         CLISetMinOptions(CLI, 3);
         CLISetHelpSwitch(CLI, Help);
         
-        CLISetSwitchFlag(CLI, Input, "Input");
-        CLISetSwitchDescription(CLI, Input, "Input file or stdin with: -");
+        CLISetSwitchName(CLI, Input, u8"Input");
+        CLISetSwitchDescription(CLI, Input, u8"Input file or stdin with: -");
         CLISetSwitchType(CLI, Input, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, Input, 1);
         
-        CLISetSwitchFlag(CLI, Output, "Output");
+        CLISetSwitchName(CLI, Output, "Output");
         CLISetSwitchDescription(CLI, Output, "Output file or stdout with: -");
         CLISetSwitchType(CLI, Output, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, Output, 1);
         
-        CLISetSwitchFlag(CLI, LogFile, "LogFile");
+        CLISetSwitchName(CLI, LeftEye, "LeftEye");
+        CLISetSwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
+        CLISetSwitchType(CLI, LeftEye, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, Input, LeftEye);
+        CLISetSwitchAsSlave(CLI, Output, LeftEye);
+        
+        CLISetSwitchName(CLI, RightEye, "RightEye");
+        CLISetSwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
+        CLISetSwitchType(CLI, RightEye, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, Input, RightEye);
+        CLISetSwitchAsSlave(CLI, Output, RightEye);
+        
+        CLISetSwitchName(CLI, LogFile, "LogFile");
         CLISetSwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
         CLISetSwitchType(CLI, LogFile, SwitchCantHaveSlaves);
         
-        CLISetSwitchFlag(CLI, LeftEye, "LeftEye");
-        CLISetSwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
-        CLISetSwitchType(CLI, LeftEye, SwitchIsASlave);
-        
-        CLISetSwitchFlag(CLI, RightEye, "RightEye");
-        CLISetSwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
-        CLISetSwitchType(CLI, RightEye, SwitchIsASlave);
-        
-        CLISetSwitchAsSlave(CLI, Input, LeftEye);
-        CLISetSwitchAsSlave(CLI, Input, RightEye);
-        CLISetSwitchAsSlave(CLI, Output, LeftEye);
-        CLISetSwitchAsSlave(CLI, Output, RightEye);
-        
         /* Start Encode Options */
-        CLISetSwitchFlag(CLI, Encode, "Encode");
+        CLISetSwitchName(CLI, Encode, "Encode");
         CLISetSwitchDescription(CLI, Encode, "Encode input(s) to PNG");
         CLISetSwitchType(CLI, Encode, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, Encode, 2);
         
-        CLISetSwitchFlag(CLI, Interlace, "Interlace");
+        CLISetSwitchName(CLI, Interlace, "Interlace");
         CLISetSwitchDescription(CLI, Interlace, "Should we encode the PNG with Adam7 Interlacing? (Currently not supported)");
         CLISetSwitchType(CLI, Interlace, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Encode, Interlace);
         
-        CLISetSwitchFlag(CLI, Optimize, "Optimize");
+        CLISetSwitchName(CLI, Optimize, "Optimize");
         CLISetSwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
         CLISetSwitchType(CLI, Optimize, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
-        CLISetSwitchFlag(CLI, Decode, "Decode");
+        CLISetSwitchName(CLI, Decode, "Decode");
         CLISetSwitchDescription(CLI, Decode, "Decode PNG to output");
         CLISetSwitchType(CLI, Decode, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, Decode, 0);
         /* End Decode Options */
         
         /* Metadata Options */
-        CLISetSwitchFlag(CLI, InsertMeta, "InsertMeta");
+        CLISetSwitchName(CLI, InsertMeta, "InsertMeta");
         CLISetSwitchDescription(CLI, InsertMeta, "Adds metadata to PNG file");
         CLISetSwitchType(CLI, InsertMeta, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, InsertMeta, 4);
         
-        CLISetSwitchFlag(CLI, ExtractMeta, "ExtractMeta");
+        CLISetSwitchName(CLI, ExtractMeta, "ExtractMeta");
         CLISetSwitchDescription(CLI, ExtractMeta, "Extracts metadata from PNG file");
        	CLISetSwitchType(CLI, ExtractMeta, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, ExtractMeta, 4);
         
-        CLISetSwitchFlag(CLI, RemoveMeta, "RemoveMeta");
+        CLISetSwitchName(CLI, RemoveMeta, "RemoveMeta");
         CLISetSwitchDescription(CLI, RemoveMeta, "Removes metadata from PNG file");
         CLISetSwitchType(CLI, RemoveMeta, SwitchMayHaveSlaves);
+        CLISetSwitchMaxConcurrentSlaves(CLI, RemoveMeta, 4);
         
-        CLISetSwitchFlag(CLI, Help, "Help");
-        CLISetSwitchDescription(CLI, Help, "Prints all the command line options");
-        CLISetSwitchType(CLI, Help, ExistentialSwitch);
+        CLISetSwitchName(CLI, ICCProfile, "ICCProfile");
+        CLISetSwitchDescription(CLI, ICCProfile, "ICC Format Color Profile");
+        CLISetSwitchType(CLI, ICCProfile, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, InsertMeta, ICCProfile);
+        CLISetSwitchAsSlave(CLI, ExtractMeta, ICCProfile);
+        CLISetSwitchAsSlave(CLI, RemoveMeta, ICCProfile);
+        
+        CLISetSwitchName(CLI, Gamma, "Gamma");
+        CLISetSwitchDescription(CLI, Gamma, "Gamma chunk");
+        CLISetSwitchType(CLI, Gamma, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, InsertMeta, Gamma);
+        CLISetSwitchAsSlave(CLI, ExtractMeta, Gamma);
+        CLISetSwitchAsSlave(CLI, RemoveMeta, Gamma);
+
+        
+        CLISetSwitchName(CLI, Text, "Text");
+        CLISetSwitchDescription(CLI, Text, "The various text chunks");
+        CLISetSwitchType(CLI, Text, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, InsertMeta, Text);
+        CLISetSwitchAsSlave(CLI, ExtractMeta, Text);
+        CLISetSwitchAsSlave(CLI, RemoveMeta, Text);
+        
+        CLISetSwitchName(CLI, Histogram, "Histogram");
+        CLISetSwitchDescription(CLI, Histogram, "The histogram for the image");
+        CLISetSwitchType(CLI, Histogram, SwitchIsASlave);
+        CLISetSwitchAsSlave(CLI, InsertMeta, Histogram);
+        CLISetSwitchAsSlave(CLI, ExtractMeta, Histogram);
+        CLISetSwitchAsSlave(CLI, RemoveMeta, Histogram);
+        
+        CLISetSwitchName(CLI, Help, "Help");
+        CLISetSwitchDescription(CLI, Help, "Display the help");
+        CLISetSwitchType(CLI, Help, SwitchCantHaveSlaves);
         
         return CLI;
     }
@@ -139,18 +174,10 @@ extern "C" {
         return InputFileType;
     }
     
-    static void SetOutputFormatFromExtension(char *Extension) {
-        if (strcasecmp(Extension, "bmp") == 0) {
-            // Output Format = BMP
-        } else if (strcasecmp(Extension, "pxm") == 0 || strcasecmp(Extension, "pnm") == 0 || strcasecmp(Extension, "pam") == 0 || strcasecmp(Extension, "pbm") == 0 || strcasecmp(Extension, "pgm") == 0) {
-            // Output format = PXM
-        }
-    }
-    
     int main(int argc, const char *argv[]) {
         CommandLineIO *CLI  = SetModernPNGOptions();
         if (CLI == NULL) {
-            exit(EXIT_FAILURE);
+            //exit(1);
         } else {
             BitInput  *InputLeftEye              = NULL;
             BitInput  *InputRightEye             = NULL;
@@ -200,6 +227,7 @@ extern "C" {
             FileTypes OutputRightFileType        = UnknownFileFormat;
             
             ParseCommandLineOptions(CLI, argc, argv);
+            PrintCommandLineOptions(CLI);
             
             bool WeAreSupposedToEncode           = CLIGetNumMatchingOptions(CLI, Encode, 0, NULL);
             bool WeAreSupposedToDecode           = CLIGetNumMatchingOptions(CLI, Decode, 0, NULL);
@@ -321,7 +349,7 @@ extern "C" {
                 }
             }
         }
-        return EXIT_SUCCESS;
+        return 0;
     }
     
 #ifdef __cplusplus
