@@ -6,7 +6,6 @@
 **Features:**
 ==========
 * libModernPNG supports reading regular PNGs with all core chunks, plus the sTER Stereographic 3D chunk, as well as the animation chunks from APNG.
-* libModernPNG **DOES NOT SUPPORT** Interlacing, or encoding, though both features will eventually be added.
 
 **How to get ModernPNG:**
 
