@@ -1,10 +1,8 @@
 #include "../libModernPNG/include/libModernPNG.h"
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
+#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIOLog.h"
 #include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
-
-static UTF8Constant ModernPNGVersion     = u8"0.5.0";
-static UTF8String   ModernPNGProgramName = u8"ModernPNG";
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,112 +38,174 @@ extern "C" {
     static CommandLineIO *SetModernPNGOptions(void) {
         CommandLineIO *CLI = CommandLineIO_Init(NumOptions);
         
-        CLISetName(CLI, (UTF8String) ModernPNGProgramName);
-        CLISetAuthor(CLI, u8"BumbleBritches57");
-        CLISetVersion(CLI, (UTF8String) ModernPNGVersion);
-        CLISetCopyright(CLI, u8"2017+");
-        CLISetDescription(CLI, u8"PNG encoder/decoder written from scratch in modern C");
-        CLISetLicense(CLI, u8"Revised BSD", u8"A permissive open source license", u8"https://opensource.org/licenses/BSD-3-Clause", No);
+        
+        UTF8 ProgramName[]    = u8"ModernPNG";
+        UTF8 ProgramVersion[] = u8"0.5.0";
+        
+        BitIOLog_SetProgramName(ProgramName);
+        
+        UTF8 ProgramAuthor[]                = u8"BumbleBritches57";
+        UTF8 ProgramCopyright[]             = u8"2017+";
+        UTF8 ProgramDescription[]           = u8"PNG Encoder/Decode Written in Modern C, and Released Under A Permissive License";
+        UTF8 ProgramLicenseName[]           = u8"Revised BSD";
+        UTF8 ProgramLicenseURL[]            = u8"https://tldrlegal.com/license/bsd-3-clause-license-(revised)";
+        
+        UTF8 InputSwitchName[]              = u8"Input";
+        UTF8 InputSwitchDescription[]       = u8"Input file or stdin with: -";
+        
+        UTF8 OutputSwitchName[]             = u8"Output";
+        UTF8 OutputSwitchDescription[]      = u8"Output file or stdout with: -";
+        
+        UTF8 LeftEyeSwitchName[]            = u8"LeftEye";
+        UTF8 LeftEyeSwitchDescription[]     = u8"The left eye view for encoding or decoding";
+        
+        UTF8 RightEyeSwitchName[]           = u8"RightEye";
+        UTF8 RightEyeSwitchDescripton[]     = u8"The right eye view for encoding or decoding";
+        
+        UTF8 LogFileSwitchName[]            = u8"LogFile";
+        UTF8 LogFileSwitchDescription[]     = u8"Outputs the logs to the specified path";
+        
+        UTF8 EncodeSwitchName[]             = u8"Encode";
+        UTF8 EncodeSwitchDescription[]      = u8"Encodes input(s) to PNG";
+        
+        UTF8 InterlaceSwitchName[]          = u8"Interlace";
+        UTF8 InterlaceSwitchDescription[]   = u8"Interlaces the output PNG";
+        
+        UTF8 OptimizeSwitchName[]           = u8"Optimize";
+        UTF8 OptimizeSwitchDescription[]    = u8"Optimizes the output PNG";
+        
+        UTF8 DecodeSwitchName[]             = u8"Decode";
+        UTF8 DecodeSwitchDescription[]      = u8"Decodes input PNG to whatever the extension matches";
+        
+        UTF8 InsertMetaSwitchName[]         = u8"InsertMeta";
+        UTF8 InsertMetaSwitchDescription[]  = u8"Inserts metadata from a string or file into the PNG file";
+        
+        UTF8 ExtractMetaSwitchName[]        = u8"ExtractMeta";
+        UTF8 ExtractMetaSwitchDescription[] = u8"Extracts metadata to a string or file depending on the type";
+        
+        UTF8 RemoveMetaSwitchName[]         = u8"RemoveMeta";
+        UTF8 RemoveMetaSwitchDescription[]  = u8"Removes the specified metadata type(s) from the PNG file";
+        
+        UTF8 ICCProfileSwitchName[]         = u8"ICCProfile";
+        UTF8 ICCProfileSwitchDescription[]  = u8"Adds/Removes/Extracts the ICC Color Profile";
+        
+        UTF8 GammaSwitchName[]              = u8"Gamma";
+        UTF8 GammaSwitchDescription[]       = u8"Adds/Removes/Extracts the Gamma profile";
+        
+        UTF8 TextSwitchName[]               = u8"Text";
+        UTF8 TextSwitchDescription[]        = u8"Searches for Keyword in all text chunks to Adds/Removes/Extract, Otherwise it applies to all text chunks";
+        
+        UTF8 HistogramSwitchName[]          = u8"Histogram";
+        UTF8 HistogramSwitchDescription[]   = u8"Adds/Removes/Extracts the Histogram chunk if it's present";
+        
+        UTF8 HelpSwitchName[]               = u8"Help";
+        UTF8 HelpSwitchDescription[]        = u8"Prints all of the available options, and their relationships";
+        
+        CLISetName(CLI, ProgramName);
+        CLISetAuthor(CLI, ProgramAuthor);
+        CLISetVersion(CLI, ProgramVersion);
+        CLISetCopyright(CLI, ProgramCopyright);
+        CLISetDescription(CLI, ProgramDescription);
+        CLISetLicense(CLI, PermissiveLicense, ProgramLicenseName, ProgramLicenseURL);
         CLISetMinOptions(CLI, 3);
         CLISetHelpSwitch(CLI, Help);
         
-        CLISetSwitchName(CLI, Input, u8"Input");
-        CLISetSwitchDescription(CLI, Input, u8"Input file or stdin with: -");
+        CLISetSwitchName(CLI, Input, InputSwitchName);
+        CLISetSwitchDescription(CLI, Input, InputSwitchDescription);
         CLISetSwitchType(CLI, Input, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, Input, 1);
         
-        CLISetSwitchName(CLI, Output, "Output");
-        CLISetSwitchDescription(CLI, Output, "Output file or stdout with: -");
+        CLISetSwitchName(CLI, Output, OutputSwitchName);
+        CLISetSwitchDescription(CLI, Output, OutputSwitchDescription);
         CLISetSwitchType(CLI, Output, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, Output, 1);
         
-        CLISetSwitchName(CLI, LeftEye, "LeftEye");
-        CLISetSwitchDescription(CLI, LeftEye, "The left view for encoding or decoding");
+        CLISetSwitchName(CLI, LeftEye, LeftEyeSwitchName);
+        CLISetSwitchDescription(CLI, LeftEye, LeftEyeSwitchDescription);
         CLISetSwitchType(CLI, LeftEye, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Input, LeftEye);
         CLISetSwitchAsSlave(CLI, Output, LeftEye);
         
-        CLISetSwitchName(CLI, RightEye, "RightEye");
-        CLISetSwitchDescription(CLI, RightEye, "The right view for encoding or decoding");
+        CLISetSwitchName(CLI, RightEye, RightEyeSwitchName);
+        CLISetSwitchDescription(CLI, RightEye, RightEyeSwitchDescripton);
         CLISetSwitchType(CLI, RightEye, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Input, RightEye);
         CLISetSwitchAsSlave(CLI, Output, RightEye);
         
-        CLISetSwitchName(CLI, LogFile, "LogFile");
-        CLISetSwitchDescription(CLI, LogFile, "Outputs the logs to a specified path");
+        CLISetSwitchName(CLI, LogFile, LogFileSwitchName);
+        CLISetSwitchDescription(CLI, LogFile, LogFileSwitchDescription);
         CLISetSwitchType(CLI, LogFile, SwitchCantHaveSlaves);
         
         /* Start Encode Options */
-        CLISetSwitchName(CLI, Encode, "Encode");
-        CLISetSwitchDescription(CLI, Encode, "Encode input(s) to PNG");
+        CLISetSwitchName(CLI, Encode, EncodeSwitchName);
+        CLISetSwitchDescription(CLI, Encode, EncodeSwitchDescription);
         CLISetSwitchType(CLI, Encode, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, Encode, 2);
         
-        CLISetSwitchName(CLI, Interlace, "Interlace");
-        CLISetSwitchDescription(CLI, Interlace, "Should we encode the PNG with Adam7 Interlacing? (Currently not supported)");
+        CLISetSwitchName(CLI, Interlace, InterlaceSwitchName);
+        CLISetSwitchDescription(CLI, Interlace, InterlaceSwitchDescription);
         CLISetSwitchType(CLI, Interlace, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Encode, Interlace);
         
-        CLISetSwitchName(CLI, Optimize, "Optimize");
-        CLISetSwitchDescription(CLI, Optimize, "Optimize (try all filter options) the encoded PNG to be as small as possible");
+        CLISetSwitchName(CLI, Optimize, OptimizeSwitchName);
+        CLISetSwitchDescription(CLI, Optimize, OptimizeSwitchDescription);
         CLISetSwitchType(CLI, Optimize, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, Encode, Optimize);
         /* End Encode Options */
         
         /* Start Decode Options */
-        CLISetSwitchName(CLI, Decode, "Decode");
-        CLISetSwitchDescription(CLI, Decode, "Decode PNG to output");
+        CLISetSwitchName(CLI, Decode, DecodeSwitchName);
+        CLISetSwitchDescription(CLI, Decode, DecodeSwitchDescription);
         CLISetSwitchType(CLI, Decode, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, Decode, 0);
         /* End Decode Options */
         
         /* Metadata Options */
-        CLISetSwitchName(CLI, InsertMeta, "InsertMeta");
-        CLISetSwitchDescription(CLI, InsertMeta, "Adds metadata to PNG file");
+        CLISetSwitchName(CLI, InsertMeta, InsertMetaSwitchName);
+        CLISetSwitchDescription(CLI, InsertMeta, InsertMetaSwitchDescription);
         CLISetSwitchType(CLI, InsertMeta, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, InsertMeta, 4);
         
-        CLISetSwitchName(CLI, ExtractMeta, "ExtractMeta");
-        CLISetSwitchDescription(CLI, ExtractMeta, "Extracts metadata from PNG file");
+        CLISetSwitchName(CLI, ExtractMeta, ExtractMetaSwitchName);
+        CLISetSwitchDescription(CLI, ExtractMeta, ExtractMetaSwitchDescription);
        	CLISetSwitchType(CLI, ExtractMeta, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, ExtractMeta, 4);
         
-        CLISetSwitchName(CLI, RemoveMeta, "RemoveMeta");
-        CLISetSwitchDescription(CLI, RemoveMeta, "Removes metadata from PNG file");
+        CLISetSwitchName(CLI, RemoveMeta, RemoveMetaSwitchName);
+        CLISetSwitchDescription(CLI, RemoveMeta, RemoveMetaSwitchDescription);
         CLISetSwitchType(CLI, RemoveMeta, SwitchMayHaveSlaves);
         CLISetSwitchMaxConcurrentSlaves(CLI, RemoveMeta, 4);
         
-        CLISetSwitchName(CLI, ICCProfile, "ICCProfile");
-        CLISetSwitchDescription(CLI, ICCProfile, "ICC Format Color Profile");
+        CLISetSwitchName(CLI, ICCProfile, ICCProfileSwitchName);
+        CLISetSwitchDescription(CLI, ICCProfile, ICCProfileSwitchDescription);
         CLISetSwitchType(CLI, ICCProfile, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, InsertMeta, ICCProfile);
         CLISetSwitchAsSlave(CLI, ExtractMeta, ICCProfile);
         CLISetSwitchAsSlave(CLI, RemoveMeta, ICCProfile);
         
-        CLISetSwitchName(CLI, Gamma, "Gamma");
-        CLISetSwitchDescription(CLI, Gamma, "Gamma chunk");
+        CLISetSwitchName(CLI, Gamma, GammaSwitchName);
+        CLISetSwitchDescription(CLI, Gamma, GammaSwitchDescription);
         CLISetSwitchType(CLI, Gamma, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, InsertMeta, Gamma);
         CLISetSwitchAsSlave(CLI, ExtractMeta, Gamma);
         CLISetSwitchAsSlave(CLI, RemoveMeta, Gamma);
-
         
-        CLISetSwitchName(CLI, Text, "Text");
-        CLISetSwitchDescription(CLI, Text, "The various text chunks");
+        CLISetSwitchName(CLI, Text, TextSwitchName);
+        CLISetSwitchDescription(CLI, Text, TextSwitchDescription);
         CLISetSwitchType(CLI, Text, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, InsertMeta, Text);
         CLISetSwitchAsSlave(CLI, ExtractMeta, Text);
         CLISetSwitchAsSlave(CLI, RemoveMeta, Text);
         
-        CLISetSwitchName(CLI, Histogram, "Histogram");
-        CLISetSwitchDescription(CLI, Histogram, "The histogram for the image");
+        CLISetSwitchName(CLI, Histogram, HistogramSwitchName);
+        CLISetSwitchDescription(CLI, Histogram, HistogramSwitchDescription);
         CLISetSwitchType(CLI, Histogram, SwitchIsASlave);
         CLISetSwitchAsSlave(CLI, InsertMeta, Histogram);
         CLISetSwitchAsSlave(CLI, ExtractMeta, Histogram);
         CLISetSwitchAsSlave(CLI, RemoveMeta, Histogram);
         
-        CLISetSwitchName(CLI, Help, "Help");
-        CLISetSwitchDescription(CLI, Help, "Display the help");
+        CLISetSwitchName(CLI, Help, HelpSwitchName);
+        CLISetSwitchDescription(CLI, Help, HelpSwitchDescription);
         CLISetSwitchType(CLI, Help, SwitchCantHaveSlaves);
         
         return CLI;
@@ -160,8 +220,8 @@ extern "C" {
     
     static FileTypes IdentifyInputFileFromBitBuffer(BitBuffer *BitB) {
         FileTypes InputFileType = 0;
-        uint64_t First8Bytes  = PeekBits(BitIOMSByte, BitIOLSBit, BitB, 64);
-        uint16_t First2Bytes  = PeekBits(BitIOLSByte, BitIOLSBit, BitB, 16);
+        uint64_t First8Bytes  = PeekBits(BitIOMSByteFirst, BitIOLSBitFirst, BitB, 64);
+        uint16_t First2Bytes  = PeekBits(BitIOLSByteFirst, BitIOLSBitFirst, BitB, 16);
         /*
         if (First8Bytes == PNGMagic) {
             InputFileType = PNGFileFormat;
@@ -227,7 +287,7 @@ extern "C" {
             FileTypes OutputRightFileType        = UnknownFileFormat;
             
             ParseCommandLineOptions(CLI, argc, argv);
-            PrintCommandLineOptions(CLI);
+            DEBUGCommandLineOptions(CLI);
             
             bool WeAreSupposedToEncode           = CLIGetNumMatchingOptions(CLI, Encode, 0, NULL);
             bool WeAreSupposedToDecode           = CLIGetNumMatchingOptions(CLI, Decode, 0, NULL);
