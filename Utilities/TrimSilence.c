@@ -29,8 +29,7 @@ extern "C" {
         UTF8 ProgramCopyright[] = u8"2017";
         UTF8 ProgramDescription[] = u8"Removes leading and trailing silence";
         UTF8 LicenseName[] = u8"Revised BSD";
-        UTF8 LicenseType[] = u8"Permissive";
-        UTF8 LicenseURL[] = u8"https://opensource.com/licenses/BSD-3-Clause";
+        UTF8 LicenseURL[] = u8"https://tldrlegal.com/license/bsd-3-clause-license-(revised)";
         
         UTF8 Switch0Name[] = u8"Input";
         UTF8 Switch0Description[] = u8"Input file path or stdin";
@@ -54,7 +53,7 @@ extern "C" {
         CLISetAuthor(CLI, ProgramAuthor);
         CLISetCopyright(CLI, ProgramCopyright);
         CLISetDescription(CLI, ProgramDescription);
-        CLISetLicense(CLI, LicenseName, LicenseType, LicenseURL, No);
+        CLISetLicense(CLI, PermissiveLicense, LicenseName, LicenseURL);
         CLISetMinOptions(CLI, 3);
         
         CLISetSwitchName(CLI, Input, Switch0Name);
