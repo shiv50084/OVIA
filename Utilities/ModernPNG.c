@@ -108,7 +108,6 @@ extern "C" {
         CLISetDescription(CLI, ProgramDescription);
         CLISetLicense(CLI, PermissiveLicense, ProgramLicenseName, ProgramLicenseURL);
         CLISetMinOptions(CLI, 3);
-        CLISetHelpSwitch(CLI, Help);
         
         CLISetSwitchName(CLI, Input, InputSwitchName);
         CLISetSwitchDescription(CLI, Input, InputSwitchDescription);
@@ -203,10 +202,12 @@ extern "C" {
         CLISetSwitchAsSlave(CLI, InsertMeta, Histogram);
         CLISetSwitchAsSlave(CLI, ExtractMeta, Histogram);
         CLISetSwitchAsSlave(CLI, RemoveMeta, Histogram);
+        /* Metadata Options */
         
         CLISetSwitchName(CLI, Help, HelpSwitchName);
         CLISetSwitchDescription(CLI, Help, HelpSwitchDescription);
         CLISetSwitchType(CLI, Help, SwitchCantHaveSlaves);
+        CLISetHelpSwitch(CLI, Help);
         
         return CLI;
     }
