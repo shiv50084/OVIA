@@ -1,9 +1,10 @@
 #include <stdlib.h>
 
-#include "../Dependencies/BitIO/libBitIO/include/BitIO.h"
-#include "../Dependencies/BitIO/libBitIO/include/BitIOLog.h"
-#include "../Dependencies/BitIO/libBitIO/include/BitIOMath.h"
-#include "../Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+#include "../Dependencies/FoundationIO/libFoundationIO/include/BitIO.h"
+#include "../Dependencies/FoundationIO/libFoundationIO/include/Log.h"
+#include "../Dependencies/FoundationIO/libFoundationIO/include/Math.h"
+#include "../Dependencies/FoundationIO/libFoundationIO/include/CommandLineIO.h"
+#include "../Dependencies/FoundationIO/libFoundationIO/include/StringIO.h"
 
 #include "../libPCM/include/libPCM.h"
 
@@ -23,30 +24,30 @@ extern "C" {
     static CommandLineIO *SetTrimSilenceOptions(void) {
         CommandLineIO *CLI = CommandLineIO_Init(NumSwitches);
         
-        UTF8 ProgramName[] = u8"TrimSilence";
-        UTF8 ProgramVersion[] = u8"0.1.0";
-        UTF8 ProgramAuthor[] = u8"BumbleBritches57";
-        UTF8 ProgramCopyright[] = u8"2017";
-        UTF8 ProgramDescription[] = u8"Removes leading and trailing silence";
-        UTF8 LicenseName[] = u8"Revised BSD";
-        UTF8 LicenseURL[] = u8"https://tldrlegal.com/license/bsd-3-clause-license-(revised)";
+        UTF8 ProgramName[] = U8("TrimSilence");
+        UTF8 ProgramVersion[] = U8("0.1.0");
+        UTF8 ProgramAuthor[] = U8("BumbleBritches57");
+        UTF8 ProgramCopyright[] = U8("2017");
+        UTF8 ProgramDescription[] = U8("Removes leading and trailing silence");
+        UTF8 LicenseName[] = U8("Revised BSD");
+        UTF8 LicenseURL[] = U8("https://tldrlegal.com/license/bsd-3-clause-license-(revised)");
         
-        UTF8 Switch0Name[] = u8"Input";
-        UTF8 Switch0Description[] = u8"Input file path or stdin";
+        UTF8 InputSwitchName[] = U8("Input");
+        UTF8 InputSwitchDescription[] = U8("Input file path or stdin");
         
-        UTF8 Switch1Name[] = u8"Output";
-        UTF8 Switch1Description[] = u8"Output file path or stdout";
+        UTF8 OutputSwitchName[] = U8("Output");
+        UTF8 OutputSwitchDescription[] = U8("Output file path or stdout");
         
-        UTF8 Switch2Name[] = u8"LogFile";
-        UTF8 Switch2Description[] = u8"Log file path or stderr";
+        UTF8 LogFileSwitchName[] = U8("LogFile");
+        UTF8 LogFileSwitchDescription[] = U8("Log file path or stderr");
         
-        UTF8 Switch3Name[] = u8"SilenceLevel";
-        UTF8 Switch3Description[] = u8"Absolute value of cutoff for what's considered silence";
+        UTF8 SilenceLevelSwitchName[] = U8("SilenceLevel");
+        UTF8 SilenceLevelSwitchDescription[] = U8("Absolute value of cutoff for what's considered silence");
         
-        UTF8 Switch4Name[] = u8"Help";
-        UTF8 Switch4Description[] = u8"Prints all the command line options and their relationships";
+        UTF8 HelpSwitchName[] = U8("Help");
+        UTF8 HelpSwitchDescription[] = U8("Prints all the command line options and their relationships");
         
-        BitIOLog_SetProgramName(ProgramName);
+        Log_SetProgramName(ProgramName);
         
         CLISetName(CLI, ProgramName);
         CLISetVersion(CLI, ProgramVersion);
@@ -56,24 +57,24 @@ extern "C" {
         CLISetLicense(CLI, PermissiveLicense, LicenseName, LicenseURL);
         CLISetMinOptions(CLI, 3);
         
-        CLISetSwitchName(CLI, Input, Switch0Name);
-        CLISetSwitchDescription(CLI, Input, Switch0Description);
+        CLISetSwitchName(CLI, Input, InputSwitchName);
+        CLISetSwitchDescription(CLI, Input, InputSwitchDescription);
         CLISetSwitchType(CLI, Input, SwitchCantHaveSlaves);
         
-        CLISetSwitchName(CLI, Output, Switch1Name);
-        CLISetSwitchDescription(CLI, Output, Switch1Description);
+        CLISetSwitchName(CLI, Output, OutputSwitchName);
+        CLISetSwitchDescription(CLI, Output, OutputSwitchDescription);
         CLISetSwitchType(CLI, Output, SwitchCantHaveSlaves);
         
-        CLISetSwitchName(CLI, LogFile, Switch2Name);
-        CLISetSwitchDescription(CLI, LogFile, Switch2Description);
+        CLISetSwitchName(CLI, LogFile, LogFileSwitchName);
+        CLISetSwitchDescription(CLI, LogFile, LogFileSwitchDescription);
         CLISetSwitchType(CLI, LogFile, SwitchCantHaveSlaves);
         
-        CLISetSwitchName(CLI, SilenceLevel, Switch3Name);
-        CLISetSwitchDescription(CLI, SilenceLevel, Switch3Description);
+        CLISetSwitchName(CLI, SilenceLevel, SilenceLevelSwitchName);
+        CLISetSwitchDescription(CLI, SilenceLevel, SilenceLevelSwitchDescription);
         CLISetSwitchType(CLI, SilenceLevel, SwitchCantHaveSlaves);
         
-        CLISetSwitchName(CLI, Help, Switch4Name);
-        CLISetSwitchDescription(CLI, Help, Switch4Description);
+        CLISetSwitchName(CLI, Help, HelpSwitchName);
+        CLISetSwitchDescription(CLI, Help, HelpSwitchDescription);
         CLISetSwitchType(CLI, Help, ExistentialSwitch);
         CLISetHelpSwitch(CLI, Help);
         
@@ -102,7 +103,10 @@ extern "C" {
         PCMFile       *PCM                = PCMFile_Init();
         BitBuffer     *BitB               = NULL;
         
-        ParseCommandLineOptions(CLI, argc, argv);
+        uint64_t     NumArgs = argc;
+        const UTF8 **Args    = (const char)argv;
+        
+        ParseCommandLineOptions(CLI, NumArgs, Args);
         
         int64_t InputFileOption           = CLIGetOptionNum(CLI, Input, 0, NULL);
         int64_t OutputFileOption          = CLIGetOptionNum(CLI, Output, 0, NULL);
@@ -116,16 +120,16 @@ extern "C" {
         UTF8       *SilenceLevelString8   = CLIGetOptionResult(CLI, SilenceLevelOption);
         uint64_t    SilenceLevelSize      = UTF8_GetSizeInCodePoints(SilenceLevel);
         UTF32      *SilenceLevelString32  = UTF8_Decode(SilenceLevel);
-        int64_t     SilenceValue          = UTF32_ToNumber(SilenceLevelString32);
+        //int64_t     SilenceValue          = UTF32_ToNumber(SilenceLevelString32);
         
         BitInput_OpenFile(BitI, InputPath);
-        BitIOLog_OpenFile(LogFilePath);
+        Log_OpenFile(LogFilePath);
         BitOutput_OpenFile(BitO, OutputPath);
         
-        UTF8 *WAVExtension  = u8".wav";
-        UTF8 *W64Extension  = u8".w64";
-        UTF8 *AIFExtension  = u8".aif";
-        UTF8 *AIFFExtension = u8".aiff";
+        UTF8 *WAVExtension  = U8(".wav");
+        UTF8 *W64Extension  = U8(".w64");
+        UTF8 *AIFExtension  = U8(".aif");
+        UTF8 *AIFFExtension = U8(".aiff");
         
         if (UTF8_Compare(OutputExtension, WAVExtension, No, Yes)) { // WAV output
             PCM_SetOutputFileType(PCM, WAVFormat);
@@ -136,7 +140,7 @@ extern "C" {
         } else if (UTF8_Compare(OutputExtension, AIFFExtension, No, Yes)) {
             PCM_SetOutputFileType(PCM, AIFFormat);
         } else {
-            BitIOLog(BitIOLog_ERROR, __func__, "Unknown extension: %s", OutputExtension);
+            Log(Log_ERROR, __func__, U8("Unknown extension: %s"), OutputExtension);
         }
         
         BitB = BitBuffer_Init(128);
