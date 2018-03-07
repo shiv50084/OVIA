@@ -103,8 +103,8 @@ extern "C" {
         PCMFile       *PCM                = PCMFile_Init();
         BitBuffer     *BitB               = NULL;
         
-        uint64_t     NumArgs = argc;
-        const UTF8 **Args    = (const char)argv;
+        uint64_t     NumArgs              = argc;
+        const UTF8 **Args                 = (const char)argv;
         
         ParseCommandLineOptions(CLI, NumArgs, Args);
         
