@@ -1,7 +1,7 @@
 #include "../libModernPNG/include/libModernPNG.h"
-#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIO.h"
-#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/BitIOLog.h"
-#include "../Dependencies/libPCM/Dependencies/BitIO/libBitIO/include/CommandLineIO.h"
+#include "../Dependencies/libPCM/Dependencies/FoundationIO/libFoundationIO/include/BitIO.h"
+#include "../Dependencies/libPCM/Dependencies/FoundationIO/libFoundationIO/include/Log.h"
+#include "../Dependencies/libPCM/Dependencies/FoundationIO/libFoundationIO/include/CommandLineIO.h"
 #include "../Dependencies/libPCM/libPCM/include/libPCM.h"
 
 #ifdef __cplusplus
@@ -38,68 +38,67 @@ extern "C" {
     static CommandLineIO *SetModernPNGOptions(void) {
         CommandLineIO *CLI = CommandLineIO_Init(NumOptions);
         
+        UTF8 ProgramName[]    = U8("ModernPNG");
+        UTF8 ProgramVersion[] = U8("0.5.0");
         
-        UTF8 ProgramName[]    = u8"ModernPNG";
-        UTF8 ProgramVersion[] = u8"0.5.0";
+        Log_SetProgramName(ProgramName);
         
-        BitIOLog_SetProgramName(ProgramName);
+        UTF8 ProgramAuthor[]                = U8("BumbleBritches57");
+        UTF8 ProgramCopyright[]             = U8("2017+");
+        UTF8 ProgramDescription[]           = U8("PNG En/De Coder Written in Modern C, and Released Under A Permissive License");
+        UTF8 ProgramLicenseName[]           = U8("Revised BSD");
+        UTF8 ProgramLicenseURL[]            = U8("https://tldrlegal.com/license/bsd-3-clause-license-(revised)");
         
-        UTF8 ProgramAuthor[]                = u8"BumbleBritches57";
-        UTF8 ProgramCopyright[]             = u8"2017+";
-        UTF8 ProgramDescription[]           = u8"PNG Encoder/Decode Written in Modern C, and Released Under A Permissive License";
-        UTF8 ProgramLicenseName[]           = u8"Revised BSD";
-        UTF8 ProgramLicenseURL[]            = u8"https://tldrlegal.com/license/bsd-3-clause-license-(revised)";
+        UTF8 InputSwitchName[]              = U8("Input");
+        UTF8 InputSwitchDescription[]       = U8("Input file or stdin with: -");
         
-        UTF8 InputSwitchName[]              = u8"Input";
-        UTF8 InputSwitchDescription[]       = u8"Input file or stdin with: -";
+        UTF8 OutputSwitchName[]             = U8("Output");
+        UTF8 OutputSwitchDescription[]      = U8("Output file or stdout with: -");
         
-        UTF8 OutputSwitchName[]             = u8"Output";
-        UTF8 OutputSwitchDescription[]      = u8"Output file or stdout with: -";
+        UTF8 LeftEyeSwitchName[]            = U8("LeftEye");
+        UTF8 LeftEyeSwitchDescription[]     = U8("The left eye view for encoding or decoding");
         
-        UTF8 LeftEyeSwitchName[]            = u8"LeftEye";
-        UTF8 LeftEyeSwitchDescription[]     = u8"The left eye view for encoding or decoding";
+        UTF8 RightEyeSwitchName[]           = U8("RightEye");
+        UTF8 RightEyeSwitchDescripton[]     = U8("The right eye view for encoding or decoding");
         
-        UTF8 RightEyeSwitchName[]           = u8"RightEye";
-        UTF8 RightEyeSwitchDescripton[]     = u8"The right eye view for encoding or decoding";
+        UTF8 LogFileSwitchName[]            = U8("LogFile");
+        UTF8 LogFileSwitchDescription[]     = U8("Outputs the logs to the specified path");
         
-        UTF8 LogFileSwitchName[]            = u8"LogFile";
-        UTF8 LogFileSwitchDescription[]     = u8"Outputs the logs to the specified path";
+        UTF8 EncodeSwitchName[]             = U8("Encode");
+        UTF8 EncodeSwitchDescription[]      = U8("Encodes input(s) to PNG");
         
-        UTF8 EncodeSwitchName[]             = u8"Encode";
-        UTF8 EncodeSwitchDescription[]      = u8"Encodes input(s) to PNG";
+        UTF8 InterlaceSwitchName[]          = U8("Interlace");
+        UTF8 InterlaceSwitchDescription[]   = U8("Interlaces the output PNG");
         
-        UTF8 InterlaceSwitchName[]          = u8"Interlace";
-        UTF8 InterlaceSwitchDescription[]   = u8"Interlaces the output PNG";
+        UTF8 OptimizeSwitchName[]           = U8("Optimize");
+        UTF8 OptimizeSwitchDescription[]    = U8("Optimizes the output PNG");
         
-        UTF8 OptimizeSwitchName[]           = u8"Optimize";
-        UTF8 OptimizeSwitchDescription[]    = u8"Optimizes the output PNG";
+        UTF8 DecodeSwitchName[]             = U8("Decode");
+        UTF8 DecodeSwitchDescription[]      = U8("Decodes input PNG to whatever the extension matches");
         
-        UTF8 DecodeSwitchName[]             = u8"Decode";
-        UTF8 DecodeSwitchDescription[]      = u8"Decodes input PNG to whatever the extension matches";
+        UTF8 InsertMetaSwitchName[]         = U8("InsertMeta");
+        UTF8 InsertMetaSwitchDescription[]  = U8("Inserts metadata from a string or file into the PNG file");
         
-        UTF8 InsertMetaSwitchName[]         = u8"InsertMeta";
-        UTF8 InsertMetaSwitchDescription[]  = u8"Inserts metadata from a string or file into the PNG file";
+        UTF8 ExtractMetaSwitchName[]        = U8("ExtractMeta");
+        UTF8 ExtractMetaSwitchDescription[] = U8("Extracts metadata to a string or file depending on the type");
         
-        UTF8 ExtractMetaSwitchName[]        = u8"ExtractMeta";
-        UTF8 ExtractMetaSwitchDescription[] = u8"Extracts metadata to a string or file depending on the type";
+        UTF8 RemoveMetaSwitchName[]         = U8("RemoveMeta");
+        UTF8 RemoveMetaSwitchDescription[]  = U8("Removes the specified metadata type(s) from the PNG file");
         
-        UTF8 RemoveMetaSwitchName[]         = u8"RemoveMeta";
-        UTF8 RemoveMetaSwitchDescription[]  = u8"Removes the specified metadata type(s) from the PNG file";
+        UTF8 ICCProfileSwitchName[]         = U8("ICCProfile");
+        UTF8 ICCProfileSwitchDescription[]  = U8("Adds/Removes/Extracts the ICC Color Profile");
         
-        UTF8 ICCProfileSwitchName[]         = u8"ICCProfile";
-        UTF8 ICCProfileSwitchDescription[]  = u8"Adds/Removes/Extracts the ICC Color Profile";
+        UTF8 GammaSwitchName[]              = U8("Gamma");
+        UTF8 GammaSwitchDescription[]       = U8("Adds/Removes/Extracts the Gamma profile");
         
-        UTF8 GammaSwitchName[]              = u8"Gamma";
-        UTF8 GammaSwitchDescription[]       = u8"Adds/Removes/Extracts the Gamma profile";
+        UTF8 TextSwitchName[]               = U8("Text");
+        UTF8 TextSwitchDescription[]        = U8("Searches for Keyword in all text chunks to Adds/Removes/Extract, Otherwise it applies to all text chunks");
         
-        UTF8 TextSwitchName[]               = u8"Text";
-        UTF8 TextSwitchDescription[]        = u8"Searches for Keyword in all text chunks to Adds/Removes/Extract, Otherwise it applies to all text chunks";
+        UTF8 HistogramSwitchName[]          = U8("Histogram");
+        UTF8 HistogramSwitchDescription[]   = U8("Adds/Removes/Extracts the Histogram chunk if it's present");
         
-        UTF8 HistogramSwitchName[]          = u8"Histogram";
-        UTF8 HistogramSwitchDescription[]   = u8"Adds/Removes/Extracts the Histogram chunk if it's present";
-        
-        UTF8 HelpSwitchName[]               = u8"Help";
-        UTF8 HelpSwitchDescription[]        = u8"Prints all of the available options, and their relationships";
+        UTF8 HelpSwitchName[]               = U8("Help");
+        UTF8 HelpSwitchDescription[]        = U8("Prints all of the available options, and their relationships");
         
         CLISetName(CLI, ProgramName);
         CLISetAuthor(CLI, ProgramAuthor);
@@ -221,8 +220,8 @@ extern "C" {
     
     static FileTypes IdentifyInputFileFromBitBuffer(BitBuffer *BitB) {
         FileTypes InputFileType = 0;
-        uint64_t First8Bytes  = PeekBits(BitIOMSByteFirst, BitIOLSBitFirst, BitB, 64);
-        uint16_t First2Bytes  = PeekBits(BitIOLSByteFirst, BitIOLSBitFirst, BitB, 16);
+        uint64_t First8Bytes  = PeekBits(MSByteFirst, LSBitFirst, BitB, 64);
+        uint16_t First2Bytes  = PeekBits(LSByteFirst, LSBitFirst, BitB, 16);
         /*
         if (First8Bytes == PNGMagic) {
             InputFileType = PNGFileFormat;
@@ -287,7 +286,8 @@ extern "C" {
             FileTypes OutputLeftFileType         = UnknownFileFormat;
             FileTypes OutputRightFileType        = UnknownFileFormat;
             
-            ParseCommandLineOptions(CLI, argc, argv);
+            ParseCommandLineOptions(CLI, argc, (UTF8) argv);
+            
             DEBUGCommandLineOptions(CLI);
             
             bool WeAreSupposedToEncode           = CLIGetNumMatchingOptions(CLI, Encode, 0, NULL);
