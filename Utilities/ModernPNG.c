@@ -286,7 +286,11 @@ extern "C" {
             FileTypes OutputLeftFileType         = UnknownFileFormat;
             FileTypes OutputRightFileType        = UnknownFileFormat;
             
-            ParseCommandLineOptions(CLI, argc, (UTF8) argv);
+#if FoundationIOTargetOS == POSIXOS
+            UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**)argv);
+#elif FoundationIOTargetOS == WindowsOS
+            UTF16_ParseCommandLineOptions(CLI, __argc, __wargv);
+#endif
             
             DEBUGCommandLineOptions(CLI);
             
