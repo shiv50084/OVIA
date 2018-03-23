@@ -81,7 +81,7 @@ extern "C" {
         return CLI;
     }
     
-    void RemoveEmptySamples(PCMFile *PCM, uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
+    static void RemoveEmptySamples(PCMFile *PCM, uint32_t NumChannels, uint32_t NumSamples, uint32_t **AudioSamples) {
         uint32_t  CurrentSampleIndex = 0UL;
         uint8_t   BitDepth           = PCM_GetBitDepth(PCM);
         uint32_t *CurrentSampleValue = calloc(NumChannels, NumSamples * Bits2Bytes(BitDepth, Yes));
@@ -103,10 +103,11 @@ extern "C" {
         PCMFile       *PCM                = PCMFile_Init();
         BitBuffer     *BitB               = NULL;
         
-        uint64_t     NumArgs              = argc;
-        const UTF8 **Args                 = (const char)argv;
-        
-        ParseCommandLineOptions(CLI, NumArgs, Args);
+#if FoundationIOTargetOS == POSIXOS
+        UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**)argv);
+#elif FoundationIOTargetOS == WindowsOS
+        UTF16_ParseCommandLineOptions(CLI, __argc, __wargv);
+#endif
         
         int64_t InputFileOption           = CLIGetOptionNum(CLI, Input, 0, NULL);
         int64_t OutputFileOption          = CLIGetOptionNum(CLI, Output, 0, NULL);
