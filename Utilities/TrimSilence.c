@@ -103,9 +103,9 @@ extern "C" {
         PCMFile       *PCM                = PCMFile_Init();
         BitBuffer     *BitB               = NULL;
         
-#if FoundationIOTargetOS == POSIXOS
-        UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**)argv);
-#elif FoundationIOTargetOS == WindowsOS
+#if   (FoundationIOTargetOS == POSIXOS)
+        UTF8_ParseCommandLineOptions(CLI, argc, (const UTF8**) argv);
+#elif (FoundationIOTargetOS == WindowsOS)
         UTF16_ParseCommandLineOptions(CLI, __argc, __wargv);
 #endif
         
