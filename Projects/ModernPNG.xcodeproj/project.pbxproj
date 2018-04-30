@@ -26,7 +26,6 @@
 		2C5ED4E71FC4AA1A0093A757 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */; };
 		2CCDF8792005BC9600C66C83 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
 		2CCDF87A2005BC9A00C66C83 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
-		2CDBD8C0205CBAE30092569D /* libFoundationIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDBD8C1205CBAE30092569D /* libFoundationIO.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +78,6 @@
 		2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Types.h; path = ../libModernPNG/include/Private/libModernPNG_Types.h; sourceTree = "<group>"; };
 		2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Tables.h; path = ../libModernPNG/include/Private/libModernPNG_Tables.h; sourceTree = "<group>"; };
 		2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
-		2C5ED4F71FC4AA790093A757 /* libBitIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBitIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CDBD8C1205CBAE30092569D /* libFoundationIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFoundationIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CDBD8C0205CBAE30092569D /* libFoundationIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +103,6 @@
 		2C5ED49E1FC4A8690093A757 = {
 			isa = PBXGroup;
 			children = (
-				2C5ED4F51FC4AA790093A757 /* Frameworks */,
 				2C5ED4E91FC4AA3E0093A757 /* Dependencies */,
 				2C5ED4BE1FC4A93A0093A757 /* libModernPNG */,
 				2C5ED4B31FC4A90A0093A757 /* ModernPNG */,
@@ -242,15 +237,6 @@
 				2C5ED4F21FC4AA5A0093A757 /* TrimSilence */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2C5ED4F51FC4AA790093A757 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2CDBD8C1205CBAE30092569D /* libFoundationIO.a */,
-				2C5ED4F71FC4AA790093A757 /* libBitIO.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
