@@ -96,7 +96,7 @@ extern "C" {
         free(CurrentSampleValue);
     }
     
-    int main(int argc, const char *argv[]) {
+    int main(int argc, char *argv[]) {
         CommandLineIO *CLI                = SetTrimSilenceOptions();
         BitInput      *BitI               = BitInput_Init();
         BitOutput     *BitO               = BitOutput_Init();
@@ -104,7 +104,7 @@ extern "C" {
         BitBuffer     *BitB               = NULL;
         
 #if   (FoundationIOTargetOS == POSIXOS)
-        UTF8_ParseCommandLineOptions(CLI, argc, (const UTF8**) argv);
+        UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**) argv);
 #elif (FoundationIOTargetOS == WindowsOS)
         UTF16_ParseCommandLineOptions(CLI, __argc, __wargv);
 #endif
@@ -119,7 +119,7 @@ extern "C" {
         UTF8       *OutputExtension       = GetExtensionFromPath(OutputPath);
         UTF8       *LogFilePath           = CLIGetOptionResult(CLI, LogFileOption);
         UTF8       *SilenceLevelString8   = CLIGetOptionResult(CLI, SilenceLevelOption);
-        uint64_t    SilenceLevelSize      = UTF8_GetSizeInCodePoints(SilenceLevel);
+        uint64_t    SilenceLevelSize      = UTF8_GetStringSizeInCodePoints(SilenceLevel);
         UTF32      *SilenceLevelString32  = UTF8_Decode(SilenceLevel);
         //int64_t     SilenceValue          = UTF32_ToNumber(SilenceLevelString32);
         
