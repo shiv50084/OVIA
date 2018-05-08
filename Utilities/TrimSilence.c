@@ -22,30 +22,30 @@ extern "C" {
     } CommandLineSwitches;
     
     static CommandLineIO *SetTrimSilenceOptions(void) {
-        CommandLineIO *CLI = CommandLineIO_Init(NumSwitches);
+        CommandLineIO *CLI                   = CommandLineIO_Init(NumSwitches);
         
-        UTF8 ProgramName[] = U8("TrimSilence");
-        UTF8 ProgramVersion[] = U8("0.1.0");
-        UTF8 ProgramAuthor[] = U8("BumbleBritches57");
-        UTF8 ProgramCopyright[] = U8("2017");
-        UTF8 ProgramDescription[] = U8("Removes leading and trailing silence");
-        UTF8 LicenseName[] = U8("Revised BSD");
-        UTF8 LicenseURL[] = U8("https://tldrlegal.com/license/bsd-3-clause-license-(revised)");
+        UTF8 ProgramName[]                   = U8("TrimSilence");
+        UTF8 ProgramVersion[]                = U8("0.1.0");
+        UTF8 ProgramAuthor[]                 = U8("BumbleBritches57");
+        UTF8 ProgramCopyright[]              = U8("2017");
+        UTF8 ProgramDescription[]            = U8("Removes leading and trailing silence");
+        UTF8 LicenseName[]                   = U8("Revised BSD");
+        UTF8 LicenseURL[]                    = U8("https://tldrlegal.com/license/bsd-3-clause-license-(revised)");
         
-        UTF8 InputSwitchName[] = U8("Input");
-        UTF8 InputSwitchDescription[] = U8("Input file path or stdin");
+        UTF8 InputSwitchName[]               = U8("Input");
+        UTF8 InputSwitchDescription[]        = U8("Input file path or stdin");
         
-        UTF8 OutputSwitchName[] = U8("Output");
-        UTF8 OutputSwitchDescription[] = U8("Output file path or stdout");
+        UTF8 OutputSwitchName[]              = U8("Output");
+        UTF8 OutputSwitchDescription[]       = U8("Output file path or stdout");
         
-        UTF8 LogFileSwitchName[] = U8("LogFile");
-        UTF8 LogFileSwitchDescription[] = U8("Log file path or stderr");
+        UTF8 LogFileSwitchName[]             = U8("LogFile");
+        UTF8 LogFileSwitchDescription[]      = U8("Log file path or stderr");
         
-        UTF8 SilenceLevelSwitchName[] = U8("SilenceLevel");
+        UTF8 SilenceLevelSwitchName[]        = U8("SilenceLevel");
         UTF8 SilenceLevelSwitchDescription[] = U8("Absolute value of cutoff for what's considered silence");
         
-        UTF8 HelpSwitchName[] = U8("Help");
-        UTF8 HelpSwitchDescription[] = U8("Prints all the command line options and their relationships");
+        UTF8 HelpSwitchName[]                = U8("Help");
+        UTF8 HelpSwitchDescription[]         = U8("Prints all the command line options and their relationships");
         
         Log_SetProgramName(ProgramName);
         
