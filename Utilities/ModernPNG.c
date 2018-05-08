@@ -234,7 +234,7 @@ extern "C" {
         return InputFileType;
     }
     
-    int main(int argc, const char *argv[]) {
+    int main(int argc, char **argv) {
         CommandLineIO *CLI  = SetModernPNGOptions();
         if (CLI == NULL) {
             //exit(1);
@@ -287,7 +287,7 @@ extern "C" {
             FileTypes OutputRightFileType        = UnknownFileFormat;
             
 #if FoundationIOTargetOS == POSIXOS
-            UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**)argv);
+            UTF8_ParseCommandLineOptions(CLI, argc, (UTF8**) argv);
 #elif FoundationIOTargetOS == WindowsOS
             UTF16_ParseCommandLineOptions(CLI, __argc, __wargv);
 #endif

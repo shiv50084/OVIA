@@ -24,8 +24,9 @@
 		2C5ED4E31FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E21FC4AA0C0093A757 /* libModernPNG_EntropyCoders.h */; };
 		2C5ED4E61FC4AA1A0093A757 /* libModernPNG_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */; };
 		2C5ED4E71FC4AA1A0093A757 /* libModernPNG_Tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */; };
-		2CCDF8792005BC9600C66C83 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
-		2CCDF87A2005BC9A00C66C83 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
+		2CEF86DA209F7BAF000691B8 /* libFoundationIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEF86DB209F7BAF000691B8 /* libFoundationIO.a */; };
+		2CEF86DE209F7C1A000691B8 /* libModernPNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4BA1FC4A9350093A757 /* libModernPNG.a */; };
+		2CEF86DF209F7C1A000691B8 /* libPCM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5ED4F01FC4AA5A0093A757 /* libPCM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2C5ED4E41FC4AA190093A757 /* libModernPNG_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Types.h; path = ../libModernPNG/include/Private/libModernPNG_Types.h; sourceTree = "<group>"; };
 		2C5ED4E51FC4AA190093A757 /* libModernPNG_Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libModernPNG_Tables.h; path = ../libModernPNG/include/Private/libModernPNG_Tables.h; sourceTree = "<group>"; };
 		2C5ED4EA1FC4AA5A0093A757 /* libPCM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPCM.xcodeproj; path = ../Dependencies/libPCM/Projects/libPCM.xcodeproj; sourceTree = "<group>"; };
+		2CEF86DB209F7BAF000691B8 /* libFoundationIO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFoundationIO.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCDF87A2005BC9A00C66C83 /* libPCM.a in Frameworks */,
-				2CCDF8792005BC9600C66C83 /* libModernPNG.a in Frameworks */,
+				2CEF86DE209F7C1A000691B8 /* libModernPNG.a in Frameworks */,
+				2CEF86DF209F7C1A000691B8 /* libPCM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEF86DA209F7BAF000691B8 /* libFoundationIO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +110,7 @@
 				2C5ED4BE1FC4A93A0093A757 /* libModernPNG */,
 				2C5ED4B31FC4A90A0093A757 /* ModernPNG */,
 				2C5ED4A81FC4A8690093A757 /* Products */,
+				2CEF86D9209F7BAF000691B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +241,14 @@
 				2C5ED4F21FC4AA5A0093A757 /* TrimSilence */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2CEF86D9209F7BAF000691B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CEF86DB209F7BAF000691B8 /* libFoundationIO.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
