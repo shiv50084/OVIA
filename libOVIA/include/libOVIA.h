@@ -5,22 +5,22 @@
 
 #pragma once
 
-#ifndef LIBPCM_libPCM_H
-#define LIBPCM_libPCM_H
+#ifndef OVIA_libOVIA_H
+#define OVIA_libOVIA_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
     
-    typedef enum libPCMFileFormats {
+    typedef enum OVIA_FileFormats {
         UnknownFormat         = 0,
         AIFFormat             = 1,
         WAVFormat             = 2,
         WAVFormatExtensible   = 4,
         W64Format             = 5,
         BMPFormat             = 6,
-        PXMFormat             = 7,
-    } libPCMFileFormats;
+        PNMFormat             = 7,
+    } OVIA_FileFormats;
     
     enum AIFSpeakerMask {
         AIFFrontLeft          = 0x1,
@@ -54,19 +54,17 @@ extern "C" {
         WAVTopBackRight       = 0x20000,
     };
     
-    typedef enum PXMTypes {
-        UnknownPXM            = 0,
-        BlackAndWhitePXM      = 1,
-        BinaryPXM             = 2,
-        ASCIIPXM              = 3,
-        PAMPXM                = 4,
-    } PXMTypes;
+    typedef enum PNMTypes {
+        UnknownPNM            = 0,
+        BlackAndWhitePNM      = 1,
+        BinaryPNM             = 2,
+        ASCIIPNM              = 3,
+        PAMPNM                = 4,
+    } PNMTypes;
     
-    typedef struct       PCMFile              PCMFile;
+    typedef struct       PCMFile   PCMFile;
     
     typedef struct       BitBuffer BitBuffer;
-    
-    typedef struct       Samples   Samples;
     
     void                 IFFSkipPadding(BitBuffer *BitB, uint32_t SubChunkSize);
     
@@ -86,7 +84,7 @@ extern "C" {
     
     void                 PCM_SetNumOutputSamples(PCMFile *PCM, uint64_t NumChannelIndependentSamples);
     
-    void                 PCM_SetOutputPXMType(PCMFile *PCM, PXMTypes PXMType);
+    void                 PCM_SetOutputPNMType(PCMFile *PCM, PNMTypes PNMType);
     
     void                 PCM_SetNumOutputSamples(PCMFile *PCM, uint64_t NumChannelIndependentSamples);
     
@@ -96,7 +94,7 @@ extern "C" {
     
     void                 PCM_InsertPixels(PCMFile *PCM, BitBuffer *OutputPixels, uint32_t NumPixels2Write, uint16_t **Pixels2Write);
     
-    void                 PCM_SetOutputFileType(PCMFile *PCM, libPCMFileFormats OutputFileType);
+    void                 PCM_SetOutputFileType(PCMFile *PCM, OVIA_FileFormats OutputFileType);
     
     void                 PCM_WriteHeader(PCMFile *PCM, BitBuffer *BitB);
     
@@ -111,4 +109,4 @@ extern "C" {
 }
 #endif
 
-#endif /* LIBPCM_libPCM_H */
+#endif /* OVIA_libOVIA_H */

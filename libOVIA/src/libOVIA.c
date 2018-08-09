@@ -1,16 +1,12 @@
-#include <stdlib.h>
+#include "../../libOVIA.h"
 
-#include "../../Dependencies/FoundationIO/libFoundationIO/include/BitIO.h"
-#include "../../Dependencies/FoundationIO/libFoundationIO/include/Log.h"
-#include "../../Dependencies/FoundationIO/libFoundationIO/include/Math.h"
-
-#include "../include/libPCM.h"
-#include "../include/Private/libPCMTypes.h"
-#include "../include/Private/Audio/WAVCommon.h"
-#include "../include/Private/Audio/W64Common.h"
 #include "../include/Private/Audio/AIFCommon.h"
+#include "../include/Private/Audio/FLACCommon.h"
+#include "../include/Private/Audio/W64Common.h"
+#include "../include/Private/Audio/WAVCommon.h"
 #include "../include/Private/Image/BMPCommon.h"
-#include "../include/Private/Image/PXMCommon.h"
+#include "../include/Private/Image/PNGCommon.h"
+#include "../include/Private/Image/PNMCommon.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -59,8 +55,8 @@ extern "C" {
         
         if (FileMagic16 == BMP_BM) {
             PCM->InputFileType = BMPFormat;
-        } else if (FileMagic16 == PXM_PBMA || FileMagic16 == PXM_PBMB || FileMagic16 == PXM_PPMA || FileMagic16 == PXM_PPMB || FileMagic16 == PXM_PGMA || FileMagic16 == PXM_PGMB || FileMagic16 == PXM_PAMB) {
-            PCM->InputFileType = PXMFormat;
+        } else if (FileMagic16 == PNM_PBMA || FileMagic16 == PNM_PBMB || FileMagic16 == PNM_PPMA || FileMagic16 == PNM_PPMB || FileMagic16 == PNM_PGMA || FileMagic16 == PNM_PGMB || FileMagic16 == PNM_PAMB) {
+            PCM->InputFileType = PNMFormat;
         } else if (FileMagic32 == AIF_FORM) {
             PCM->InputFileType = AIFFormat;
         } else if (FileMagic32 == WAV_RIFF) {
@@ -81,12 +77,12 @@ extern "C" {
             W64ParseMetadata(PCM, BitB);
         } else if (PCM->InputFileType == BMPFormat) {
             BMPParseMetadata(PCM, BitB);
-        } else if (PCM->InputFileType == PXMFormat) {
-            PXMParseMetadata(PCM, BitB);
+        } else if (PCM->InputFileType == PNMFormat) {
+            PNMParseMetadata(PCM, BitB);
         }
     }
     
-    void PCM_SetOutputFileType(PCMFile *PCM, libPCMFileFormats OutputFileType) {
+    void PCM_SetOutputFileType(PCMFile *PCM, OVIA_FileFormats OutputFileType) {
         if (PCM == NULL) {
             Log(Log_ERROR, __func__, U8("PCM Pointer is NULL"));
         } else {
@@ -94,11 +90,11 @@ extern "C" {
         }
     }
     
-    void PCM_SetOutputPXMType(PCMFile *PCM, PXMTypes PXMType) {
+    void PCM_SetOutputPNMType(PCMFile *PCM, PNMTypes PNMType) {
         if (PCM == NULL) {
             Log(Log_ERROR, __func__, U8("PCM Pointer is NULL"));
         } else {
-            PCM->Pic->PXMType = PXMType;
+            PCM->Pic->PNMType = PNMType;
         }
     }
     
@@ -114,7 +110,7 @@ extern "C" {
         uint8_t BitDepth = 0;
         if (PCM->InputFileType == AIFFormat || PCM->InputFileType == WAVFormat || PCM->InputFileType == W64Format) {
             BitDepth = (uint8_t) PCM->BitDepth;
-        } else if (PCM->InputFileType == BMPFormat || PCM->InputFileType == PXMFormat) {
+        } else if (PCM->InputFileType == BMPFormat || PCM->InputFileType == PNMFormat) {
             BitDepth = (uint8_t) PCM->BitDepth;
         }
         return BitDepth;
@@ -140,8 +136,8 @@ extern "C" {
     
     uint16_t ***PCM_ExtractImage(PCMFile *PCM, BitBuffer *PixelArray) {
         uint16_t ***ExtractedImage = NULL;
-        if (PCM->InputFileType == PXMFormat) {
-            ExtractedImage = PXMExtractImage(PCM, PixelArray);
+        if (PCM->InputFileType == PNMFormat) {
+            ExtractedImage = PNMExtractImage(PCM, PixelArray);
         } else if (PCM->InputFileType == BMPFormat) {
             ExtractedImage = BMPExtractImage(PCM, PixelArray);
         }
@@ -149,8 +145,8 @@ extern "C" {
     }
     
     void PCM_InsertImage(PCMFile *PCM, BitBuffer *CreatedImage, uint16_t ***Image2Insert) {
-        if (PCM->InputFileType == PXMFormat) {
-            PXMInsertImage(PCM, CreatedImage, Image2Insert);
+        if (PCM->InputFileType == PNMFormat) {
+            PNMInsertImage(PCM, CreatedImage, Image2Insert);
         } else if (PCM->InputFileType == BMPFormat) {
             BMPInsertImage(PCM, CreatedImage, Image2Insert);
         }
@@ -162,15 +158,15 @@ extern "C" {
         } else if (PCM->OutputFileType == WAVFormat) {
             WAVInsertSamples(PCM, OutputSamples, NumSamples2Write, Samples2Write);
         } else if (PCM->OutputFileType == W64Format) {
-            W64InsertSamples(PCM, OutputSamples, NumSamples2Write, Samples2Write);
+            W64AppendSamples(PCM, OutputSamples, NumSamples2Write, Samples2Write);
         }
     }
     
     void PCM_WriteHeader(PCMFile *PCM, BitBuffer *BitB) {
         if (PCM->OutputFileType == BMPFormat) {
             BMPWriteHeader(PCM, BitB, PCM->NumChannelAgnosticSamples);
-        } else if (PCM->OutputFileType == PXMFormat) {
-            PXMWriteHeader(PCM, BitB);
+        } else if (PCM->OutputFileType == PNMFormat) {
+            PNMWriteHeader(PCM, BitB);
         } else if (PCM->OutputFileType == AIFFormat) {
             AIFWriteHeader(PCM, BitB);
         } else if (PCM->OutputFileType == W64Format) {
