@@ -1,3 +1,4 @@
+
 [submodule "Dependencies/FoundationIO"]
 	path = Dependencies/FoundationIO
-	url = git@gitlab.com:MarcusJohnson91/FoundationIO.git
+	url = git@github.com:MarcusJohnson91/FoundationIO.git
