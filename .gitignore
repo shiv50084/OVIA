@@ -2,6 +2,7 @@
 *.html
 *.htm
 BUILD/
+Stubs/
 
 # Mac stuff
 *.a
